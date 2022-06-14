@@ -10,7 +10,9 @@
   <packaging>war</packaging>
 
   <name>SupermartketMS Maven Webapp</name>
-  <url>http://132.145.110.184:8010/page.do?operate=page&amp;page=user/login</url>
+  <url><![CDATA[
+  http://132.145.110.184:8010/page.do?operate=page&page=user/login
+  ]]></url>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
