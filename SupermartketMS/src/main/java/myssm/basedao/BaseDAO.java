@@ -16,8 +16,8 @@ import java.util.List;
  * Project: SummerRaid
  *
  * @className: BaseDAO
- * @Description: TODO
- * @version: v1.17.0
+ * @Description: JDBC版本 数据库连接主类
+ * @version: v1.8.0
  * @author: ZIRUI QIAO
  * @date: 2022/5/17 12:34
  */

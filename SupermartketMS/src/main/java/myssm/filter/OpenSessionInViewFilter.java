@@ -12,8 +12,8 @@ import java.sql.SQLException;
  * Project: SummerRaid
  *
  * @className: OpenSessionInViewFilter
- * @Description: TODO
- * @version: v1.17.0
+ * @Description: 管理事务的Filter
+ * @version: v1.8.0
  * @author: ZIRUI QIAO
  * @date: 2022/5/28 15:00
  */

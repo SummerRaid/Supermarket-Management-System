@@ -10,8 +10,8 @@ import java.sql.SQLException;
  * Project: SummerRaid
  *
  * @className: TransactionManager
- * @Description: TODO
- * @version: v1.17.0
+ * @Description: 事务管理
+ * @version: v1.8.0
  * @author: ZIRUI QIAO
  * @date: 2022/5/28 15:03
  */

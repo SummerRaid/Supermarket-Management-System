@@ -5,8 +5,8 @@ package myssm.basedao;
  * Project: SummerRaid
  *
  * @className: DAOException
- * @Description: TODO
- * @version: v1.17.0
+ * @Description: BaseDAO专属异常
+ * @version: v1.8.0
  * @author: ZIRUI QIAO
  * @date: 2022/5/29 18:43
  */

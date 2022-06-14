@@ -5,8 +5,8 @@ package myssm.myspringmvc;
  * Project: SummerRaid
  *
  * @className: PageController
- * @Description: TODO
- * @version: v1.17.0
+ * @Description: 负责静态页面跳转
+ * @version: v1.8.0
  * @author: ZIRUI QIAO
  * @date: 2022/5/30 13:45
  */

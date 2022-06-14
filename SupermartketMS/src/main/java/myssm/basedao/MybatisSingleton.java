@@ -14,8 +14,8 @@ import java.sql.SQLException;
  * Project: SummerRaid
  *
  * @className: util.MybatisSingleton
- * @Description: TODO
- * @version: v1.17.0
+ * @Description: Mybatis 定制工具类
+ * @version: v1.8.0
  * @author: ZIRUI QIAO
  * @date: 2022/6/9 13:29
  */

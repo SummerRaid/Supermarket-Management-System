@@ -14,8 +14,8 @@ import java.util.Properties;
  * Project: SummerRaid
  *
  * @className: ConnUtil
- * @Description: TODO
- * @version: v1.17.0
+ * @Description: BaseDAO 工具类
+ * @version: v1.8.0
  * @author: ZIRUI QIAO
  * @date: 2022/5/28 15:07
  */

@@ -15,8 +15,8 @@ import java.util.List;
  * Project: SummerRaid
  *
  * @className: SessionFilter
- * @Description: TODO
- * @version: v1.17.0
+ * @Description: 拦截非正常访问的Filter
+ * @version: v1.8.0
  * @author: ZIRUI QIAO
  * @date: 2022/6/4 21:00
  */

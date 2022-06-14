@@ -5,8 +5,8 @@ package myssm.ioc;
  * Project: SummerRaid
  *
  * @className: BeanFactory
- * @Description: TODO
- * @version: v1.17.0
+ * @Description: IOC容器接口
+ * @version: v1.8.0
  * @author: ZIRUI QIAO
  * @date: 2022/5/27 15:30
  */

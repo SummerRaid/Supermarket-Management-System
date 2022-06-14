@@ -19,8 +19,8 @@ import java.util.Map;
  * Project: SummerRaid
  *
  * @className: ClassPathXmlApplicationContext
- * @Description: TODO
- * @version: v1.17.0
+ * @Description: IOC容器实现类
+ * @version: v1.8.0
  * @author: ZIRUI QIAO
  * @date: 2022/5/27 15:32
  */

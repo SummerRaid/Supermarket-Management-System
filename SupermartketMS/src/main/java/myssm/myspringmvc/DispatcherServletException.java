@@ -5,8 +5,8 @@ package myssm.myspringmvc;
  * Project: SummerRaid
  *
  * @className: DispatcherServletException
- * @Description: TODO
- * @version: v1.17.0
+ * @Description: DispatcherServlet专属异常
+ * @version: v1.8.0
  * @author: ZIRUI QIAO
  * @date: 2022/5/30 14:12
  */

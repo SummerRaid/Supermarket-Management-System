@@ -14,8 +14,8 @@ import java.util.Date;
  * Project: SummerRaid
  *
  * @className: StringUtil
- * @Description: TODO
- * @version: v1.17.0
+ * @Description: 定制工具类
+ * @version: v1.8.0
  * @author: ZIRUI QIAO
  * @date: 2022/5/22 14:04
  */

@@ -13,8 +13,8 @@ import javax.servlet.annotation.WebListener;
  * Project: SummerRaid
  *
  * @className: ContextLoaderListener
- * @Description: TODO
- * @version: v1.17.0
+ * @Description: 用来初始化IOC容器的Listener
+ * @version: v1.8.0
  * @author: ZIRUI QIAO
  * @date: 2022/5/29 18:56
  */
