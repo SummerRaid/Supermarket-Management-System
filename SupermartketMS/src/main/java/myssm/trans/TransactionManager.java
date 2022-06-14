@@ -1,8 +1,8 @@
 package myssm.trans;
 
-import myssm.basedao.ConnUtil;
+import myssm.basedao.MybatisSingleton;
+import org.apache.ibatis.session.SqlSession;
 
-import java.sql.Connection;
 import java.sql.SQLException;
 
 /**
@@ -10,7 +10,7 @@ import java.sql.SQLException;
  * Project: SummerRaid
  *
  * @className: TransactionManager
- * @Description: 事务处理的数据库连接
+ * @Description: TODO
  * @version: v1.17.0
  * @author: ZIRUI QIAO
  * @date: 2022/5/28 15:03
@@ -18,21 +18,28 @@ import java.sql.SQLException;
 public class TransactionManager {
 
     // 开启事务
-    public static void beginTrans() throws SQLException {
-        ConnUtil.getConn().setAutoCommit(false);
+    public static void beginTrans() {
+        //ConnUtil.getConn().setAutoCommit(false);
+        MybatisSingleton.getConn();
     }
 
     // 提交事务
     public static void commit() throws SQLException {
-        Connection conn = ConnUtil.getConn();
+        /*Connection conn = ConnUtil.getConn();
         conn.commit();
-        ConnUtil.closeConn();
+        ConnUtil.closeConn();*/
+        SqlSession conn = MybatisSingleton.getConn();
+        conn.commit();
+        MybatisSingleton.closeConn();
     }
 
     // 回滚事务
     public static void rollback() throws SQLException {
-        Connection conn = ConnUtil.getConn();
+        /*Connection conn = ConnUtil.getConn();
         conn.rollback();
-        ConnUtil.closeConn();
+        ConnUtil.closeConn();*/
+        SqlSession conn = MybatisSingleton.getConn();
+        conn.rollback();
+        MybatisSingleton.closeConn();
     }
 }

@@ -14,7 +14,7 @@ import java.io.IOException;
  * Project: SummerRaid
  *
  * @className: CharacterEncodingFilter
- * @Description: 用来设置读写编码的filter
+ * @Description: TODO
  * @version: v1.17.0
  * @author: ZIRUI QIAO
  * @date: 2022/5/27 22:31

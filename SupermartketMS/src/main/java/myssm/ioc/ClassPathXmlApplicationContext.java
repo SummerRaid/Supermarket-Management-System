@@ -19,16 +19,15 @@ import java.util.Map;
  * Project: SummerRaid
  *
  * @className: ClassPathXmlApplicationContext
- * @Description: IOC容器
+ * @Description: TODO
  * @version: v1.17.0
  * @author: ZIRUI QIAO
  * @date: 2022/5/27 15:32
  */
 public class ClassPathXmlApplicationContext implements BeanFactory{
 
-    private Map<String, Object> beanMap = new HashMap<>();  // 存放IOC中实体类的map
-    private final String path = "applicationContext.xml" ;        // IOC配置文件
-
+    private Map<String, Object> beanMap = new HashMap<>();
+    private String path = "applicationContext.xml" ;
     public ClassPathXmlApplicationContext() {
         this("applicationContext.xml");
     }

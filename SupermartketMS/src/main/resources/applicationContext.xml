@@ -13,7 +13,8 @@
 
 <beans>
     <bean id="page" class="myssm.myspringmvc.PageController"/>
-    <!--    DAO实现类-->
-    <!--    Service实现类-->
-    <!--   Controller实现类-->
+<!--    DAO实现类-->
+<!--    Service实现类-->
+<!--   Controller实现类-->
+
 </beans>

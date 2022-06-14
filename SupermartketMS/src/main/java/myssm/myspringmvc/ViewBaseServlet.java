@@ -12,16 +12,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-/**
- * Copyright (c) 2008-2024: Zirui Qiao
- * Project: SummerRaid
- *
- * @className: ViewBaseServlet
- * @Description: 负责设置response的各种属性
- * @version: v1.17.0
- * @author: ZIRUI QIAO
- * @date: 2022/5/30 13:45
- */
 public class ViewBaseServlet extends HttpServlet {
 
     private TemplateEngine templateEngine;

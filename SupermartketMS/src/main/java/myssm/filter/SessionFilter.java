@@ -1,6 +1,8 @@
 package myssm.filter;
 
 import javax.servlet.*;
+import javax.servlet.annotation.WebFilter;
+import javax.servlet.annotation.WebInitParam;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -13,7 +15,7 @@ import java.util.List;
  * Project: SummerRaid
  *
  * @className: SessionFilter
- * @Description: 判断用户是否为合法访问的filter
+ * @Description: TODO
  * @version: v1.17.0
  * @author: ZIRUI QIAO
  * @date: 2022/6/4 21:00

@@ -12,7 +12,7 @@ import java.sql.SQLException;
  * Project: SummerRaid
  *
  * @className: OpenSessionInViewFilter
- * @Description: 设置事务的filter
+ * @Description: TODO
  * @version: v1.17.0
  * @author: ZIRUI QIAO
  * @date: 2022/5/28 15:00
