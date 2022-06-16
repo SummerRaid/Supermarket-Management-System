@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="sms.mapper.OrderMapper">
+    <resultMap id="orderResultMap" type="order">
+        <association property="user" column="TODO" select="sms.mapper.UserMapper.selectById"/>
+        <association property="product" column="TODO" select="sms.mapper.ProductMapper.selectById"/>
+        <association property="supplier" column="TODO" select="sms.mapper.SupplierMapper.selectById"/>
+    </resultMap>
+    <insert id="add">
+
+    </insert>
+
+    <select id="selectAll" resultMap="orderResultMap">
+
+    </select>
+    <select id="selectByUser" resultMap="orderResultMap">
+
+    </select>
+    <select id="selectByProduct" resultMap="orderResultMap">
+
+    </select>
+    <select id="selectById" resultMap="orderResultMap">
+
+    </select>
+</mapper>

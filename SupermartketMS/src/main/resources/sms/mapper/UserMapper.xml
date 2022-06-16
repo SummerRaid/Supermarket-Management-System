@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="sms.mapper.UserMapper">
+    <resultMap id="userResultMap" type="user">
+        <association property="role" column="TODO" select="sms.mapper.RoleMapper.selectById"/>
+    </resultMap>
+    <insert id="add">
+
+    </insert>
+
+    <select id="selectAll" resultMap="userResultMap">
+
+    </select>
+    <select id="selectByRole" resultMap="userResultMap">
+
+    </select>
+    <select id="selectById" resultMap="userResultMap">
+
+    </select>
+</mapper>

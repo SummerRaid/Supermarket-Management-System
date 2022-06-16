@@ -1,7 +1,6 @@
 package sms.pojo;
 
 import java.util.Date;
-import java.util.Properties;
 
 /**
  * Copyright (c) 2008-2024: Zirui Qiao

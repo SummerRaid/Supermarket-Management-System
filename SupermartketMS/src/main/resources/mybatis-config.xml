@@ -5,7 +5,7 @@
 <configuration>
 
     <typeAliases>
-        <package name="book.pojo"/>
+        <package name="sms.pojo"/>
     </typeAliases>
 
     <!--
@@ -17,12 +17,12 @@
             <!-- 数据库的连接信息 -->
             <dataSource type="POOLED">
                 <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
-                <property name="url" value="jdbc:mysql://localhost:3307/bookdb?
+                <property name="url" value="jdbc:mysql://132.145.110.184:3306/bookdb?
                 useSSL=false&amp;
                 allowPublicKeyRetrieval=true&amp;
                 useUnicode=true&amp;
                 characterEncoding=UTF-8"/>
-                <property name="username" value="root"/>
+                <property name="username" value="nart"/>
                 <property name="password" value="1234"/>
             </dataSource>
         </environment>
@@ -32,6 +32,6 @@
 <!--        <mapper resource="mapper/UserMapper.xml"/>-->
 
         <!-- Mapper代理方式 -->
-        <package name="book.mapper"/>
+        <package name="sms.mapper"/>
     </mappers>
 </configuration>
