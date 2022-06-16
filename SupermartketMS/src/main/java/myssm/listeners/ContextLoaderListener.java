@@ -2,6 +2,7 @@ package myssm.listeners;
 
 import myssm.ioc.BeanFactory;
 import myssm.ioc.ClassPathXmlApplicationContext;
+import org.slf4j.LoggerFactory;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
@@ -20,14 +21,19 @@ import javax.servlet.annotation.WebListener;
  */
 @WebListener
 public class ContextLoaderListener implements ServletContextListener {
+
+    public static final org.slf4j.Logger LOGGER = LoggerFactory.getLogger(ContextLoaderListener.class);
+
     @Override
     public void contextInitialized(ServletContextEvent servletContextEvent) {
         //1.获取ServletContext对象
         ServletContext application = servletContextEvent.getServletContext();
         //2.获取上下文的初始化参数
         String path = application.getInitParameter("contextConfigLocation");
+        LOGGER.debug("开始创建IOC容器");
         //3.创建IOC容器
         BeanFactory beanFactory = new ClassPathXmlApplicationContext(path);
+        LOGGER.debug("IOC容器创建完成");
         //4.将IOC容器保存到application作用域
         application.setAttribute("beanFactory",beanFactory);
     }

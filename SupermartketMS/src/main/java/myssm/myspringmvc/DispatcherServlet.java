@@ -1,7 +1,9 @@
 package myssm.myspringmvc;
 
+import myssm.basedao.MybatisSingleton;
 import myssm.ioc.BeanFactory;
 import myssm.util.StringUtil;
+import org.slf4j.LoggerFactory;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -29,6 +31,8 @@ import java.lang.reflect.Parameter;
 public class DispatcherServlet extends ViewBaseServlet {
 
     private BeanFactory beanFactory;
+    public static final org.slf4j.Logger LOGGER = LoggerFactory.getLogger(DispatcherServlet.class);
+
 
     public void init() throws ServletException {
         super.init();
@@ -39,7 +43,9 @@ public class DispatcherServlet extends ViewBaseServlet {
         Object beanFactoryObj = application.getAttribute("beanFactory");
         if(beanFactoryObj!=null){
             beanFactory = (BeanFactory)beanFactoryObj ;
+            LOGGER.error("成功获取IOC容器");
         }else{
+            LOGGER.error("IOC容器获取失败！");
             throw new RuntimeException("IOC容器获取失败！");
         }
     }
@@ -53,6 +59,7 @@ public class DispatcherServlet extends ViewBaseServlet {
         servletPath = servletPath.substring(1);
         int lastDotIndex = servletPath.lastIndexOf(".do");
         servletPath = servletPath.substring(0, lastDotIndex);
+        LOGGER.debug("成功获取请求：" + servletPath);
 
         // 2. hello -> HelloController
         Object controllerBeanObj = beanFactory.getBean(servletPath);
@@ -61,6 +68,7 @@ public class DispatcherServlet extends ViewBaseServlet {
         if(StringUtil.isEmpty(operate)){
             operate = "index";
         }
+        LOGGER.debug("调用：" + controllerBeanObj + " 中的：" + operate + " 方法！");
 
         try {
             Method[] methods = controllerBeanObj.getClass().getDeclaredMethods();
@@ -72,6 +80,7 @@ public class DispatcherServlet extends ViewBaseServlet {
                     Parameter[] parameters = method.getParameters();
                     // 1.2 用来承载参数的值 --》 parameterValues
                     Object[] parameterValues = new Object[parameters.length];
+                    LOGGER.debug("向方法:" + method.getName() + "传递" + parameters.length + "个参数");
                     for (int i = 0; i < parameters.length; i++) {
                         Parameter parameter = parameters[i];
                         Class parameterType = parameter.getType();
@@ -95,28 +104,36 @@ public class DispatcherServlet extends ViewBaseServlet {
                             }
                         }
                     }
+                    LOGGER.debug("参数传递完成！");
 
                     // 2. controller组件中的方法调用
                     method.setAccessible(true);
+                    LOGGER.debug("试图执行方法");
                     Object returnObj = method.invoke(controllerBeanObj, parameterValues);
+                    LOGGER.debug("方法执行完成");
 
                     // 3. 视图处理
                     String methodReturnStr = (String) returnObj;
+                    LOGGER.debug("进行视图处理：" + methodReturnStr);
                     if (StringUtil.isEmpty(methodReturnStr)) {
+                        LOGGER.debug("值为空，直接退出DispatcherServlet");
                         return;
                     } else {
                         if(methodReturnStr.startsWith("redirect:")){
                             String redirectStr = methodReturnStr.substring("redirect:".length());
+                            LOGGER.debug("redirect，重定向到：" + redirectStr);
                             resp.sendRedirect(redirectStr);
                         } else if(methodReturnStr.startsWith("json:")) {
                             //MIME-TYPE
                             resp.setContentType("application/json;charset=utf-8");
 
                             String jsonStr = methodReturnStr.substring("json:".length());
+                            LOGGER.debug("json，写入json到：" + jsonStr);
                             PrintWriter out = resp.getWriter();
                             out.write(jsonStr);
                             out.flush();
                         } else {
+                            LOGGER.debug("无，内部转发到：" + methodReturnStr);
                             super.processTemplate(methodReturnStr, req, resp);
                         }
                     }
@@ -127,6 +144,7 @@ public class DispatcherServlet extends ViewBaseServlet {
                 throw new RuntimeException("operate值非法！");
             }*/
         } catch ( InvocationTargetException | IllegalAccessException e) {
+            LOGGER.error("DispatcherServlet 出错了！");
             e.printStackTrace();
             throw new DispatcherServletException("DispatcherServlet 出错了！");
         }

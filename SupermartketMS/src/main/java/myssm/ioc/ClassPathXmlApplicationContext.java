@@ -1,5 +1,6 @@
 package myssm.ioc;
 
+import org.slf4j.LoggerFactory;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -26,8 +27,10 @@ import java.util.Map;
  */
 public class ClassPathXmlApplicationContext implements BeanFactory{
 
-    private Map<String, Object> beanMap = new HashMap<>();
-    private String path = "applicationContext.xml" ;
+    private final Map<String, Object> beanMap = new HashMap<>();
+    private final String path = "applicationContext.xml" ;
+    public static final org.slf4j.Logger LOGGER = LoggerFactory.getLogger(ClassPathXmlApplicationContext.class);
+
     public ClassPathXmlApplicationContext() {
         this("applicationContext.xml");
     }
@@ -36,6 +39,7 @@ public class ClassPathXmlApplicationContext implements BeanFactory{
         try {
             java.net.URL url = getClass().getClassLoader().getResource(path);
 
+            assert url != null;
             InputStream is = new FileInputStream(url.getPath());
             // 1.创建DocumentBuilderFactory
             DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
@@ -66,6 +70,8 @@ public class ClassPathXmlApplicationContext implements BeanFactory{
                     beanMap.put(beanId, beanObj);
                 }
             }
+            LOGGER.debug("创建所有bean实例");
+
             // 5. 组装bean之间的依赖关系
             for (int i = 0; i < beanNodeList.getLength(); i++) {
                 // 遍历所有bean节点
@@ -102,7 +108,9 @@ public class ClassPathXmlApplicationContext implements BeanFactory{
                     }
                 }
             }
+            LOGGER.debug("组装所有bean的依赖关系");
         } catch (Exception e) {
+            LOGGER.error("IOC容器初始化失败");
             e.printStackTrace();
         }
     }

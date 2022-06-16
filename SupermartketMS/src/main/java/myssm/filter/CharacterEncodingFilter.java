@@ -1,6 +1,7 @@
 package myssm.filter;
 
 import myssm.util.StringUtil;
+import org.slf4j.LoggerFactory;
 
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
@@ -23,6 +24,8 @@ import java.io.IOException;
 @WebFilter(value = "*.do", initParams = {@WebInitParam(name="encoding", value="UTF-8")})
 public class CharacterEncodingFilter implements Filter {
 
+    public static final org.slf4j.Logger LOGGER = LoggerFactory.getLogger(CharacterEncodingFilter.class);
+
     private String encoding = "UTF-8";
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
@@ -37,6 +40,7 @@ public class CharacterEncodingFilter implements Filter {
         ((HttpServletRequest) servletRequest).setCharacterEncoding(encoding);
         ((HttpServletResponse) servletResponse).setCharacterEncoding(encoding);
 
+        LOGGER.debug("设置编码");
         filterChain.doFilter(servletRequest, servletResponse);
     }
 

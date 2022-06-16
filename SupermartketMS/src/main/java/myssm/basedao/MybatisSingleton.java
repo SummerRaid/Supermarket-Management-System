@@ -4,6 +4,7 @@ import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -21,8 +22,10 @@ import java.sql.SQLException;
  */
 public class MybatisSingleton {
 
-    private static ThreadLocal<SqlSession> threadLocal = new ThreadLocal<>();
+    private static final ThreadLocal<SqlSession> threadLocal = new ThreadLocal<>();
     private final static SqlSessionFactory FACTORY;
+    public static final org.slf4j.Logger LOGGER = LoggerFactory.getLogger(MybatisSingleton.class);
+
 
     private MybatisSingleton() {
     }
@@ -32,14 +35,17 @@ public class MybatisSingleton {
     static {
         self = new MybatisSingleton();
         String resource = "mybatis-config.xml";
-        InputStream inputStream = null;
+        InputStream inputStream;
         try {
             inputStream = Resources.getResourceAsStream(resource);
+            LOGGER.debug("读取Mybatis配置文件");
         } catch (IOException e) {
+            LOGGER.error("建立连接池时出现错误！");
             e.printStackTrace();
             throw new DAOException("建立连接池时出现错误！");
         }
         FACTORY = new SqlSessionFactoryBuilder().build(inputStream);
+        LOGGER.debug("生成SqlSessionFactory对象");
     }
 
     public static SqlSession getConn() {
@@ -47,6 +53,7 @@ public class MybatisSingleton {
         if (conn == null) {
             conn = FACTORY.openSession();
             threadLocal.set(conn);
+            LOGGER.debug("新建SqlSession对象");
         }
         return threadLocal.get();
     }
@@ -58,6 +65,7 @@ public class MybatisSingleton {
         }
         conn.close();
         threadLocal.set(null);
+        LOGGER.debug("删除SqlSession对象");
     }
 
 }
