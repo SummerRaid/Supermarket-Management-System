@@ -4,4 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="sms.mapper.ShopMapper">
 
+    <select id="selectById" resultType="sms.pojo.Shop">
+
+    </select>
 </mapper>

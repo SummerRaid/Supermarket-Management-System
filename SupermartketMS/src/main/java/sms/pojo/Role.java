@@ -15,6 +15,7 @@ public class Role {
     private String name;     // 角色名称
     private String remark;   // 角色备注
     private String authority;// 角色权限 TODO
+    private Shop shop;        // 对应的超市
 
     public Role() {
     }
@@ -53,5 +54,13 @@ public class Role {
 
     public void setAuthority(String authority) {
         this.authority = authority;
+    }
+
+    public Shop getShop() {
+        return shop;
+    }
+
+    public void setShop(Shop shop) {
+        this.shop = shop;
     }
 }

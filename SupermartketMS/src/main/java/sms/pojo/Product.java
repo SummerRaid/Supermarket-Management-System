@@ -20,6 +20,7 @@ public class Product {
     private String remark; // 备注
     private Order order;   // 关联商品的订单
     private Integer saleAmount; // 销售数量
+    private Shop shop;        // 对应的超市
 
     public Product() {}
 
@@ -97,5 +98,13 @@ public class Product {
 
     public void setSaleAmount(Integer saleAmount) {
         this.saleAmount = saleAmount;
+    }
+
+    public Shop getShop() {
+        return shop;
+    }
+
+    public void setShop(Shop shop) {
+        this.shop = shop;
     }
 }

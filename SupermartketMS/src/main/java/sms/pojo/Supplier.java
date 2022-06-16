@@ -17,6 +17,7 @@ public class Supplier {
     private String contactPerson; // 供应商联系人
     private String contact;       // 供应商联系方式
     private String remark;        // 供应商备注
+    private Shop shop;        // 对应的超市
 
     public Supplier() {
     }
@@ -71,5 +72,13 @@ public class Supplier {
 
     public void setRemark(String remark) {
         this.remark = remark;
+    }
+
+    public Shop getShop() {
+        return shop;
+    }
+
+    public void setShop(Shop shop) {
+        this.shop = shop;
     }
 }

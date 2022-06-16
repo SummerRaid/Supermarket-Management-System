@@ -4,13 +4,20 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="sms.mapper.OrderMapper">
     <resultMap id="orderResultMap" type="order">
-        <association property="user" column="TODO" select="sms.mapper.UserMapper.selectById"/>
-        <association property="product" column="TODO" select="sms.mapper.ProductMapper.selectById"/>
-        <association property="supplier" column="TODO" select="sms.mapper.SupplierMapper.selectById"/>
+        <association property="user" column="user_id" select="sms.mapper.UserMapper.selectById"/>
+        <association property="product" column="goods" select="sms.mapper.ProductMapper.selectById"/>
+        <association property="supplier" column="supplier_id" select="sms.mapper.SupplierMapper.selectById"/>
+        <association property="shop" column="supermarket_id" select="sms.mapper.ShopMapper.selectById"/>
     </resultMap>
-    <insert id="add">
+    <insert id="add" useGeneratedKeys="true" keyProperty="id">
 
     </insert>
+    <update id="update" useGeneratedKeys="true" keyProperty="id">
+
+    </update>
+    <delete id="del">
+
+    </delete>
 
     <select id="selectAll" resultMap="orderResultMap">
 

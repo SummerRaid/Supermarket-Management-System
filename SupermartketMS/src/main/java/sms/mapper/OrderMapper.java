@@ -19,11 +19,12 @@ import java.util.List;
 public interface OrderMapper {
     /**
      * @Description: 查询所有订单
+     * @param shopId 超市id
      * @return: java.util.List<sms.pojo.Order>
      * @Author: Zirui Qiao
      * @Date: 2022/6/16 12:28
      */
-    List<Order> selectAll();
+    List<Order> selectAll(int shopId);
 
     /**
      * @Description: 查询某用户创建的所有订单
@@ -54,10 +55,28 @@ public interface OrderMapper {
 
     /**
      * @Description: 添加订单返回id
-     * @param order 订单
+     * @param order 订单(包含详细信息)
      * @return: java.lang.Integer
      * @Author: Zirui Qiao
      * @Date: 2022/6/16 12:32
      */
     Integer add(Order order);
+
+    /**
+     * @Description: 删除订单
+     * @param id 订单id
+     * @return: void
+     * @Author: Zirui Qiao
+     * @Date: 2022/6/16 19:05
+     */
+    void del(int id);
+
+    /**
+     * @Description: 更新订单信息
+     * @param order 订单(包含详细信息)
+     * @return: java.lang.Integer
+     * @Author: Zirui Qiao
+     * @Date: 2022/6/16 19:06
+     */
+    Integer update(Order order);
 }

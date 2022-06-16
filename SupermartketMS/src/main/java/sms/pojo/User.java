@@ -18,6 +18,7 @@ public class User {
     private String tname;  // 用户 真实姓名
     private String tel;    // 用户电话
     private String addr;   // 用户地址
+    private Shop shop;        // 对应的超市
 
     public User() {
     }
@@ -80,5 +81,13 @@ public class User {
 
     public void setAddr(String addr) {
         this.addr = addr;
+    }
+
+    public Shop getShop() {
+        return shop;
+    }
+
+    public void setShop(Shop shop) {
+        this.shop = shop;
     }
 }

@@ -18,11 +18,12 @@ import java.util.List;
 public interface ProductMapper {
     /**
      * @Description: 查询所有商品
+     * @param shopId 超市id
      * @return: java.util.List<sms.pojo.Product>
      * @Author: Zirui Qiao
      * @Date: 2022/6/16 12:35
      */
-    List<Product> selectAll();
+    List<Product> selectAll(int shopId);
 
     /**
      * @Description: 根据商品名称查询商品
@@ -53,10 +54,28 @@ public interface ProductMapper {
 
     /**
      * @Description: 添加商品返回id
-     * @param product 商品
+     * @param product 商品(包含详细信息)
      * @return: java.lang.Integer
      * @Author: Zirui Qiao
      * @Date: 2022/6/16 12:39
      */
     Integer add(Product product);
+
+    /**
+     * @Description: 删除商品
+     * @param id 商品id
+     * @return: void
+     * @Author: Zirui Qiao
+     * @Date: 2022/6/16 19:03
+     */
+    void del(int id);
+
+    /**
+     * @Description: 更新商品信息
+     * @param product 商品(包含详细信息)
+     * @return: java.lang.Integer
+     * @Author: Zirui Qiao
+     * @Date: 2022/6/16 19:03
+     */
+    Integer update(Product product);
 }

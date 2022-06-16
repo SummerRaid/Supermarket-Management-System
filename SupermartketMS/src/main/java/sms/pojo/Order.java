@@ -25,6 +25,7 @@ public class Order {
     private String remark;    // 订单备注
     private Integer amount;   // 订单的商品数量
     private Double price;     // 订单的商品价格
+    private Shop shop;        // 对应的超市
 
     public Order() {
     }
@@ -127,5 +128,13 @@ public class Order {
 
     public void setPrice(Double price) {
         this.price = price;
+    }
+
+    public Shop getShop() {
+        return shop;
+    }
+
+    public void setShop(Shop shop) {
+        this.shop = shop;
     }
 }

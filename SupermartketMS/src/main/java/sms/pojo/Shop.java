@@ -11,13 +11,24 @@ package sms.pojo;
  * @date: 2022/6/14 15:52
  */
 public class Shop {
+    private Integer id;
     private Double income;  // 总收入
     private Double outcome; // 总花销
 
     public Shop() {
     }
 
+    public Shop(Integer id) {
+        this.id = id;
+    }
+
     public Shop(Double income, Double outcome) {
+        this.income = income;
+        this.outcome = outcome;
+    }
+
+    public Shop(Integer id, Double income, Double outcome) {
+        this.id = id;
         this.income = income;
         this.outcome = outcome;
     }
@@ -36,5 +47,13 @@ public class Shop {
 
     public void setOutcome(Double outcome) {
         this.outcome = outcome;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 }

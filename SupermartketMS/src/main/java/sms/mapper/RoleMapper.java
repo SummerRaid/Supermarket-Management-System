@@ -17,15 +17,16 @@ import java.util.List;
 public interface RoleMapper {
     /**
      * @Description: 查询所有角色
+     * @param shopId 超市id
      * @return: java.util.List<sms.pojo.Role>
      * @Author: Zirui Qiao
      * @Date: 2022/6/16 13:37
      */
-    List<Role> selectAll();
+    List<Role> selectAll(int shopId);
 
     /**
-     * @Description: 根据角色id查询角色
      * @param id 角色id
+     * @Description: 根据角色id查询角色
      * @return: sms.pojo.Role
      * @Author: Zirui Qiao
      * @Date: 2022/6/16 13:38
@@ -34,10 +35,28 @@ public interface RoleMapper {
 
     /**
      * @Description: 添加角色 返回id
-     * @param role 角色
+     * @param role 角色(包含详细信息)
      * @return: java.lang.Integer
      * @Author: Zirui Qiao
      * @Date: 2022/6/16 13:40
      */
     Integer add(Role role);
+
+    /**
+     * @param id 角色id
+     * @Description: 删除角色
+     * @return: java.lang.Integer
+     * @Author: Zirui Qiao
+     * @Date: 2022/6/16 18:49
+     */
+    void del(int id);
+
+    /**
+     * @Description: 更新角色信息 返回id
+     * @param role 角色(包含详细信息)
+     * @return: java.lang.Integer
+     * @Author: Zirui Qiao
+     * @Date: 2022/6/16 18:50
+     */
+    Integer update(Role role);
 }
