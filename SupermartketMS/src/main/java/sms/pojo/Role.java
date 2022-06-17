@@ -15,7 +15,7 @@ public class Role {
     private String name;     // 角色名称
     private String remark;   // 角色备注
     private String authority;// 角色权限 TODO
-    private Shop shop;        // 对应的超市
+    private Shop shop;       // 对应的超市
 
     public Role() {
     }

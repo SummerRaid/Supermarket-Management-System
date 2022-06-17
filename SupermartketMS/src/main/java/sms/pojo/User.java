@@ -17,8 +17,7 @@ public class User {
     private String pwd;    // 用户 密码
     private String tname;  // 用户 真实姓名
     private String tel;    // 用户电话
-    private String addr;   // 用户地址
-    private Shop shop;        // 对应的超市
+    private String address;   // 用户地址
 
     public User() {
     }
@@ -27,10 +26,10 @@ public class User {
         this.id = id;
     }
 
-    public User(String uname, String pwd, Shop shop) {
+    public User(String uname, String pwd, Role role) {
         this.uname = uname;
         this.pwd = pwd;
-        this.shop = shop;
+        this.role = role;
     }
 
     public Integer getId() {
@@ -81,19 +80,11 @@ public class User {
         this.tel = tel;
     }
 
-    public String getAddr() {
-        return addr;
+    public String getAddress() {
+        return address;
     }
 
-    public void setAddr(String addr) {
-        this.addr = addr;
-    }
-
-    public Shop getShop() {
-        return shop;
-    }
-
-    public void setShop(Shop shop) {
-        this.shop = shop;
+    public void setAddress(String address) {
+        this.address = address;
     }
 }

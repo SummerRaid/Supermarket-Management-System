@@ -1,5 +1,7 @@
 package sms.pojo;
 
+import java.util.List;
+
 /**
  * Copyright (c) 2008-2024: Zirui Qiao
  * Project: SupermartketMS
@@ -12,15 +14,11 @@ package sms.pojo;
  */
 public class Product {
     private Integer id;    // 商品id
-    private Integer model; // 商品型号
     private Integer type;  // 商品类型
     private String name;   // 商品名称
     private String unit;   // 计算商品的单位
-    private Double salePrice; // 出售价
     private String remark; // 备注
-    private Order order;   // 关联商品的订单
-    private Integer saleAmount; // 销售数量
-    private Shop shop;        // 对应的超市
+    private List<Order> order;   // 关联商品的订单
     private Integer deleted;  // 是否被删除
 
     public Product() {}
@@ -35,14 +33,6 @@ public class Product {
 
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    public Integer getModel() {
-        return model;
-    }
-
-    public void setModel(Integer model) {
-        this.model = model;
     }
 
     public Integer getType() {
@@ -69,14 +59,6 @@ public class Product {
         this.unit = unit;
     }
 
-    public Double getSalePrice() {
-        return salePrice;
-    }
-
-    public void setSalePrice(Double salePrice) {
-        this.salePrice = salePrice;
-    }
-
     public String getRemark() {
         return remark;
     }
@@ -85,28 +67,12 @@ public class Product {
         this.remark = remark;
     }
 
-    public Order getOrder() {
+    public List<Order> getOrder() {
         return order;
     }
 
-    public void setOrder(Order order) {
+    public void setOrder(List<Order> order) {
         this.order = order;
-    }
-
-    public Integer getSaleAmount() {
-        return saleAmount;
-    }
-
-    public void setSaleAmount(Integer saleAmount) {
-        this.saleAmount = saleAmount;
-    }
-
-    public Shop getShop() {
-        return shop;
-    }
-
-    public void setShop(Shop shop) {
-        this.shop = shop;
     }
 
     public Integer getDeleted() {

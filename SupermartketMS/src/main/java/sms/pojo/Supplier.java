@@ -12,7 +12,7 @@ package sms.pojo;
  */
 public class Supplier {
     private Integer id;           // 供应商id
-    private String addr;          // 供应商地址
+    private String address;       // 供应商地址
     private String name;          // 供应商名称
     private String contactPerson; // 供应商联系人
     private String contact;       // 供应商联系方式
@@ -34,12 +34,12 @@ public class Supplier {
         this.id = id;
     }
 
-    public String getAddr() {
-        return addr;
+    public String getAddress() {
+        return address;
     }
 
-    public void setAddr(String addr) {
-        this.addr = addr;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public String getName() {
