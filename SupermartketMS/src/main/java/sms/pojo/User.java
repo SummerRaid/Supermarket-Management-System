@@ -27,6 +27,12 @@ public class User {
         this.id = id;
     }
 
+    public User(String uname, String pwd, Shop shop) {
+        this.uname = uname;
+        this.pwd = pwd;
+        this.shop = shop;
+    }
+
     public Integer getId() {
         return id;
     }

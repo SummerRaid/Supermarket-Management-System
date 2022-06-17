@@ -51,5 +51,23 @@ public interface UserService {
      * @Author: Zirui Qiao
      * @Date: 2022/6/16 18:15
      */
-    List<User> getAllUser(int shopId);
+    List<User> getAllUsers(int shopId);
+
+    /**
+     * @Description: 更新用户
+     * @param user 用户详细信息
+     * @return: java.lang.Integer
+     * @Author: Zirui Qiao
+     * @Date: 2022/6/17 11:24
+     */
+    User updateUser(User user);
+
+    /**
+     * @Description: 根据用户id删除用户
+     * @param userId 用户id
+     * @return: void
+     * @Author: Zirui Qiao
+     * @Date: 2022/6/17 11:25
+     */
+    void delUser(Integer userId);
 }
