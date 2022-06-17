@@ -11,7 +11,7 @@ import java.util.List;
  * Project: SupermartketMS
  *
  * @className: OrderMapper
- * @Description: TODO
+ * @Description: 订单映射接口
  * @version: v1.8.0
  * @author: ZIRUI QIAO
  * @date: 2022/6/16 12:19

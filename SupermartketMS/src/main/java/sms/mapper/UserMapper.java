@@ -10,7 +10,7 @@ import java.util.List;
  * Project: SupermartketMS
  *
  * @className: UserMapper
- * @Description: TODO
+ * @Description: 用户映射接口
  * @version: v1.8.0
  * @author: ZIRUI QIAO
  * @date: 2022/6/16 12:20

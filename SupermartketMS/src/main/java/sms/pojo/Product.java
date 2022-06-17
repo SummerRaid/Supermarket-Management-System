@@ -21,6 +21,7 @@ public class Product {
     private Order order;   // 关联商品的订单
     private Integer saleAmount; // 销售数量
     private Shop shop;        // 对应的超市
+    private Integer deleted;  // 是否被删除
 
     public Product() {}
 
@@ -106,5 +107,13 @@ public class Product {
 
     public void setShop(Shop shop) {
         this.shop = shop;
+    }
+
+    public Integer getDeleted() {
+        return deleted;
+    }
+
+    public void setDeleted(Integer deleted) {
+        this.deleted = deleted;
     }
 }

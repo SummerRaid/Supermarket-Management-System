@@ -7,7 +7,7 @@ import sms.pojo.Shop;
  * Project: SupermartketMS
  *
  * @className: ShopMapper
- * @Description: TODO
+ * @Description: 超市映射接口
  * @version: v1.8.0
  * @author: ZIRUI QIAO
  * @date: 2022/6/16 12:19

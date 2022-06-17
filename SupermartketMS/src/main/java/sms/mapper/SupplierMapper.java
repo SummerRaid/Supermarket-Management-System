@@ -9,7 +9,7 @@ import java.util.List;
  * Project: SupermartketMS
  *
  * @className: SupplierMapper
- * @Description: TODO
+ * @Description: 供应商映射接口
  * @version: v1.8.0
  * @author: ZIRUI QIAO
  * @date: 2022/6/16 12:19

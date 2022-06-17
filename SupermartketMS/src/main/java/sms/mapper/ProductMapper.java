@@ -10,20 +10,21 @@ import java.util.List;
  * Project: SupermartketMS
  *
  * @className: ProductMapper
- * @Description: TODO
+ * @Description: 商品映射接口
  * @version: v1.8.0
  * @author: ZIRUI QIAO
  * @date: 2022/6/16 12:19
  */
 public interface ProductMapper {
     /**
-     * @Description: 查询所有商品
+     * @Description: 查询所有 商品
      * @param shopId 超市id
+     * @param deleted 是否在回收站
      * @return: java.util.List<sms.pojo.Product>
      * @Author: Zirui Qiao
      * @Date: 2022/6/16 12:35
      */
-    List<Product> selectAll(int shopId);
+    List<Product> selectAll(int shopId, boolean deleted);
 
     /**
      * @Description: 根据商品名称查询商品
