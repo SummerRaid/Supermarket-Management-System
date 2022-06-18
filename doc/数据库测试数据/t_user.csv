@@ -1,0 +1,7 @@
+﻿id,role_id,user_name,pwd,real_name,phone_number,address
+1,1,tony,ok,Tony,613-299-0001,"1125 Colonel By Dr, Ottawa"
+2,2,lina,ok,Lina,613-299-0002,"1126 Colonel By Dr, Ottawa"
+3,3,kate,ok,Kate,613-299-0003,"1127 Colonel By Dr, Ottawa"
+4,4,mike,ok,Mike,613-299-0004,"1128 Colonel By Dr, Ottawa"
+5,6,jone,ok,Jone,613-299-0005,"1129 Colonel By Dr, Ottawa"
+,,,,,,

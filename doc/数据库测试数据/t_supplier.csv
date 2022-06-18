@@ -1,0 +1,7 @@
+﻿id,address,manufacturer,contacct_name,contact_number,remark,supermarket_id
+1,深圳市高新科技园南区高新南一道飞亚达高科技大厦3－10层,腾讯,马化腾,010-62671188,腾讯深圳总部,1
+2,杭州市余杭区文一西路969号,阿里巴巴,马云,571-8502-2088,阿里巴巴集团,1
+3,北京市通州区科创十一街与经海路交汇处东150米,京东,刘强东,010-89112233,京东集团总部,1
+4,闵行区吴中路1688号康师傅大楼,康师傅,魏应州,400-618-5588,康师傅方便面,1
+5,"One Hacker Way Menlo Park, CA 94025 USA",Meta,Mark Zuckerberg,650-543-4800,Meta(Facebook),1
+,,,,,,
