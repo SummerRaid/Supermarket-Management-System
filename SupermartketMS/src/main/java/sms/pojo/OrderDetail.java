@@ -13,7 +13,7 @@ import java.util.Date;
  * @date: 2022/6/17 18:15
  */
 public class OrderDetail {
-    private Order order;      // 对应的订单类
+    private Integer id;       // 订单详情id
     private Double payMoney;  // 支付金额
     private Date payDate;     // 支付日期
     private Integer status;   // 支付状态 [1:支付，2:未支付]
@@ -25,16 +25,16 @@ public class OrderDetail {
     public OrderDetail() {
     }
 
-    public OrderDetail(Order order) {
-        this.order = order;
+    public OrderDetail(Integer id) {
+        this.id = id;
     }
 
-    public Order getOrder() {
-        return order;
+    public Integer getId() {
+        return id;
     }
 
-    public void setOrder(Order order) {
-        this.order = order;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public Double getPayMoney() {

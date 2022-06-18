@@ -11,17 +11,25 @@ package sms.pojo;
  * @date: 2022/6/17 18:20
  */
 public class Stock {
+    private Integer id;          // 商品id
     private Double salePrice;    // 出售价
     private Integer saleAmount;  // 销售数量
     private Shop shop;           // 对应的超市
     private Integer stockAmount; // 库存数量
-    private Product product;     // 对应的商品
 
     public Stock() {
     }
 
-    public Stock(Product product) {
-        this.product = product;
+    public Stock(Integer id) {
+        this.id = id;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public Double getSalePrice() {
@@ -54,13 +62,5 @@ public class Stock {
 
     public void setStockAmount(Integer stockAmount) {
         this.stockAmount = stockAmount;
-    }
-
-    public Product getProduct() {
-        return product;
-    }
-
-    public void setProduct(Product product) {
-        this.product = product;
     }
 }

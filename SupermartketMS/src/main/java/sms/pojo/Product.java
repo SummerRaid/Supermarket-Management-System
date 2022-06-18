@@ -14,12 +14,13 @@ import java.util.List;
  */
 public class Product {
     private Integer id;    // 商品id
-    private Integer type;  // 商品类型
+    private String type;  // 商品类型
     private String name;   // 商品名称
     private String unit;   // 计算商品的单位
     private String remark; // 备注
     private List<Order> order;   // 关联商品的订单
     private Integer deleted;  // 是否被删除
+    private Stock stock;      // 对应超市库存
 
     public Product() {}
 
@@ -35,11 +36,11 @@ public class Product {
         this.id = id;
     }
 
-    public Integer getType() {
+    public String getType() {
         return type;
     }
 
-    public void setType(Integer type) {
+    public void setType(String type) {
         this.type = type;
     }
 
@@ -81,5 +82,13 @@ public class Product {
 
     public void setDeleted(Integer deleted) {
         this.deleted = deleted;
+    }
+
+    public Stock getStock() {
+        return stock;
+    }
+
+    public void setStock(Stock stock) {
+        this.stock = stock;
     }
 }

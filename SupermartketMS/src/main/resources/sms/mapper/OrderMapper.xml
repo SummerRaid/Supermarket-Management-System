@@ -4,10 +4,13 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="sms.mapper.OrderMapper">
     <resultMap id="orderResultMap" type="order">
+        <id property="id" column="id" />
+        <result property="orderNO" column="order_number" javaType="String"/>
+        <result property="productName" column="goods_name" javaType="String"/>
         <association property="user" column="user_id" select="sms.mapper.UserMapper.selectById"/>
         <association property="product" column="goods" select="sms.mapper.ProductMapper.selectById"/>
         <association property="supplier" column="supplier_id" select="sms.mapper.SupplierMapper.selectById"/>
-        <association property="shop" column="supermarket_id" select="sms.mapper.ShopMapper.selectById"/>
+        <association property="orderDetail" column="id" select="sms.mapper.OrderDetailMapper.selectById"/>
     </resultMap>
     <insert id="add" useGeneratedKeys="true" keyProperty="id">
 
@@ -29,6 +32,9 @@
 
     </select>
     <select id="selectById" resultMap="orderResultMap">
+
+    </select>
+    <select id="selectBySupplier" resultMap="orderResultMap">
 
     </select>
 </mapper>

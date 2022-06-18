@@ -2,6 +2,7 @@ package sms.mapper;
 
 import sms.pojo.Order;
 import sms.pojo.Product;
+import sms.pojo.Supplier;
 import sms.pojo.User;
 
 import java.util.List;
@@ -43,6 +44,15 @@ public interface OrderMapper {
      * @Date: 2022/6/16 12:30
      */
     List<Order> selectByProduct(Product product);
+
+    /**
+     * @Description: 查询某供应商的所有订单
+     * @param supplier 某供应商
+     * @return: java.util.List<sms.pojo.Order>
+     * @Author: Zirui Qiao
+     * @Date: 2022/6/17 18:32
+     */
+    List<Order> selectBySupplier(Supplier supplier);
 
     /**
      * @Description: 根据id查询订单

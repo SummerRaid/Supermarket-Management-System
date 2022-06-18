@@ -19,6 +19,7 @@ public class Order {
     private Supplier supplier;// 订单的供应商
     private User user;        // 创建订单的用户
     private Product product;  // 订单关联的商品
+    private OrderDetail orderDetail; // 订单详情
 
     public Order() {
     }
@@ -73,5 +74,13 @@ public class Order {
 
     public void setProduct(Product product) {
         this.product = product;
+    }
+
+    public OrderDetail getOrderDetail() {
+        return orderDetail;
+    }
+
+    public void setOrderDetail(OrderDetail orderDetail) {
+        this.orderDetail = orderDetail;
     }
 }

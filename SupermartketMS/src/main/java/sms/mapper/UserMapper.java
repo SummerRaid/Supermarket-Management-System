@@ -26,6 +26,15 @@ public interface UserMapper {
     List<User> selectAll(int shopId);
 
     /**
+     * @Description: 根据角色id 查询所有用户
+     * @param roleId 角色id
+     * @return: java.util.List<sms.pojo.User>
+     * @Author: Zirui Qiao
+     * @Date: 2022/6/17 18:40
+     */
+    List<User> selectByRole(int roleId);
+
+    /**
      * @Description: 根据用户id查询用户
      * @param id 用户id
      * @return: sms.pojo.User

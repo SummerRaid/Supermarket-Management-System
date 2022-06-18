@@ -36,15 +36,6 @@ public interface ProductMapper {
     List<Product> selectByName(String name);
 
     /**
-     * @Description: 根据订单查询商品
-     * @param order 订单
-     * @return: sms.pojo.Product
-     * @Author: Zirui Qiao
-     * @Date: 2022/6/16 12:37
-     */
-    Product selectByOrder(Order order);
-
-    /**
      * @Description: 根据商品id查询商品
      * @param id 商品id
      * @return: sms.pojo.Product
