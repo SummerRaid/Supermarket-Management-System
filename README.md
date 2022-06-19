@@ -25,7 +25,7 @@
 - kaptcha(验证码)
 ### 持久层(数据库)
 - mysql
-- JDBC
+- Mybatis
 ### 工具
 - idea
 - chrome
