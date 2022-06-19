@@ -14,7 +14,7 @@ public class Role {
     private Integer id;      // 角色id
     private String name;     // 角色名称
     private String remark;   // 角色备注
-    private String authority;// 角色权限 TODO
+    private String authority;// 角色权限
     private Shop shop;       // 对应的超市
 
     public Role() {
@@ -62,5 +62,16 @@ public class Role {
 
     public void setShop(Shop shop) {
         this.shop = shop;
+    }
+
+    @Override
+    public String toString() {
+        return "Role{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", remark='" + remark + '\'' +
+                ", authority='" + authority + '\'' +
+                ", shop=" + shop +
+                '}';
     }
 }

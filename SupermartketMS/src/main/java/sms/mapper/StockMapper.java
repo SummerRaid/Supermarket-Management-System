@@ -8,7 +8,7 @@ import sms.pojo.Stock;
  * Project: SupermartketMS
  *
  * @className: StockMapper
- * @Description: TODO
+ * @Description: 商品库存映射接口
  * @version: v1.8.0
  * @author: ZIRUI QIAO
  * @date: 2022/6/17 18:48

@@ -29,30 +29,30 @@ public interface OrderMapper {
 
     /**
      * @Description: 查询某用户创建的所有订单
-     * @param user 某用户
+     * @param userId 某用户id
      * @return: java.util.List<sms.pojo.Order>
      * @Author: Zirui Qiao
      * @Date: 2022/6/16 12:29
      */
-    List<Order> selectByUser(User user);
+    List<Order> selectByUser(int userId);
 
     /**
      * @Description: 查询某商品的所有订单
-     * @param product 某商品
+     * @param productId 某商品id
      * @return: java.util.List<sms.pojo.Order>
      * @Author: Zirui Qiao
      * @Date: 2022/6/16 12:30
      */
-    List<Order> selectByProduct(Product product);
+    List<Order> selectByProduct(int productId);
 
     /**
      * @Description: 查询某供应商的所有订单
-     * @param supplier 某供应商
+     * @param supplierId 某供应商id
      * @return: java.util.List<sms.pojo.Order>
      * @Author: Zirui Qiao
      * @Date: 2022/6/17 18:32
      */
-    List<Order> selectBySupplier(Supplier supplier);
+    List<Order> selectBySupplier(int supplierId);
 
     /**
      * @Description: 根据id查询订单

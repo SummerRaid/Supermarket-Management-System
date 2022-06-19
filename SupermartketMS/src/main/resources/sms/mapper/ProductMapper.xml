@@ -10,6 +10,7 @@
         <result property="remark" column="remark" javaType="String"/>
         <result property="deleted" column="deleted" javaType="Integer"/>
         <association property="stock" column="id" select="sms.mapper.StockMapper.selectById"/>
+        <association property="order" column="id" select="sms.mapper.OrderMapper.selectByProduct"/>
     </resultMap>
     <insert id="add" useGeneratedKeys="true" keyProperty="id">
 

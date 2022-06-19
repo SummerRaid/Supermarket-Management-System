@@ -44,6 +44,15 @@ public interface UserMapper {
     User selectById(int id);
 
     /**
+     * @Description: 根据用户名获取用户
+     * @param uname 用户名
+     * @return: sms.pojo.User
+     * @Author: Zirui Qiao
+     * @Date: 2022/6/19 16:28
+     */
+    User selectByName(String uname);
+
+    /**
      * @Description: 添加用户 返回id
      * @param user 用户(包含详细信息)
      * @return: java.lang.Integer

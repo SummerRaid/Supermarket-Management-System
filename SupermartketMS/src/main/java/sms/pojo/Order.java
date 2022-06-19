@@ -83,4 +83,17 @@ public class Order {
     public void setOrderDetail(OrderDetail orderDetail) {
         this.orderDetail = orderDetail;
     }
+
+    @Override
+    public String toString() {
+        return "Order{" +
+                "id=" + id +
+                ", productName='" + productName + '\'' +
+                ", orderNO='" + orderNO + '\'' +
+                ", supplier=" + supplier +
+                ", user=" + user +
+                ", product=" + product +
+                ", orderDetail=" + orderDetail +
+                '}';
+    }
 }

@@ -10,7 +10,7 @@ import java.util.List;
  * Project: SupermartketMS
  *
  * @className: SupplierService
- * @Description: 供应商服务类
+ * @Description: 供应商服务接口
  * @version: v1.8.0
  * @author: ZIRUI QIAO
  * @date: 2022/6/16 17:59

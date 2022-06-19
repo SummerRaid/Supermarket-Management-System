@@ -91,4 +91,18 @@ public class Product {
     public void setStock(Stock stock) {
         this.stock = stock;
     }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "id=" + id +
+                ", type='" + type + '\'' +
+                ", name='" + name + '\'' +
+                ", unit='" + unit + '\'' +
+                ", remark='" + remark + '\'' +
+                ", order=" + order +
+                ", deleted=" + deleted +
+                ", stock=" + stock +
+                '}';
+    }
 }

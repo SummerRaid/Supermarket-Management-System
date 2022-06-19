@@ -28,7 +28,10 @@
     <select id="selectAll" resultMap="userResultMap">
 
     </select>
-    <select id="selectByRole" resultType="sms.pojo.User">
+    <select id="selectByRole" resultMap="userResultMap">
+
+    </select>
+    <select id="selectByName" resultMap="userResultMap">
 
     </select>
 </mapper>

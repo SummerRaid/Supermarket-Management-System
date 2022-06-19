@@ -9,7 +9,7 @@ import java.util.List;
  * Project: SupermartketMS
  *
  * @className: ProductService
- * @Description: 商品服务类
+ * @Description: 商品服务接口
  * @version: v1.8.0
  * @author: ZIRUI QIAO
  * @date: 2022/6/16 17:58
@@ -53,12 +53,13 @@ public interface ProductService {
 
     /**
      * @Description: 卖出商品
+     * @param productId 商品id
      * @param saleAmount 卖出数量
      * @return: sms.pojo.Product
      * @Author: Zirui Qiao
      * @Date: 2022/6/17 14:33
      */
-    Product saleProduct(Integer saleAmount);
+    Product saleProduct(Integer productId, Integer saleAmount);
 
     /**
      * @Description: 更新商品信息

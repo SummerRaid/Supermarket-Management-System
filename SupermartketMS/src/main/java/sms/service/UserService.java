@@ -9,7 +9,7 @@ import java.util.List;
  * Project: SupermartketMS
  *
  * @className: UserService
- * @Description: 用户服务类
+ * @Description: 用户服务接口
  * @version: v1.8.0
  * @author: ZIRUI QIAO
  * @date: 2022/6/16 17:59
@@ -70,4 +70,13 @@ public interface UserService {
      * @Date: 2022/6/17 11:25
      */
     void delUser(Integer userId);
+
+    /**
+     * @Description: 根据角色获取用户
+     * @param roleId 角色id
+     * @return: java.util.List<sms.pojo.User>
+     * @Author: Zirui Qiao
+     * @Date: 2022/6/19 16:00
+     */
+    List<User> getUserByRole(Integer roleId);
 }

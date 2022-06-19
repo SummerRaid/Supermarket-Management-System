@@ -1,6 +1,8 @@
 package myssm.util;
 
 import myssm.basedao.MybatisSingleton;
+import org.slf4j.LoggerFactory;
+import sms.service.impl.OrderServiceImpl;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
@@ -18,11 +20,16 @@ import java.lang.reflect.Proxy;
  */
 public class MapperUtil {
 
+    private static final org.slf4j.Logger LOGGER =
+            LoggerFactory.getLogger(MapperUtil.class);
+
     private static <T> T getMapper(Class<T> clazz) {
         return MybatisSingleton.getConn().getMapper(clazz);
     }
 
     public static <T> T getProxy(Class<T> clazz) {
+
+        LOGGER.debug("获取代理mapper：" + clazz);
         ClassLoader classLoader = clazz.getClassLoader();
         Class<?>[] interfaces = new Class[]{clazz};
         InvocationHandler invocationHandler = new InvocationHandler() {

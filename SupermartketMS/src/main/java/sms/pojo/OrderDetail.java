@@ -92,4 +92,18 @@ public class OrderDetail {
     public void setPrice(Double price) {
         this.price = price;
     }
+
+    @Override
+    public String toString() {
+        return "OrderDetail{" +
+                "id=" + id +
+                ", payMoney=" + payMoney +
+                ", payDate=" + payDate +
+                ", status=" + status +
+                ", createDate=" + createDate +
+                ", remark='" + remark + '\'' +
+                ", amount=" + amount +
+                ", price=" + price +
+                '}';
+    }
 }

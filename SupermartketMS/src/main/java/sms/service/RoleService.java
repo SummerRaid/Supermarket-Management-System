@@ -10,7 +10,7 @@ import java.util.Map;
  * Project: SupermartketMS
  *
  * @className: RoleService
- * @Description: 角色服务类
+ * @Description: 角色服务接口
  * @version: v1.8.0
  * @author: ZIRUI QIAO
  * @date: 2022/6/16 17:58
@@ -55,9 +55,10 @@ public interface RoleService {
     /**
      * @Description: 对角色进行授权
      * @param auth 权限map
+     * @param roleId 角色id
      * @return: sms.pojo.Role
      * @Author: Zirui Qiao
      * @Date: 2022/6/17 11:40
      */
-    Role authorize(Map<String, Boolean> auth);
+    Role authorize(Map<String, Boolean> auth, Integer roleId);
 }
