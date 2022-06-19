@@ -1,15 +1,13 @@
 package sms.service.impl;
 
-import myssm.basedao.MybatisSingleton;
+import myssm.util.CalcUtil;
 import myssm.util.MapperUtil;
 import org.slf4j.LoggerFactory;
 import sms.mapper.OrderDetailMapper;
 import sms.mapper.OrderMapper;
-import sms.pojo.Order;
-import sms.pojo.Product;
-import sms.pojo.Supplier;
-import sms.pojo.User;
+import sms.pojo.*;
 import sms.service.OrderService;
+import sms.service.ShopService;
 
 import java.util.List;
 
@@ -27,6 +25,7 @@ public class OrderServiceImpl implements OrderService {
 
     private final OrderMapper orderMapper;
     private final OrderDetailMapper orderDetailMapper;
+    private ShopService shopService;
     private static final org.slf4j.Logger LOGGER =
             LoggerFactory.getLogger(OrderServiceImpl.class);
 
@@ -71,6 +70,18 @@ public class OrderServiceImpl implements OrderService {
         orderDetailMapper.add(order.getOrderDetail());
         LOGGER.debug("添加新订单，订单号：" + id);
         return getOrder(id);
+    }
+
+    @Override
+    public Order payOrder(Integer orderId) {
+        Order order = getOrder(orderId);
+        order.getOrderDetail().setStatus(1);
+        orderDetailMapper.update(order.getOrderDetail());
+        LOGGER.debug("订单 id: " + orderId + "已付款");
+
+        Shop shop = order.getSupplier().getShop();
+        shopService.addOutcome(shop.getId(), order.getOrderDetail().getPayMoney());
+        return order;
     }
 
     @Override

@@ -21,4 +21,24 @@ public interface ShopMapper {
      * @Date: 2022/6/16 19:08
      */
     Shop selectById(int id);
+
+    /**
+     * @Description: 更新超市的收入
+     * @param income 超市收入
+     * @param shopId 超市id
+     * @return: void
+     * @Author: Zirui Qiao
+     * @Date: 2022/6/19 17:25
+     */
+    void updateIncome(Integer shopId, Double income);
+
+    /**
+     * @Description: 更新超市支出
+     * @param outcome 超市支出
+     * @param shopId 超市id
+     * @return: void
+     * @Author: Zirui Qiao
+     * @Date: 2022/6/19 17:26
+     */
+    void updateOutcome(Integer shopId, Double outcome);
 }

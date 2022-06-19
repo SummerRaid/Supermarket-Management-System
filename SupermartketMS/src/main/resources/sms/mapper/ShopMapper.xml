@@ -7,6 +7,12 @@
         <result property="income" column="total_revenue" javaType="Double"/>
         <result property="outcome" column="total_expenses" javaType="Double"/>
     </resultMap>
+    <update id="updateIncome">
+
+    </update>
+    <update id="updateOutcome">
+
+    </update>
     <select id="selectById" resultType="sms.pojo.Shop">
 
     </select>

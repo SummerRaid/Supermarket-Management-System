@@ -64,6 +64,15 @@ public interface OrderService {
     Order addOrder(Order order);
 
     /**
+     * @Description: 订单付款
+     * @param orderId 订单id
+     * @return: sms.pojo.Order
+     * @Author: Zirui Qiao
+     * @Date: 2022/6/19 17:39
+     */
+    Order payOrder(Integer orderId);
+
+    /**
      * @Description: 撤销订单
      * @param orderId 订单id
      * @return: void

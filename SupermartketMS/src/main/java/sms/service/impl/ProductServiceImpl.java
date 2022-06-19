@@ -1,16 +1,19 @@
 package sms.service.impl;
 
+import myssm.util.CalcUtil;
 import myssm.util.MapperUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import sms.mapper.OrderMapper;
 import sms.mapper.ProductMapper;
+import sms.mapper.ShopMapper;
 import sms.mapper.StockMapper;
 import sms.pojo.Order;
 import sms.pojo.Product;
 import sms.pojo.Stock;
 import sms.service.OrderService;
 import sms.service.ProductService;
+import sms.service.ShopService;
 
 import java.util.List;
 
@@ -28,6 +31,7 @@ public class ProductServiceImpl implements ProductService {
     private final ProductMapper productMapper;
     private final StockMapper stockMapper;
     private OrderService orderService;
+    private ShopService shopService;
     private static final org.slf4j.Logger LOGGER =
             LoggerFactory.getLogger(ProductServiceImpl.class);
 
@@ -97,6 +101,9 @@ public class ProductServiceImpl implements ProductService {
             product.setStock(stock);
             stockMapper.update(stock);
             LOGGER.debug("卖出" + product.getName() + saleAmount + product.getUnit());
+
+            Double saleMoney = CalcUtil.multiplyDoubles(stock.getSalePrice(), saleAmount);
+            shopService.addIncome(stock.getShop().getId(), saleMoney);
         } else {
             LOGGER.info("商品数量不合理：\n剩余: " +
                     (stockAmount - originalAmount) +
