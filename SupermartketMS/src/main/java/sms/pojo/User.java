@@ -32,6 +32,15 @@ public class User {
         this.role = role;
     }
 
+    public User(Role role, String uname, String pwd, String tname, String tel, String address) {
+        this.role = role;
+        this.uname = uname;
+        this.pwd = pwd;
+        this.tname = tname;
+        this.tel = tel;
+        this.address = address;
+    }
+
     public Integer getId() {
         return id;
     }

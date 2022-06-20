@@ -32,5 +32,25 @@
         <property name="userService" ref="userService"/>
     </bean>
 <!--   Controller实现类-->
-
+    <bean id="user" class="sms.controller.UserController">
+        <property name="userService" ref="userService"/>
+        <property name="roleService" ref="roleService"/>
+    </bean>
+    <bean id="product" class="sms.controller.ProductController">
+        <property name="productService" ref="productService"/>
+    </bean>
+    <bean id="order" class="sms.controller.OrderController">
+        <property name="orderService" ref="orderService"/>
+        <property name="productService" ref="productService"/>
+        <property name="supplierService" ref="supplierService"/>
+    </bean>
+    <bean id="role" class="sms.controller.RoleController">
+        <property name="roleService" ref="roleService"/>
+    </bean>
+    <bean id="supplier" class="sms.controller.SupplierController">
+        <property name="supplierService" ref="supplierService"/>
+    </bean>
+    <bean id="shop" class="sms.controller.ShopController">
+        <property name="shopService" ref="shopService"/>
+    </bean>
 </beans>

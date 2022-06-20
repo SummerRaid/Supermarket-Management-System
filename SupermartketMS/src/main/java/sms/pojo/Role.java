@@ -20,6 +20,13 @@ public class Role {
     public Role() {
     }
 
+    public Role(String name, String remark, String authority, Shop shop) {
+        this.name = name;
+        this.remark = remark;
+        this.authority = authority;
+        this.shop = shop;
+    }
+
     public Role(Integer id) {
         this.id = id;
     }

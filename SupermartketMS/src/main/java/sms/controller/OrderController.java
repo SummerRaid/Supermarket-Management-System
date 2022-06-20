@@ -41,7 +41,7 @@ public class OrderController {
 
     /**
      * @Description: 获取当前超市的所有订单
-     * @param session
+     * @param session session
      * @return: java.lang.String
      * @Author: Zirui Qiao
      * @Date: 2022/6/20 16:53
@@ -55,7 +55,7 @@ public class OrderController {
 
     /**
      * @Description: 获取当前用户的所有订单
-     * @param session
+     * @param session session
      * @return: java.lang.String
      * @Author: Zirui Qiao
      * @Date: 2022/6/20 16:52
@@ -72,7 +72,7 @@ public class OrderController {
     /**
      * @Description: 搜索订单
      * @param name 商品名称 或 供应商名字 或 备注名称
-     * @param session
+     * @param session session
      * @return: java.lang.String
      * @Author: Zirui Qiao
      * @Date: 2022/6/20 16:52
@@ -112,7 +112,7 @@ public class OrderController {
      * @param remark 备注
      * @param amount 商品数量
      * @param price 进货价格
-     * @param session
+     * @param session session
      * @return: java.lang.String
      * @Author: Zirui Qiao
      * @Date: 2022/6/20 16:50
@@ -124,7 +124,7 @@ public class OrderController {
         Order order = new Order();
         Date now = new Date();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
-        order.setOrderNO(UUID.randomUUID().toString()+"_"+sdf.format(now));// 全球唯一码
+        order.setOrderNO(UUID.randomUUID()+"_"+sdf.format(now));// 全球唯一码
         order.setProduct(new Product(productId));
         order.setSupplier(new Supplier(supplierId));
         order.setUser(user);
@@ -147,12 +147,11 @@ public class OrderController {
     /**
      * @Description: 取消订单
      * @param orderId 订单号
-     * @param session
      * @return: java.lang.String
      * @Author: Zirui Qiao
      * @Date: 2022/6/20 16:50
      */
-    public String cancelOrder(Integer orderId, HttpSession session) {
+    public String cancelOrder(Integer orderId) {
         orderService.cancelOrder(orderId);
 
         return "";
@@ -161,12 +160,11 @@ public class OrderController {
     /**
      * @Description: 支付订单
      * @param orderId 订单号
-     * @param session
      * @return: java.lang.String
      * @Author: Zirui Qiao
      * @Date: 2022/6/20 16:50
      */
-    public String payOrder(Integer orderId, HttpSession session) {
+    public String payOrder(Integer orderId) {
         orderService.payOrder(orderId);
 
         return "";

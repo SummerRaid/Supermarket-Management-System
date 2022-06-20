@@ -38,7 +38,7 @@ public class ProductController {
     /**
      * @Description: 根据商品名称查询商品
      * @param pName 商品名称
-     * @param session
+     * @param session session 用于获取超市id
      * @return: java.lang.String 返回json数据
      * @Author: Zirui Qiao
      * @Date: 2022/6/20 15:03
@@ -53,7 +53,7 @@ public class ProductController {
     /**
      * @Description: 根据商品类型查询商品
      * @param type 商品类型
-     * @param session
+     * @param session session
      * @return: java.lang.String 返回json数据
      * @Author: Zirui Qiao
      * @Date: 2022/6/20 15:04
@@ -67,7 +67,7 @@ public class ProductController {
 
     /**
      * @Description: 查询所有商品
-     * @param session
+     * @param session session
      * @return: java.lang.String 返回json数据
      * @Author: Zirui Qiao
      * @Date: 2022/6/20 15:05
@@ -81,7 +81,7 @@ public class ProductController {
 
     /**
      * @Description: 获取当前超市的所有商品类型
-     * @param session
+     * @param session session
      * @return: java.lang.String 返回json数据
      * @Author: Zirui Qiao
      * @Date: 2022/6/20 15:07
@@ -100,7 +100,7 @@ public class ProductController {
      * @param unit 商品单位
      * @param remark 备注
      * @param salePrice 商品出售价格
-     * @param session
+     * @param session session
      * @return: java.lang.String 返回json数据
      * @Author: Zirui Qiao
      * @Date: 2022/6/20 15:07
@@ -126,7 +126,7 @@ public class ProductController {
     /**
      * @Description: 编辑商品
      * TODO
-     * @param session
+     * @param session session
      * @return: java.lang.String
      * @Author: Zirui Qiao
      * @Date: 2022/6/20 15:08
@@ -138,7 +138,7 @@ public class ProductController {
     /**
      * @Description: 将商品放入回收站
      * @param productId 商品id
-     * @param session
+     * @param session session
      * @return: java.lang.String
      * @Author: Zirui Qiao
      * @Date: 2022/6/20 15:09
@@ -152,7 +152,7 @@ public class ProductController {
     /**
      * @Description: 将商品彻底删除
      * @param productId 商品id
-     * @param session
+     * @param session session
      * @return: java.lang.String
      * @Author: Zirui Qiao
      * @Date: 2022/6/20 15:09
@@ -166,7 +166,7 @@ public class ProductController {
     /**
      * @Description: 将商品从回收站中复原
      * @param productId 商品id
-     * @param session
+     * @param session session
      * @return: java.lang.String
      * @Author: Zirui Qiao
      * @Date: 2022/6/20 15:10

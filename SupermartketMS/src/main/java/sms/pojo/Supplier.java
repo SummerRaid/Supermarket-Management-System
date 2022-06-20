@@ -22,6 +22,15 @@ public class Supplier {
     public Supplier() {
     }
 
+    public Supplier(String address, String name, String contactPerson, String contact, String remark, Shop shop) {
+        this.address = address;
+        this.name = name;
+        this.contactPerson = contactPerson;
+        this.contact = contact;
+        this.remark = remark;
+        this.shop = shop;
+    }
+
     public Supplier(Integer id) {
         this.id = id;
     }
