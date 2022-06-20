@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="sms.mapper.ShopMapper">
+    <resultMap id="shopResultMap" type="shop">
+        <id property="id" column="id"/>
+        <result property="income" column="total_revenue" javaType="Double"/>
+        <result property="outcome" column="total_expenses" javaType="Double"/>
+    </resultMap>
+    <update id="updateIncome">
+
+    </update>
+    <update id="updateOutcome">
+
+    </update>
+    <select id="selectById" resultType="sms.pojo.Shop">
+
+    </select>
+</mapper>

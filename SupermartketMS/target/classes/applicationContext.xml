@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE beans [
+        <!ELEMENT beans (bean*)>
+        <!ELEMENT bean (property*)>
+        <!ELEMENT property (#PCDATA)>
+
+        <!ATTLIST bean id ID #REQUIRED>
+        <!ATTLIST bean class CDATA #IMPLIED>
+        <!ATTLIST property name CDATA #IMPLIED>
+        <!ATTLIST property ref IDREF #IMPLIED>
+        ]>
+
+<beans>
+    <bean id="page" class="myssm.myspringmvc.PageController"/>
+<!--    Service实现类-->
+    <bean id="shopService" class="sms.service.impl.ShopServiceImpl"/>
+    <bean id="orderService" class="sms.service.impl.OrderServiceImpl">
+        <property name="shopService" ref="shopService"/>
+    </bean>
+    <bean id="productService" class="sms.service.impl.ProductServiceImpl">
+        <property name="orderService" ref="orderService"/>
+        <property name="shopService" ref="shopService"/>
+    </bean>
+    <bean id="supplierService" class="sms.service.impl.SupplierServiceImpl">
+        <property name="orderService" ref="orderService"/>
+    </bean>
+    <bean id="userService" class="sms.service.impl.UserServiceImpl">
+        <property name="orderService" ref="orderService"/>
+    </bean>
+    <bean id="roleService" class="sms.service.impl.RoleServiceImpl">
+        <property name="userService" ref="userService"/>
+    </bean>
+<!--   Controller实现类-->
+
+</beans>

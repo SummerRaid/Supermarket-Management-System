@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="sms.mapper.UserMapper">
+    <resultMap id="userResultMap" type="user">
+        <id property="id" column="id" javaType="Integer"/>
+        <result property="uname" column="user_name" javaType="String"/>
+        <result property="pwd" column="pwd" javaType="String"/>
+        <result property="tname" column="real_name" javaType="String"/>
+        <result property="tel" column="phone_number" javaType="String"/>
+        <result property="address" column="address" javaType="String"/>
+        <association property="role" column="role_id" select="sms.mapper.RoleMapper.selectById"/>
+    </resultMap>
+    <insert id="add" useGeneratedKeys="true" keyProperty="id">
+
+    </insert>
+    <update id="update" useGeneratedKeys="true" keyProperty="id">
+
+    </update>
+    <delete id="del">
+
+    </delete>
+
+    <select id="selectById" resultMap="userResultMap">
+
+    </select>
+    <select id="selectAll" resultMap="userResultMap">
+
+    </select>
+    <select id="selectByRole" resultMap="userResultMap">
+
+    </select>
+    <select id="selectByName" resultMap="userResultMap">
+
+    </select>
+</mapper>
