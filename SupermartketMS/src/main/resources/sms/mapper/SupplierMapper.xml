@@ -28,4 +28,7 @@
     <select id="selectById" resultMap="supplierResultMap">
 
     </select>
+    <select id="selectByName" resultMap="supplierResultMap">
+
+    </select>
 </mapper>

@@ -80,6 +80,24 @@ public interface ProductService {
     List<Product> getAllProducts(Integer shopId);
 
     /**
+     * @Description: 根据商品名称查询商品
+     * @param pName 商品名称
+     * @return: java.util.List<sms.pojo.Product>
+     * @Author: Zirui Qiao
+     * @Date: 2022/6/20 13:23
+     */
+    List<Product> getProductByName(String pName, Integer shopId);
+
+    /**
+     * @Description: 根据商品类型查询商品
+     * @param type 商品类型
+     * @return: java.util.List<sms.pojo.Product>
+     * @Author: Zirui Qiao
+     * @Date: 2022/6/20 13:24
+     */
+    List<Product> getProductByType(String type, Integer shopId);
+
+    /**
      * @Description: 查询所有在回收站里的商品
      * @param shopId 超市id
      * @return: java.util.List<sms.pojo.Product>
@@ -96,4 +114,13 @@ public interface ProductService {
      * @Date: 2022/6/17 14:55
      */
     Product getProduct(Integer productId);
+
+    /**
+     * @Description: 获取某超市所有商品类型
+     * @param shopId 超市id
+     * @return: java.util.List<java.lang.String>
+     * @Author: Zirui Qiao
+     * @Date: 2022/6/20 13:29
+     */
+    List<String> getTypes(Integer shopId);
 }

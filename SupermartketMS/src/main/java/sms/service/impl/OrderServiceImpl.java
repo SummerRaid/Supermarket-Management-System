@@ -7,7 +7,9 @@ import sms.mapper.OrderDetailMapper;
 import sms.mapper.OrderMapper;
 import sms.pojo.*;
 import sms.service.OrderService;
+import sms.service.ProductService;
 import sms.service.ShopService;
+import sms.service.SupplierService;
 
 import java.util.List;
 
@@ -26,6 +28,7 @@ public class OrderServiceImpl implements OrderService {
     private final OrderMapper orderMapper;
     private final OrderDetailMapper orderDetailMapper;
     private ShopService shopService;
+
     private static final org.slf4j.Logger LOGGER =
             LoggerFactory.getLogger(OrderServiceImpl.class);
 
@@ -54,6 +57,20 @@ public class OrderServiceImpl implements OrderService {
     public List<Order> getOrdersBySupplier(Integer supplierId) {
         List<Order> orders = orderMapper.selectBySupplier(supplierId);
         LOGGER.debug("查询供应商的所有订单 供应商id: " + supplierId);
+        return orders;
+    }
+
+    @Override
+    public List<Order> getOrderByProduct(Integer productId) {
+        List<Order> orders = orderMapper.selectByProduct(productId);
+        LOGGER.debug("查询商品的所有订单 商品id: " + productId);
+        return orders;
+    }
+
+    @Override
+    public List<Order> getOrderByOrder(Order order, Integer shopId) {
+        List<Order> orders = orderMapper.selectByOrder(order, shopId);
+        LOGGER.debug("查询商品的所有订单 商品: " + order + "超市id: " + shopId);
         return orders;
     }
 

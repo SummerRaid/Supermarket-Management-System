@@ -37,4 +37,7 @@
     <select id="selectBySupplier" resultMap="orderResultMap">
 
     </select>
+    <select id="selectByOrder" resultMap="orderResultMap">
+
+    </select>
 </mapper>

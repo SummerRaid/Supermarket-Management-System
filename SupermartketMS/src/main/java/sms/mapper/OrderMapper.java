@@ -55,6 +55,16 @@ public interface OrderMapper {
     List<Order> selectBySupplier(int supplierId);
 
     /**
+     * @Description: 根据商品名称 和 超市id 查询 订单
+     * @param order 订单实体类
+     * @param shopId 超市订单
+     * @return: java.util.List<sms.pojo.Order>
+     * @Author: Zirui Qiao
+     * @Date: 2022/6/20 16:02
+     */
+    List<Order> selectByOrder(Order order, Integer shopId);
+
+    /**
      * @Description: 根据id查询订单
      * @param id 订单id
      * @return: sms.pojo.Order

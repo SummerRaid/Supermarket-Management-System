@@ -18,6 +18,8 @@ public class Stock {
     private Integer stockAmount; // 库存数量
 
     public Stock() {
+        saleAmount = 0;
+        stockAmount = 0;
     }
 
     public Stock(Integer id) {

@@ -7,7 +7,7 @@ import sms.pojo.Shop;
  * Project: SupermartketMS
  *
  * @className: ShopService
- * @Description: TODO
+ * @Description: 超市服务接口
  * @version: v1.8.0
  * @author: ZIRUI QIAO
  * @date: 2022/6/19 17:45

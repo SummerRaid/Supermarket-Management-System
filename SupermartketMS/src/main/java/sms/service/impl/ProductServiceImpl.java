@@ -69,7 +69,7 @@ public class ProductServiceImpl implements ProductService {
         LOGGER.debug("删除商品 id: " + productId);
         stockMapper.del(productId);
         LOGGER.debug("删除商品对应库存");
-        List<Order> orders = getProduct(productId).getOrder();
+        List<Order> orders = orderService.getOrderByProduct(productId);
         for (Order order : orders) {
             orderService.setOrderProduct(order.getId(), null);
         }
@@ -140,7 +140,28 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public Product getProduct(Integer productId) {
         Product product = productMapper.selectById(productId);
-        LOGGER.debug("查询商品：" + productId);
+        LOGGER.debug("查询商品 id: " + productId);
         return product;
+    }
+
+    @Override
+    public List<Product> getProductByName(String pName, Integer shopId) {
+        List<Product> products = productMapper.selectByName(pName, shopId);
+        LOGGER.debug("查询商品 名称: " + pName);
+        return products;
+    }
+
+    @Override
+    public List<Product> getProductByType(String type, Integer shopId) {
+        List<Product> products = productMapper.selectByType(type, shopId);
+        LOGGER.debug("查询商品 类型: " + type);
+        return products;
+    }
+
+    @Override
+    public List<String> getTypes(Integer shopId) {
+        List<String> types = productMapper.selectAllType(shopId);
+        LOGGER.debug("查询超市 id: " + shopId + " 的所有商品类型");
+        return types;
     }
 }

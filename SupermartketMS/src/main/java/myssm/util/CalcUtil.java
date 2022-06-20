@@ -7,7 +7,7 @@ import java.math.BigDecimal;
  * Project: SupermartketMS
  *
  * @className: CalcUtil
- * @Description: TODO
+ * @Description: BigDecimal计算工具类
  * @version: v1.8.0
  * @author: ZIRUI QIAO
  * @date: 2022/6/19 17:31

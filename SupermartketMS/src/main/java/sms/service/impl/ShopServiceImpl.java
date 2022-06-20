@@ -12,7 +12,7 @@ import sms.service.ShopService;
  * Project: SupermartketMS
  *
  * @className: ShopServiceImpl
- * @Description: TODO
+ * @Description: 超市服务实现类
  * @version: v1.8.0
  * @author: ZIRUI QIAO
  * @date: 2022/6/19 17:47

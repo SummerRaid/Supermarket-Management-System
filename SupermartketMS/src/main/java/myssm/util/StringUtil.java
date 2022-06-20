@@ -1,5 +1,7 @@
 package myssm.util;
 
+import com.google.gson.Gson;
+
 import javax.servlet.http.HttpServletRequest;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -83,5 +85,10 @@ public class StringUtil {
         }
         str = stringBuffer.toString();
         return str;
+    }
+
+    public static String toJsonString(Object obj) {
+        Gson gson = new Gson();
+        return gson.toJson(obj);
     }
 }
