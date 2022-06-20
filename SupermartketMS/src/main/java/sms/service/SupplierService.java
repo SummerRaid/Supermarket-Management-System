@@ -44,6 +44,16 @@ public interface SupplierService {
     List<Supplier> getAllSuppliers(Integer shopId);
 
     /**
+     * @Description: 根据供应商名字 获取某超市 的供应商
+     * @param name 供应商名字
+     * @param shopId 超市id
+     * @return: java.util.List<sms.pojo.Supplier>
+     * @Author: Zirui Qiao
+     * @Date: 2022/6/20 15:55
+     */
+    List<Supplier> getSupplierByName(String name, Integer shopId);
+
+    /**
      * @Description: 更新供应商信息
      * @param supplier 供应商详细信息
      * @return: sms.pojo.Supplier

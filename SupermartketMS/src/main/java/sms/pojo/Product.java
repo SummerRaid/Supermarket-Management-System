@@ -18,11 +18,13 @@ public class Product {
     private String name;   // 商品名称
     private String unit;   // 计算商品的单位
     private String remark; // 备注
-    private List<Order> order;   // 关联商品的订单
+    //private List<Order> order;   // 关联商品的订单
     private Integer deleted;  // 是否被删除
     private Stock stock;      // 对应超市库存
 
-    public Product() {}
+    public Product() {
+        deleted = 0;
+    }
 
     public Product(Integer id) {
         this.id = id;
@@ -68,14 +70,6 @@ public class Product {
         this.remark = remark;
     }
 
-    public List<Order> getOrder() {
-        return order;
-    }
-
-    public void setOrder(List<Order> order) {
-        this.order = order;
-    }
-
     public Integer getDeleted() {
         return deleted;
     }
@@ -100,9 +94,8 @@ public class Product {
                 ", name='" + name + '\'' +
                 ", unit='" + unit + '\'' +
                 ", remark='" + remark + '\'' +
-                ", order=" + order +
                 ", deleted=" + deleted +
                 ", stock=" + stock +
-                '}';
+                "}\n";
     }
 }

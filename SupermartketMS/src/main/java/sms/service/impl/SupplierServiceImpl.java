@@ -54,6 +54,13 @@ public class SupplierServiceImpl implements SupplierService {
     }
 
     @Override
+    public List<Supplier> getSupplierByName(String name, Integer shopId) {
+        List<Supplier> suppliers = supplierMapper.selectByName(name, shopId);
+        LOGGER.debug("查询超市 id: " + shopId + " 中 供应商 名字: " + name);
+        return suppliers;
+    }
+
+    @Override
     public Supplier updateSupplier(Supplier supplier) {
         Integer id = supplierMapper.update(supplier);
         LOGGER.debug("更新供应商 id: " + id);

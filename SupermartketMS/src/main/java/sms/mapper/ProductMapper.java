@@ -29,11 +29,22 @@ public interface ProductMapper {
     /**
      * @Description: 根据商品名称查询商品
      * @param name 商品名称
+     * @param shopId 超市Id
      * @return: java.util.List<sms.pojo.Product>
      * @Author: Zirui Qiao
      * @Date: 2022/6/16 12:36
      */
-    List<Product> selectByName(String name);
+    List<Product> selectByName(String name, Integer shopId);
+
+    /**
+     * @Description: 根据商品类型查询
+     * @param type 商品类型
+     * @param shopId 超市Id
+     * @return: java.util.List<sms.pojo.Product>
+     * @Author: Zirui Qiao
+     * @Date: 2022/6/20 13:18
+     */
+    List<Product> selectByType(String type, Integer shopId);
 
     /**
      * @Description: 根据商品id查询商品
@@ -43,6 +54,15 @@ public interface ProductMapper {
      * @Date: 2022/6/16 12:38
      */
     Product selectById(int id);
+
+    /**
+     * @Description: 获取某超市中的所有商品类型
+     * @param shopId 超市id
+     * @return: java.util.List<java.lang.String>
+     * @Author: Zirui Qiao
+     * @Date: 2022/6/20 13:20
+     */
+    List<String> selectAllType(Integer shopId);
 
     /**
      * @Description: 添加商品返回id

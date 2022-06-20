@@ -46,6 +46,25 @@ public interface OrderService {
     List<Order> getOrdersBySupplier(Integer supplierId);
 
     /**
+     * @Description: 根据商品获取订单列表
+     * @param productId 商品id
+     * @return: java.util.List<sms.pojo.Order>
+     * @Author: Zirui Qiao
+     * @Date: 2022/6/20 14:13
+     */
+    List<Order> getOrderByProduct(Integer productId);
+
+    /**
+     * @Description: 根据商品名称查询 订单
+     * @param order 订单实体类
+     * @param shopId 超市id
+     * @return: java.util.List<sms.pojo.Order>
+     * @Author: Zirui Qiao
+     * @Date: 2022/6/20 16:03
+     */
+    List<Order> getOrderByOrder(Order order, Integer shopId);
+
+    /**
      * @Description: 根据订单id获取订单
      * @param orderId 订单id
      * @return: sms.pojo.Order
