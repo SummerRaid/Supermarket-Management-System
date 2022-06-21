@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>user</title>
+    <link rel="stylesheet" href="../../../static/css/normalPage.css">
+    <link rel="stylesheet" href="../../../static/css/page.css">
+    <link rel="stylesheet" href="../../../static/css/button.css">
+
+</head>
+<body class="main">
+<div class="header">
+    <div class="w1">
+        <div class="header-left">
+            <h1 class="noWarp">用户管理</h1>
+        </div>
+        <div class="header-right">
+            <div class="search-container">
+                <form action="" class="parent">
+                    <input type="text" class="search" placeholder="搜索">
+                    <input type="button" name="search" id="" class="btn">
+                </form>
+            </div>
+            <div class="add-btn">
+                <input type="button" id="addBtn" name="u-add" value="添加用户">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="list" id="user_div">
+    <div class="w2">
+        <table class="tbl">
+            <thead class="right-table-header">
+            <tr>
+                <th class="noWarp">用户名</th>
+                <th class="noWarp">真实姓名</th>
+                <th class="noWarp">角色</th>
+                <th class="noWarp">电话</th>
+                <th class="noWarp">地址</th>
+                <th class="noWarp">操作1</th>
+                <th class="noWarp">操作2</th>
+            </tr>
+            </thead>
+            <tbody class="right-table-body">
+            <tr>
+                <td>{{user.uname}}</td>
+                <td>{{user.tname}}</td>
+                <td>{{user.role.name}}</td>
+                <td>{{user.tel}}</td>
+                <td>{{user.address}}</td>
+                <td class="noWarp"><a href="">删除</a></td> <!-- 根据权限 按钮 valid/invalid -->
+                <td class="noWarp"><a href="">修改</a></td> <!-- 根据权限 按钮 valid/invalid -->
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>

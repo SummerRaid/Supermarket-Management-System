@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>product</title>
-    <link rel="stylesheet" href="../../static/css/product.css">
-    <link rel="stylesheet" href="../../static/css/page.css">
+    <link rel="stylesheet" href="../../../static/css/product.css">
+    <link rel="stylesheet" href="../../../static/css/page.css">
+    <link rel="stylesheet" href="../../../static/css/button.css">
+
 </head>
 <body class="main">
     <div class="header">
@@ -20,7 +22,7 @@
                     </form>
                 </div>
                 <div class="add-btn">
-                    <input type="button" class="p-add" name="p-add" value="添加商品">
+                    <input type="button" id="addBtn" name="p-add" value="添加商品">
                 </div>
             </div>
         </div>
@@ -49,7 +51,8 @@
                         <th class="noWarp">单价</th>
                         <th class="noWarp">商品支出</th>
 <!--                        <th>商品收入</th>-->
-                        <th class="noWarp">操作</th>
+                        <th class="noWarp">操作1</th>
+                        <th class="noWarp">操作2</th>
                     </tr>
                 </thead>
                 <tbody class="right-table-body">
@@ -68,6 +71,7 @@
                         </td>
                         <td>{{product.stock.xj}}</td>
                         <td class="noWarp"><a href="">删除</a></td>
+                        <td class="noWarp"><a href="">编辑</a></td>
                     </tr>
                 </tbody>
             </table>

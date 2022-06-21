@@ -1,16 +1,11 @@
-.left-table {
-    flex-grow: 1;
-    width: 12%;
-    margin-top: 12px;
-}
-.right-table {
+.tbl {
     flex-grow: 4;
     border-left: 2px solid black;
     margin-left: 10px;
     margin-top: 12px;
     line-height: 80px;
 }
-.right-table, .right-table-header tr, .right-table-header th, .right-table-body tr, .right-table-body td{
+.tbl, .tbl tr, .tbl th, .tbl tr, .tbl td{
     border: 1px solid gray;
     border-collapse: collapse;
     text-align: center;

@@ -1,5 +1,6 @@
 package sms.controller;
 
+import myssm.util.CalcUtil;
 import myssm.util.StringUtil;
 import sms.pojo.*;
 import sms.service.OrderService;
@@ -108,7 +109,6 @@ public class OrderController {
      * @Description: 添加订单
      * @param productId 商品id
      * @param supplierId 供应商id
-     * @param payMoney 支付金额
      * @param remark 备注
      * @param amount 商品数量
      * @param price 进货价格
@@ -118,7 +118,7 @@ public class OrderController {
      * @Date: 2022/6/20 16:50
      */
     public String addOrder(Integer productId, Integer supplierId,
-                           Double payMoney, String remark, Integer amount,
+                           String remark, Integer amount,
                            Double price, HttpSession session) {
         User user = (User) session.getAttribute("currUser");
         Order order = new Order();
@@ -128,6 +128,7 @@ public class OrderController {
         order.setProduct(new Product(productId));
         order.setSupplier(new Supplier(supplierId));
         order.setUser(user);
+        Double payMoney = CalcUtil.multiplyDoubles(price, amount);
         OrderDetail orderDetail = new OrderDetail(payMoney, 2, now, remark, amount, price);
         order.setOrderDetail(orderDetail);
         Product product = productService.getProduct(productId);
