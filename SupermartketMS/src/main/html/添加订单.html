@@ -1,0 +1,94 @@
+<!--
+* Copyright (c) 2008-2024: Shizhong Shang
+* Project: SummerRaid
+* @fileName: 添加订单
+* @Description: TODO 
+*
+* @author: SHIZHONG SHANG
+* @date: 2022/6/21 11:34	
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>添加订单</title>
+<!--    所有的商品信息，由使用者自主编辑-->
+    <link rel="stylesheet" href="button.css">
+</head>
+<body>
+<h2>添加供应商</h2>
+<div id="supplier">
+    <table id="supplierInfo">
+        <tr>
+            <th>订单id</th>
+            <th><input class="input" type="text" id="oId"/></th>
+        </tr>
+        <tr>
+            <th>商品名称</th>
+            <th><input class="input" type="text" id="pName"/></th>
+        </tr>
+        <tr>
+            <th>订单号</th>
+            <th><input class="input" type="text" id="orderNO"/></th>
+        </tr>
+        <tr>
+            <th>供应商名称</th>
+            <th><input class="input" type="text" id="sName"/></th>
+        </tr>
+        <tr>
+            <th>用户名</th>
+            <th><input class="input" type="text" id="uName"/></th>
+        </tr>
+        <tr>
+            <th>支付金额</th>
+            <th><input class="input" type="text" id="oPayMoney"/></th>
+        </tr>
+        <tr>
+            <th>支付日期</th>
+            <th><input class="input" type="text" id="oPayDate"/></th>
+        </tr>
+        <tr>
+            <th>支付状态</th>
+            <th><input class="input" type="text" id="oStatus"/></th>
+        </tr>
+        <tr>
+            <th>订单创建时间</th>
+            <th><input class="input" type="text" id="oCreateDate"/></th>
+        </tr>
+        <tr>
+            <th>订单备注</th>
+            <th><input class="input" type="text" id="oRemark"/></th>
+        </tr>
+        <tr>
+            <th>订单的商品数量</th>
+            <th><input class="input" type="text" id="oAmount"/></th>
+        </tr>
+        <tr>
+            <th>订单的商品价格</th>
+            <th><input class="input" type="text" id="oPrice"/></th>
+        </tr>
+        <tr>
+            <th><input type="button" id="oAddBtn" value="添加" onclick="alert('NEW ORDER ADDED!')"/></th>
+            <th><input type="button" id="oResetBtn" value="重置"/></th>
+        </tr>
+    </table>
+</div>
+</body>
+</html>
+<!--    private Integer id;       // 订单id @
+    private String productName; // 商品名称  @
+    private String orderNO;   // 订单号(全球唯一码)  @
+    private Supplier supplier;// 订单的供应商  @
+    private User user;        // 创建订单的用户  @
+    private Product product;  // 订单关联的商品
+    private OrderDetail orderDetail; // 订单详情
+
+    private Integer id;       // 订单详情id
+    private Double payMoney;  // 支付金额  @
+    private Date payDate;     // 支付日期   @
+    private Integer status;   // 支付状态 [1:支付，2:未支付]  @
+    private Date createDate;  // 订单创建时间  @
+    private String remark;    // 订单备注  @
+    private Integer amount;   // 订单的商品数量   @
+    private Double price;     // 订单的商品价格    @
+    -->
