@@ -3,6 +3,7 @@
     padding: 0;
 }
 .search-container {
+    flex: 1;
     height: 70px;
     width: 800px;
 }
@@ -43,7 +44,8 @@
     font-size: 25px;
 }
 .header-right {
-    flex-grow: 3;
+    display: flex;
+    flex-grow: 2;
     height: 10%;
     margin-left: 5%;
     margin-top: 60px;
@@ -59,17 +61,27 @@
     border-left: 2px solid black;
     margin-left: 10px;
     margin-top: 12px;
+    line-height: 80px;
 }
 .right-table, .right-table-header tr, .right-table-header th, .right-table-body tr, .right-table-body td{
     border: 1px solid gray;
     border-collapse: collapse;
     text-align: center;
-    font-size: 16px;
+    font-size: 22px;
     font-family: "黑体";
     font-weight: lighter;
     color: black;
 }
 .sale-price, .sale-amount {
     background-color:transparent;
+    font-size: 22px;
     border: none;
+}
+.add-btn{
+    flex: 1;
+    font-size: 30px;
+}
+.p-add {
+    width: 80px;
+    height: 40px;
 }

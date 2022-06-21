@@ -7,7 +7,7 @@ div {
     border: 0px solid orange;
     height: 8%;
     padding-left: 30%;
-    padding-right: 37%;
+    padding-right: 23%;
     background-image: -moz-linear-gradient(90deg, rgb(194, 184, 255), rgb(184, 255, 238));
     background-image: -webkit-linear-gradient(90deg, rgb(194, 184, 255), rgb(184, 255, 238));
     background-image: linear-gradient(90deg, rgb(194, 184, 255), rgb(184, 255, 238));
@@ -15,12 +15,12 @@ div {
 .w2 {
     display: flex;
     border: 0px solid orange;
-    margin-top: 15%;
-    margin-left: -90%;
-    padding-bottom: 50%;
+    margin-top: 0;
+    margin-left: 5px;
+    padding-bottom: 36%;
 }
 .main {
-    width: 150%;
+    width: 100%;
     background-image: -moz-linear-gradient(135deg, rgb(158, 195, 255), rgb(153, 235, 255));
     background-image: -webkit-linear-gradient(135deg, rgb(158, 195, 255), rgb(153, 235, 255));
     background-image: linear-gradient(135deg, rgb(158, 195, 255), rgb(153, 235, 255));
