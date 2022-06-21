@@ -5,6 +5,7 @@ import myssm.util.MapperUtil;
 import org.slf4j.LoggerFactory;
 import sms.mapper.OrderDetailMapper;
 import sms.mapper.OrderMapper;
+import sms.mapper.StockMapper;
 import sms.pojo.*;
 import sms.service.OrderService;
 import sms.service.ProductService;
@@ -28,6 +29,7 @@ public class OrderServiceImpl implements OrderService {
 
     private final OrderMapper orderMapper;
     private final OrderDetailMapper orderDetailMapper;
+    private final StockMapper stockMapper;
     private ShopService shopService;
 
     private static final org.slf4j.Logger LOGGER =
@@ -36,6 +38,7 @@ public class OrderServiceImpl implements OrderService {
     public OrderServiceImpl() {
         LOGGER.debug("OrderServiceImpl 初始化中。。。");
         orderMapper = MapperUtil.getProxy(OrderMapper.class);
+        stockMapper = MapperUtil.getProxy(StockMapper.class);
         orderDetailMapper = MapperUtil.getProxy(OrderDetailMapper.class);
         LOGGER.debug("OrderServiceImpl 初始化完成！");
     }
@@ -97,6 +100,11 @@ public class OrderServiceImpl implements OrderService {
         order.getOrderDetail().setPayDate(new Date());
         orderDetailMapper.update(order.getOrderDetail());
         LOGGER.debug("订单 id: " + orderId + "已付款");
+
+        Stock stock = order.getProduct().getStock();
+        stock.setStockAmount(stock.getStockAmount() + order.getOrderDetail().getAmount());
+        stockMapper.update(stock);
+        LOGGER.debug("商品库存 id: " + stock.getId() + " 更新");
 
         Shop shop = order.getSupplier().getShop();
         shopService.addOutcome(shop.getId(), order.getOrderDetail().getPayMoney());

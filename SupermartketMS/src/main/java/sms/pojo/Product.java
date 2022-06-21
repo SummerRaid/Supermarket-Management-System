@@ -28,6 +28,15 @@ public class Product {
 
     public Product(Integer id) {
         this.id = id;
+        this.deleted = 0;
+    }
+
+    public Product(String type, String name, String unit, String remark) {
+        this.type = type;
+        this.name = name;
+        this.unit = unit;
+        this.remark = remark;
+        this.deleted = 0;
     }
 
     public Integer getId() {

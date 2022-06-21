@@ -126,6 +126,7 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public List<Product> getAllProducts(Integer shopId) {
         List<Product> products = productMapper.selectAll(shopId, false);
+        products.forEach(p -> p.getStock().getXiaoji());
         LOGGER.debug("查询所有  不在  回收站里的商品, 超市id：" + shopId);
         return products;
     }
@@ -133,6 +134,7 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public List<Product> getAllDeleted(Integer shopId) {
         List<Product> products = productMapper.selectAll(shopId, true);
+        products.forEach(p -> p.getStock().getXiaoji());
         LOGGER.debug("查询所有  在  回收站里的商品, 超市id：" + shopId);
         return products;
     }
@@ -140,6 +142,7 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public Product getProduct(Integer productId) {
         Product product = productMapper.selectById(productId);
+        product.getStock().getXiaoji();
         LOGGER.debug("查询商品 id: " + productId);
         return product;
     }
@@ -147,6 +150,7 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public List<Product> getProductByName(String pName, Integer shopId) {
         List<Product> products = productMapper.selectByName(pName, shopId);
+        products.forEach(p -> p.getStock().getXiaoji());
         LOGGER.debug("查询商品 名称: " + pName);
         return products;
     }
@@ -154,6 +158,7 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public List<Product> getProductByType(String type, Integer shopId) {
         List<Product> products = productMapper.selectByType(type, shopId);
+        products.forEach(p -> p.getStock().getXiaoji());
         LOGGER.debug("查询商品 类型: " + type);
         return products;
     }

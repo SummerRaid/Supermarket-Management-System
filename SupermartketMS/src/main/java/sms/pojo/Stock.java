@@ -1,5 +1,7 @@
 package sms.pojo;
 
+import myssm.util.CalcUtil;
+
 /**
  * Copyright (c) 2008-2024: Zirui Qiao
  * Project: SupermartketMS
@@ -16,6 +18,7 @@ public class Stock {
     private Integer saleAmount;  // 销售数量
     private Shop shop;           // 对应的超市
     private Integer stockAmount; // 库存数量
+    private Double xiaoji;       // 小计
 
     public Stock() {
         saleAmount = 0;
@@ -24,6 +27,13 @@ public class Stock {
 
     public Stock(Integer id) {
         this.id = id;
+    }
+
+    public Stock(Double salePrice, Integer saleAmount, Shop shop, Integer stockAmount) {
+        this.salePrice = salePrice;
+        this.saleAmount = saleAmount;
+        this.shop = shop;
+        this.stockAmount = stockAmount;
     }
 
     public Integer getId() {
@@ -64,6 +74,11 @@ public class Stock {
 
     public void setStockAmount(Integer stockAmount) {
         this.stockAmount = stockAmount;
+    }
+
+    public Double getXiaoji() {
+        xiaoji = CalcUtil.multiplyDoubles(salePrice, saleAmount);
+        return xiaoji;
     }
 
     @Override
