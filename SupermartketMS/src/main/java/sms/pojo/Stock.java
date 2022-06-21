@@ -18,7 +18,7 @@ public class Stock {
     private Integer saleAmount;  // 销售数量
     private Shop shop;           // 对应的超市
     private Integer stockAmount; // 库存数量
-    private Double xiaoji;       // 小计
+    private Double xj;           // 小计
 
     public Stock() {
         saleAmount = 0;
@@ -76,9 +76,9 @@ public class Stock {
         this.stockAmount = stockAmount;
     }
 
-    public Double getXiaoji() {
-        xiaoji = CalcUtil.multiplyDoubles(salePrice, saleAmount);
-        return xiaoji;
+    public Double getXj() {
+        xj = CalcUtil.multiplyDoubles(salePrice, saleAmount);
+        return xj;
     }
 
     @Override

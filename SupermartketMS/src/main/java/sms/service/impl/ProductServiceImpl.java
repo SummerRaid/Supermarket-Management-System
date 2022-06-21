@@ -2,11 +2,8 @@ package sms.service.impl;
 
 import myssm.util.CalcUtil;
 import myssm.util.MapperUtil;
-import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import sms.mapper.OrderMapper;
 import sms.mapper.ProductMapper;
-import sms.mapper.ShopMapper;
 import sms.mapper.StockMapper;
 import sms.pojo.Order;
 import sms.pojo.Product;
@@ -126,7 +123,7 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public List<Product> getAllProducts(Integer shopId) {
         List<Product> products = productMapper.selectAll(shopId, false);
-        products.forEach(p -> p.getStock().getXiaoji());
+        products.forEach(p -> p.getStock().getXj());
         LOGGER.debug("查询所有  不在  回收站里的商品, 超市id：" + shopId);
         return products;
     }
@@ -134,7 +131,7 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public List<Product> getAllDeleted(Integer shopId) {
         List<Product> products = productMapper.selectAll(shopId, true);
-        products.forEach(p -> p.getStock().getXiaoji());
+        products.forEach(p -> p.getStock().getXj());
         LOGGER.debug("查询所有  在  回收站里的商品, 超市id：" + shopId);
         return products;
     }
@@ -142,7 +139,7 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public Product getProduct(Integer productId) {
         Product product = productMapper.selectById(productId);
-        product.getStock().getXiaoji();
+        product.getStock().getXj();
         LOGGER.debug("查询商品 id: " + productId);
         return product;
     }
@@ -150,7 +147,7 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public List<Product> getProductByName(String pName, Integer shopId) {
         List<Product> products = productMapper.selectByName(pName, shopId);
-        products.forEach(p -> p.getStock().getXiaoji());
+        products.forEach(p -> p.getStock().getXj());
         LOGGER.debug("查询商品 名称: " + pName);
         return products;
     }
@@ -158,7 +155,7 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public List<Product> getProductByType(String type, Integer shopId) {
         List<Product> products = productMapper.selectByType(type, shopId);
-        products.forEach(p -> p.getStock().getXiaoji());
+        products.forEach(p -> p.getStock().getXj());
         LOGGER.debug("查询商品 类型: " + type);
         return products;
     }

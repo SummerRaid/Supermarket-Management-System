@@ -1,0 +1,75 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+.search-container {
+    height: 70px;
+    width: 800px;
+}
+.parent {
+    position: relative;
+}
+.search {
+    width: 300px;
+    height: 40px;
+    border-radius: 18px;
+    outline: none;
+    border: 1px solid #ccc;
+    padding-left: 20px;
+    position: absolute;
+}
+.btn {
+    height: 35px;
+    width: 35px;
+    position: absolute;
+    background: url("../images/search.png") no-repeat 5px 5px;
+    background-size: 20px 20px;
+    top: 6px;
+    left: 285px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+.noWarp {
+    white-space: nowrap;
+}
+.header-left {
+    flex-grow: 1;
+    border: 0px solid black;
+    height: 10%;
+    width: 20%;
+    margin-left: 30px;
+    margin-top: 32px;
+    font-size: 25px;
+}
+.header-right {
+    flex-grow: 3;
+    height: 10%;
+    margin-left: 5%;
+    margin-top: 60px;
+    font-size: 25px;
+}
+.left-table {
+    flex-grow: 1;
+    width: 12%;
+    margin-top: 12px;
+}
+.right-table {
+    flex-grow: 4;
+    border-left: 2px solid black;
+    margin-left: 10px;
+    margin-top: 12px;
+}
+.right-table, .right-table-header tr, .right-table-header th, .right-table-body tr, .right-table-body td{
+    border: 1px solid gray;
+    border-collapse: collapse;
+    text-align: center;
+    font-size: 16px;
+    font-family: "黑体";
+    font-weight: lighter;
+    color: black;
+}
+.sale-price, .sale-amount {
+    background-color:transparent;
+    border: none;
+}
