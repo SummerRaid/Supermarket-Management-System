@@ -27,7 +27,7 @@ public interface RoleMapper {
     /**
      * @param id 角色id
      * @Description: 根据角色id查询角色
-     * @return: sms.pojo.Role
+     * @return: sms.pojo.Role 精确
      * @Author: Zirui Qiao
      * @Date: 2022/6/16 13:38
      */

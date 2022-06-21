@@ -30,7 +30,7 @@ public interface ProductMapper {
      * @Description: 根据商品名称查询商品
      * @param name 商品名称
      * @param shopId 超市Id
-     * @return: java.util.List<sms.pojo.Product>
+     * @return: java.util.List<sms.pojo.Product> 模糊
      * @Author: Zirui Qiao
      * @Date: 2022/6/16 12:36
      */
@@ -40,7 +40,7 @@ public interface ProductMapper {
      * @Description: 根据商品类型查询
      * @param type 商品类型
      * @param shopId 超市Id
-     * @return: java.util.List<sms.pojo.Product>
+     * @return: java.util.List<sms.pojo.Product> 精确
      * @Author: Zirui Qiao
      * @Date: 2022/6/20 13:18
      */
@@ -49,7 +49,7 @@ public interface ProductMapper {
     /**
      * @Description: 根据商品id查询商品
      * @param id 商品id
-     * @return: sms.pojo.Product
+     * @return: sms.pojo.Product 精确
      * @Author: Zirui Qiao
      * @Date: 2022/6/16 12:38
      */

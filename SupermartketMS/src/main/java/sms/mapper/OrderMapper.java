@@ -30,7 +30,7 @@ public interface OrderMapper {
     /**
      * @Description: 查询某用户创建的所有订单
      * @param userId 某用户id
-     * @return: java.util.List<sms.pojo.Order>
+ma     * @return: java.util.List<sms.pojo.Order> 精确
      * @Author: Zirui Qiao
      * @Date: 2022/6/16 12:29
      */
@@ -39,7 +39,7 @@ public interface OrderMapper {
     /**
      * @Description: 查询某商品的所有订单
      * @param productId 某商品id
-     * @return: java.util.List<sms.pojo.Order>
+     * @return: java.util.List<sms.pojo.Order> 精确
      * @Author: Zirui Qiao
      * @Date: 2022/6/16 12:30
      */
@@ -48,7 +48,7 @@ public interface OrderMapper {
     /**
      * @Description: 查询某供应商的所有订单
      * @param supplierId 某供应商id
-     * @return: java.util.List<sms.pojo.Order>
+     * @return: java.util.List<sms.pojo.Order> 精确
      * @Author: Zirui Qiao
      * @Date: 2022/6/17 18:32
      */
@@ -58,7 +58,7 @@ public interface OrderMapper {
      * @Description: 根据商品名称 和 超市id 查询 订单
      * @param order 订单实体类
      * @param shopId 超市订单
-     * @return: java.util.List<sms.pojo.Order>
+     * @return: java.util.List<sms.pojo.Order> 模糊
      * @Author: Zirui Qiao
      * @Date: 2022/6/20 16:02
      */
@@ -67,7 +67,7 @@ public interface OrderMapper {
     /**
      * @Description: 根据id查询订单
      * @param id 订单id
-     * @return: sms.pojo.Order
+     * @return: sms.pojo.Order 精确
      * @Author: Zirui Qiao
      * @Date: 2022/6/16 12:31
      */

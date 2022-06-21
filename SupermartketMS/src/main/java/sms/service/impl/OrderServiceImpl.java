@@ -11,6 +11,7 @@ import sms.service.ProductService;
 import sms.service.ShopService;
 import sms.service.SupplierService;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -93,6 +94,7 @@ public class OrderServiceImpl implements OrderService {
     public Order payOrder(Integer orderId) {
         Order order = getOrder(orderId);
         order.getOrderDetail().setStatus(1);
+        order.getOrderDetail().setPayDate(new Date());
         orderDetailMapper.update(order.getOrderDetail());
         LOGGER.debug("订单 id: " + orderId + "已付款");
 

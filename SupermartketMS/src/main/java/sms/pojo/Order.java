@@ -28,6 +28,10 @@ public class Order {
         this.id = id;
     }
 
+    public Order(String productName) {
+        this.productName = productName;
+    }
+
     public Integer getId() {
         return id;
     }

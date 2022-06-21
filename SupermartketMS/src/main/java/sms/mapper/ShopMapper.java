@@ -16,7 +16,7 @@ public interface ShopMapper {
     /**
      * @Description: 根据超市id查询
      * @param id 超市id
-     * @return: sms.pojo.Shop
+     * @return: sms.pojo.Shop 精确
      * @Author: Zirui Qiao
      * @Date: 2022/6/16 19:08
      */

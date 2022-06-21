@@ -28,7 +28,7 @@ public interface SupplierMapper {
      * @Description: 根据供应商名字 查询某超市 的供应商
      * @param name 供应商名字
      * @param shopId 超市id
-     * @return: java.util.List<sms.pojo.Supplier>
+     * @return: java.util.List<sms.pojo.Supplier> 模糊
      * @Author: Zirui Qiao
      * @Date: 2022/6/20 15:57
      */
@@ -37,7 +37,7 @@ public interface SupplierMapper {
     /**
      * @Description: 根据供应商id查询供应商
      * @param id 供应商id
-     * @return: sms.pojo.Supplier
+     * @return: sms.pojo.Supplier 精确
      * @Author: Zirui Qiao
      * @Date: 2022/6/16 13:44
      */

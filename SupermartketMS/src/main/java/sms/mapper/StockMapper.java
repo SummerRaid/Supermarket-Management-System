@@ -19,7 +19,7 @@ public interface StockMapper {
     /**
      * @Description:  根据id查询库存
      * @param id 商品id
-     * @return: sms.pojo.Stock
+     * @return: sms.pojo.Stock 精确
      * @Author: Zirui Qiao
      * @Date: 2022/6/17 18:54
      */

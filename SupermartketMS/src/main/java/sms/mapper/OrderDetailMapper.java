@@ -19,7 +19,7 @@ public interface OrderDetailMapper {
     /**
      * @Description: 根据id查询订单
      * @param id 订单id
-     * @return: sms.pojo.OrderDetail
+     * @return: sms.pojo.OrderDetail 精确
      * @Author: Zirui Qiao
      * @Date: 2022/6/16 12:31
      */

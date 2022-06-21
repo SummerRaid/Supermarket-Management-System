@@ -128,13 +128,7 @@ public class OrderController {
         order.setProduct(new Product(productId));
         order.setSupplier(new Supplier(supplierId));
         order.setUser(user);
-        OrderDetail orderDetail = new OrderDetail();
-        orderDetail.setPayMoney(payMoney);
-        orderDetail.setStatus(2);
-        orderDetail.setCreateDate(now);
-        orderDetail.setRemark(remark);
-        orderDetail.setAmount(amount);
-        orderDetail.setPrice(price);
+        OrderDetail orderDetail = new OrderDetail(payMoney, 2, now, remark, amount, price);
         order.setOrderDetail(orderDetail);
         Product product = productService.getProduct(productId);
         order.setProductName(product.getName());

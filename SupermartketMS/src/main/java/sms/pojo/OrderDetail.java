@@ -25,6 +25,15 @@ public class OrderDetail {
     public OrderDetail() {
     }
 
+    public OrderDetail(Double payMoney, Integer status, Date createDate, String remark, Integer amount, Double price) {
+        this.payMoney = payMoney;
+        this.status = status;
+        this.createDate = createDate;
+        this.remark = remark;
+        this.amount = amount;
+        this.price = price;
+    }
+
     public OrderDetail(Integer id) {
         this.id = id;
     }
