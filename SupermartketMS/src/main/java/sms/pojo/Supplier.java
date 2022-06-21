@@ -17,7 +17,7 @@ public class Supplier {
     private String contactPerson; // 供应商联系人
     private String contact;       // 供应商联系方式
     private String remark;        // 供应商备注
-    private Shop shop;        // 对应的超市
+    private Shop shop;            // 对应的超市
 
     public Supplier() {
     }

@@ -33,7 +33,7 @@ public class StockMapperTest extends TestCase {
         assertEquals(stock.getStockAmount(), stock1.getStockAmount());
         assertEquals(stock.getSaleAmount(), stock1.getSaleAmount());
         assertEquals(stock.getSalePrice(), stock1.getSalePrice());
-        assertEquals(stock.getXiaoji(), stock1.getXiaoji());
+        assertEquals(stock.getXj(), stock1.getXj());
         assertEquals(stock.getShop().getId(), stock1.getShop().getId());
         assertEquals(stock.getId(), stock1.getId());
     }
@@ -58,7 +58,7 @@ public class StockMapperTest extends TestCase {
         assertEquals(stock.getStockAmount(), stock1.getStockAmount());
         assertEquals(stock.getSaleAmount(), stock1.getSaleAmount());
         assertEquals(stock.getSalePrice(), stock1.getSalePrice());
-        assertEquals(stock.getXiaoji(), stock1.getXiaoji());
+        assertEquals(stock.getXj(), stock1.getXj());
         assertEquals(stock.getShop().getId(), stock1.getShop().getId());
         assertEquals(stock.getId(), stock1.getId());
     }
