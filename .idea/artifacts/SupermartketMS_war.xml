@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="SupermartketMS:war">
+    <output-path>$PROJECT_DIR$/SupermartketMS/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>SupermartketMS</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="SupermartketMS.war">
+      <element id="artifact" artifact-name="SupermartketMS:war exploded" />
+    </root>
+  </artifact>
+</component>

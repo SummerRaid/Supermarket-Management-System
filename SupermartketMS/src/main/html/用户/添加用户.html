@@ -14,6 +14,49 @@
     <title>Title</title>
 </head>
 <body>
-
+<h2>添加供应商</h2>
+<div id="supplier">
+    <table id="supplierInfo">
+        <tr>
+            <th>用户id</th>
+            <th><input class="input" type="text" id="uId"/></th>
+        </tr>
+        <tr>
+            <th>用户名</th>
+            <th><input class="input" type="text" id="uName"/></th>
+        </tr>
+        <tr>
+            <th>密码</th>
+            <th><input class="input" type="text" id="uPwd"/></th>
+        </tr>
+        <tr>
+            <th>真实姓名</th>
+            <th><input class="input" type="text" id="uTName"/></th>
+        </tr>
+        <tr>
+            <th>用户角色</th>
+            <th><input class="input" type="text" id="uRole"/></th>
+        </tr>
+        <tr>
+            <th>用户电话</th>
+            <th><input class="input" type="text" id="uPhone"/></th>
+        </tr>
+        <tr>
+            <th>用户地址</th>
+            <th><input class="input" type="text" id="uAddress"/></th>
+        </tr>
+        <tr>
+            <th><input type="button" id="uAddBtn" value="添加" onclick="alert('NEW USER ADDED!')"/></th>
+            <th><input type="button" id="uResetBtn" value="重置"/></th>
+        </tr>
+    </table>
+</div>
 </body>
 </html>
+<!--    private Integer id;    // 用户id
+    private Role role;     // 用户所属角色
+    private String uname;  // 用户 用户名
+    private String pwd;    // 用户 密码
+    private String tname;  // 用户 真实姓名
+    private String tel;    // 用户电话
+    private String address;   // 用户地址-->
