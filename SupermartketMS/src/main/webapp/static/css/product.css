@@ -1,34 +1,43 @@
 .left-table {
-    flex-grow: 1;
-    width: 12%;
-    margin-top: 12px;
+    -webkit-flex: none;
+    flex: none;
+    width: 150px;
+    margin: 12px 10px 0 0;
 }
 .right-table {
+    -webkit-flex: 1;
+    flex: 1;
     flex-grow: 4;
-    border-left: 2px solid black;
-    margin-left: 10px;
-    margin-top: 12px;
-    line-height: 80px;
+    margin:12px 0;
+    line-height: 40px;
+    background-color: #f5fffa;
 }
-.right-table, .right-table-header tr, .right-table-header th, .right-table-body tr, .right-table-body td{
+/*设置表格可横向滚动*/
+.div_right {
+    /*border:1px solid #1d1d1d;*/
+    width:50%;
+    /*overflow-x: scroll;*/
+}
+.right-table, .right-table>thead tr, .right-table>thead th, .right-table>tbody tr, .right-table>tbody td{
     border: 1px solid gray;
     border-collapse: collapse;
     text-align: center;
-    font-size: 20px;
+    word-wrap:break-word;
+    font-size: 16px;
     font-family: "黑体";
     font-weight: lighter;
     color: black;
+}
+td{
+    overflow: hidden;
 }
 .sale-price, .sale-amount {
     background-color:transparent;
     font-size: 20px;
     border: none;
 }
-.add-btn{
-    flex: 1;
-    font-size: 30px;
-}
-.p-add {
-    width: 80px;
-    height: 40px;
+/*设置表格列宽*/
+.right-table th, .right-table td {
+    max-width: 150px;
+    min-width: 150px;
 }

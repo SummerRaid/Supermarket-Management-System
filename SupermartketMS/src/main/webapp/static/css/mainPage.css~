@@ -1,0 +1,102 @@
+* {
+    /*-webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;*/
+}
+div {
+    /*position: relative;*/
+}
+body{
+    background: #076585;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #fff, #076585);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #fff, #076585); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+/*设置h1字体*/
+h1{
+    text-align: left;
+    font-size: 30px;
+    font-family: "黑体";
+    font-weight: lighter;
+    color: black;
+}
+/*设置 header 宽度，弹性*/
+.w1 {
+    width: 100%;
+    display: -webkit-flex;
+    display: flex;
+    padding: 8px;
+    margin: -8px;
+    background: #076585;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #fff, #076585);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #fff, #076585); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+/*设置 左header 宽度*/
+.header-left{
+    -webkit-flex: initial;
+            flex: initial;
+    width: 220px;
+    min-width: 200px;
+}
+/*设置 右header 弹性布局*/
+.header-right{
+    -webkit-flex: 1;
+            flex: 1;
+    margin-left: 0px;
+    display: -webkit-flex;
+    display: flex;
+}
+/*设置 右header子元素 全部弹性布局none*/
+.header-right>div{
+    padding-top: 15px;
+    -webkit-flex: none;
+            flex: none;
+}
+/*设置搜索框宽度*/
+.search-container{
+    width:330px;
+}
+/*设置按钮div的宽度（可删除）*/
+.add-btn{
+    width: 500px;
+    overflow: hidden;
+}
+/*设置w2弹性布局*/
+.w2{
+    width: 100%;
+    display: -webkit-flex;
+    display: flex;
+    border: 0px solid black;
+    margin: 5px auto;
+}
+/*设置表格字体 大小 颜色 居中 换行*/
+.tbl, .tbl tr, .tbl th, .tbl tr, .tbl td{
+    border: 1px solid gray;
+    border-collapse: collapse;
+    text-align: center;
+    word-wrap:break-word;
+    font-size: 16px;
+    font-family: "黑体";
+    font-weight: lighter;
+    color: black;
+}
+/*设置表头不滚动*/
+.tbl thead tr {
+    display:block;
+}
+/*隐藏滚动条*/
+.tbl tbody::-webkit-scrollbar {
+    display: none; /* Chrome Safari */
+}
+/*设置表格body可滚动，同时隐藏滚动条*/
+.tbl tbody {
+    display: block;
+    height: 300px;
+    overflow: auto;
+    scrollbar-width: none; /* firefox */
+    -ms-overflow-style: none; /* IE 10+ */
+}
+/*设置表格列宽*/
+.tbl th, .tbl td {
+    max-width:100px;
+    min-width: 100px;
+}
