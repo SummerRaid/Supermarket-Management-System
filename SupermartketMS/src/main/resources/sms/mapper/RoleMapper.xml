@@ -11,19 +11,31 @@
         <association property="shop" column="supermarket_id" select="sms.mapper.ShopMapper.selectById"/>
     </resultMap>
     <insert id="add" useGeneratedKeys="true" keyProperty="id">
-
+    insert into t_role(id,name,remark,power,supermarket_id)
+    values (0,#{name},#{remark},#{authority},#{shop.id})
     </insert>
     <update id="update" useGeneratedKeys="true" keyProperty="id">
+    update t_role set
+        id = #{id},
+        name = #{name},
+        remark = #{remark},
+        power = #{authority},
+        supermarket_id = #{shop.id}
 
+    where id = #{id}
     </update>
     <delete id="del">
-
+    delete from t_role where id = #{id}
     </delete>
 
     <select id="selectAll" resultMap="roleResultMap">
-
+    select distinct t_role.*
+    from t_role
+         join t_supermarket
+              on t_role.supermarket_id = #{id}
     </select>
     <select id="selectById" resultMap="roleResultMap">
-
+    select * from t_role
+    where id = #{id}
     </select>
 </mapper>

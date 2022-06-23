@@ -14,15 +14,26 @@
         <result property="price" column="price" javaType="Double"/>
     </resultMap>
     <insert id="add" useGeneratedKeys="true" keyProperty="id">
-
+    insert into t_orderDetail (orderId,payment_amount,payment_date,payment_status,order_creation_time,remark,number,price)
+    values (#{id},#{payMoney},#{payDate},#{status},#{createDate},#{remark},#{amount},#{price})
     </insert>
     <update id="update" useGeneratedKeys="true" keyProperty="id">
-
+    update t_orderDetail set
+        orderId = #{id},
+        payment_amount = #{payMoney},
+        payment_date = #{payDate},
+        payment_status = #{status},
+        order_creation_time = #{createDate},
+        remark = #{remark},
+        number = #{amount},
+        price = #{price}
+    where id = #{id}
     </update>
     <delete id="del">
-
+    delete from t_orderDetail where id = #{id}
     </delete>
     <select id="selectById" resultMap="orderDetailResultMap">
-
+    select * from t_orderDetail
+    where orderId = #{id}
     </select>
 </mapper>
