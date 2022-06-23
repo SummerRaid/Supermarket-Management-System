@@ -42,9 +42,9 @@ public class UserController {
             session.setAttribute("shopId", user.getRole().getShop().getId());
             session.setAttribute("authority", user.getRole().getAuthority());
             // 跳转到主界面
-            return "redirect:mainPage.do";
+            return "redirect:index";
         }
-        return "user/login";
+        return "login";
     }
 
     /**

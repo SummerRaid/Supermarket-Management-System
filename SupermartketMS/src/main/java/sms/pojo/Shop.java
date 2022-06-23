@@ -56,4 +56,13 @@ public class Shop {
     public void setId(Integer id) {
         this.id = id;
     }
+
+    @Override
+    public String toString() {
+        return "Shop{" +
+                "id=" + id +
+                ", income=" + income +
+                ", outcome=" + outcome +
+                '}';
+    }
 }

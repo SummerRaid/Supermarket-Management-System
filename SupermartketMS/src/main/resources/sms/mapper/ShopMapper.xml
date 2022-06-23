@@ -14,7 +14,9 @@
     <update id="updateOutcome">
 
     </update>
-    <select id="selectById" resultType="sms.pojo.Shop">
-
+    <select id="selectById" resultMap="shopResultMap">
+        select *
+        from t_supermarket
+        where id = #{id};
     </select>
 </mapper>

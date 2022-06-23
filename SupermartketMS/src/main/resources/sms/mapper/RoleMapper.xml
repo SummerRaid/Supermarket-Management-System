@@ -24,6 +24,8 @@
 
     </select>
     <select id="selectById" resultMap="roleResultMap">
-
+        select *
+        from t_role
+        where id = #{id};
     </select>
 </mapper>

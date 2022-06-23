@@ -87,7 +87,8 @@ public class UserMapperTest extends TestCase {
     public void testSelectByName() {
         User user = new User(new Role(1), "测试名称", "测试密码", "测试姓名", "测试电话", "地址");
         Integer id = userMapper.add(user);
-        User user1 = userMapper.selectByName("测试名称");
+        User user1 = userMapper.selectByName("lina");
+        System.out.println("user1 = " + user1);
         User user2 = userMapper.selectById(id);
         assertEquals(user2.getUname(), user1.getUname());
         assertEquals(user2.getRole().getId(), user1.getRole().getId());

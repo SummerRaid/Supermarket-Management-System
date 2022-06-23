@@ -5,7 +5,7 @@
 <mapper namespace="sms.mapper.UserMapper">
     <resultMap id="userResultMap" type="user">
         <id property="id" column="id" javaType="Integer"/>
-        <result property="uname" column="user_name" javaType="String"/>
+        <result property="uname" column="user_name" javaType="String" jdbcType="VARCHAR"/>
         <result property="pwd" column="pwd" javaType="String"/>
         <result property="tname" column="real_name" javaType="String"/>
         <result property="tel" column="phone_number" javaType="String"/>
@@ -32,6 +32,8 @@
 
     </select>
     <select id="selectByName" resultMap="userResultMap">
-
+        select *
+        from t_user
+        where user_name = #{uname};
     </select>
 </mapper>
