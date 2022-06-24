@@ -14,28 +14,50 @@
 <!--        <association property="order" column="id" select="sms.mapper.OrderMapper.selectByProduct"/>-->
     </resultMap>
     <insert id="add" useGeneratedKeys="true" keyProperty="id">
-
+    insert into t_goods (id,type,goods_name,unit,remark,deleted)
+    values (0,#{type},#{name},#{unit},#{remark},#{deleted})
     </insert>
     <update id="update" useGeneratedKeys="true" keyProperty="id">
-
+    update t_goods set
+        id = #{id},
+        type = #{type},
+        goods_name = #{name},
+        unit = #{unit},
+        remark = #{remark},
+        deleted = #{deleted}
+    where id = #{id}
     </update>
     <delete id="del">
-
+    delete from t_goods where id = #{id}
     </delete>
 
     <select id="selectAll" resultMap="productResultMap">
+    select distinct t_goods.*
+    from t_goods
+    join t_stock
+    on t_stock.supermarket_id = #{param1} and t_goods.deleted = #{param2}
 
     </select>
     <select id="selectByName" resultMap="productResultMap">
-
+    select distinct t_goods.*
+    from t_goods
+    join t_stock
+    on t_stock.supermarket_id = #{param2} and t_goods.goods_name like #{'%\param1%'}
     </select>
     <select id="selectById" resultMap="productResultMap">
-
+    select * from t_goods
+    where id = #{id}
     </select>
     <select id="selectByType" resultMap="productResultMap">
-
+    select distinct t_goods.*
+    from t_goods
+    join t_stock
+    on t_stock.supermarket_id = #{param2} and t_goods.type = #{param1}
     </select>
     <select id="selectAllType" resultType="java.lang.String">
-
+    select distinct t_goods.type
+    from t_goods
+    join t_stock
+    on t_stock.supermarket_id = #{id}
     </select>
 </mapper>

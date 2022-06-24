@@ -13,22 +13,38 @@
         <association property="shop" column="supermarket_id" select="sms.mapper.ShopMapper.selectById"/>
     </resultMap>
     <insert id="add" useGeneratedKeys="true" keyProperty="id">
-
+    insert into t_supplier (id,address,manufacturer,contact_name,contact_number,remark,supermarket_id)
+    values (0,#{address},#{name},#{contactPerson},#{contact},#{remark},#{shop.id})
     </insert>
     <update id="update" useGeneratedKeys="true" keyProperty="id">
-
+    update t_supplier set
+        id = #{id},
+        address = #{address},
+        manufacturer = #{name},
+        contact_name = #{contactPerson},
+        contact_number = #{contact},
+        remark = #{remark},
+        supermarket_id = #{shop.id}
+    where id = #{id}
     </update>
     <delete id="del">
-
+    delete from t_supplier where id = #{id}
     </delete>
 
     <select id="selectAll" resultMap="supplierResultMap">
-
+    select distinct t_supplier.*
+    from t_supplier
+         join t_supermarket
+              on t_supplier.supermarket_id = #{id}
     </select>
     <select id="selectById" resultMap="supplierResultMap">
-
+    select * from t_supplier
+    where id = #{id}
     </select>
     <select id="selectByName" resultMap="supplierResultMap">
-
+    select distinct t_supplier.*
+    from t_supplier
+         join t_supermarket
+              on t_supplier.supermarket_id = #{param2} and t_supplier.manufacturer like #{'%\param1%'}
     </select>
 </mapper>
