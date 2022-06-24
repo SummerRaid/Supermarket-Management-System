@@ -9,14 +9,17 @@
         <result property="outcome" column="total_expenses" javaType="Double"/>
     </resultMap>
     <update id="updateIncome">
-
+     update t_supermarket set
+        total_revenue = #{param2}
+    where id=#{param1}
     </update>
     <update id="updateOutcome">
-
+     update t_user set
+        total_expenses = #{param2}
+    where id=#{param1}
     </update>
-    <select id="selectById" resultMap="shopResultMap">
-        select *
-        from t_supermarket
-        where id = #{id};
+    <select id="selectById" resultType="sms.pojo.Shop">
+        select * from t_supermarket
+        where id = #{id}
     </select>
 </mapper>

@@ -11,15 +11,23 @@
         <association property="shop" column="supermarket_id" select="sms.mapper.ShopMapper.selectById"/>
     </resultMap>
     <insert id="add" useGeneratedKeys="true" keyProperty="id">
-
+    insert into t_stock (goods_id,stock_number,supermarket_id,sales_numbers,selling_price)
+    values (#{id},#{stockAmount},#{shop.id},#{saleAmount},#{salePrice})
     </insert>
     <update id="update" useGeneratedKeys="true" keyProperty="id">
-
+    update t_stock set
+    goods_id = #{id},
+    stock_number = #{stockAmount},
+    supermarket_id = #{shop.id},
+    sales_numbers = #{saleAmount},
+    selling_price = #{salePrice}
+    where goods_id = #{id}
     </update>
     <delete id="del">
-
+    delete from t_stock where goods_id = #{id}
     </delete>
     <select id="selectById" resultType="sms.pojo.Stock">
-
+    select * from t_stock
+    where goods_id = #{id}
     </select>
 </mapper>

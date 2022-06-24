@@ -13,27 +13,43 @@
         <association property="role" column="role_id" select="sms.mapper.RoleMapper.selectById"/>
     </resultMap>
     <insert id="add" useGeneratedKeys="true" keyProperty="id">
-
+    insert into t_user (id,role_id,user_name,pwd,real_name,phone_number,address)
+    values (0,#{role.id},#{uname},#{pwd},#{tname},#{tel},#{address})
     </insert>
     <update id="update" useGeneratedKeys="true" keyProperty="id">
-
+    update t_user set
+        id = #{id},
+        role_id = #{role.id},
+        user_name = #{uname},
+        pwd = #{pwd},
+        real_name = #{tname},
+        phone_number = #{tel},
+        address = #{address}
+    where id = #{id}
     </update>
     <delete id="del">
-
+    delete from t_user where id = #{id}
     </delete>
 
     <select id="selectById" resultMap="userResultMap">
-
+    select * from t_user
+    where id = #{id}
     </select>
     <select id="selectAll" resultMap="userResultMap">
+    select distinct t_user.*
+    from t_user
+    join t_role
+    on t_user.role_id = t_role.id
+    join t_supermarket
+    on t_role.supermarket_id = #{shopId}
 
     </select>
     <select id="selectByRole" resultMap="userResultMap">
-
+    select * from t_user
+    where role_id = #{roleId}
     </select>
     <select id="selectByName" resultMap="userResultMap">
-        select *
-        from t_user
-        where user_name = #{uname};
+    select * from t_user
+    where user_name = #{uname}
     </select>
 </mapper>
