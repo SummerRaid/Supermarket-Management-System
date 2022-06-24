@@ -26,7 +26,7 @@
     <delete id="del">
     delete from t_stock where goods_id = #{id}
     </delete>
-    <select id="selectById" resultType="sms.pojo.Stock">
+    <select id="selectById" resultMap="stockResultMap">
     select * from t_stock
     where goods_id = #{id}
     </select>

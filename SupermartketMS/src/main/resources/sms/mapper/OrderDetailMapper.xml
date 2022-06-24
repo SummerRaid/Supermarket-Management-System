@@ -13,11 +13,11 @@
         <result property="amount" column="number" javaType="Integer"/>
         <result property="price" column="price" javaType="Double"/>
     </resultMap>
-    <insert id="add" useGeneratedKeys="true" keyProperty="id">
+    <insert id="add" useGeneratedKeys="true" keyProperty="id" parameterType="orderDetail">
     insert into t_orderDetail (orderId,payment_amount,payment_date,payment_status,order_creation_time,remark,number,price)
     values (#{id},#{payMoney},#{payDate},#{status},#{createDate},#{remark},#{amount},#{price})
     </insert>
-    <update id="update" useGeneratedKeys="true" keyProperty="id">
+    <update id="update" useGeneratedKeys="true" keyProperty="id" parameterType="orderDetail">
     update t_orderDetail set
         orderId = #{id},
         payment_amount = #{payMoney},
@@ -27,10 +27,10 @@
         remark = #{remark},
         number = #{amount},
         price = #{price}
-    where id = #{id}
+    where orderId = #{id}
     </update>
     <delete id="del">
-    delete from t_orderDetail where id = #{id}
+    delete from t_orderDetail where orderId = #{id}
     </delete>
     <select id="selectById" resultMap="orderDetailResultMap">
     select * from t_orderDetail

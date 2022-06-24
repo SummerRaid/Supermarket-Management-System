@@ -29,6 +29,10 @@ public class UserServiceImpl implements UserService {
     private static final org.slf4j.Logger LOGGER =
             LoggerFactory.getLogger(UserServiceImpl.class);
 
+    public void setOrderService(OrderService orderService) {
+        this.orderService = orderService;
+    }
+
     public UserServiceImpl() {
         userMapper = MapperUtil.getProxy(UserMapper.class);
     }
@@ -87,7 +91,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public User updateUser(User user) {
         Integer id = userMapper.update(user);
-        User result = userMapper.selectById(id);
+        User result = userMapper.selectById(user.getId());
         LOGGER.debug("更新用户 id: " + id + " 用户名： " + result.getUname());
         return result;
     }

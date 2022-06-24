@@ -11,9 +11,11 @@ import java.util.List;
 public class OrderMapperTest extends TestCase {
 
     private OrderMapper orderMapper;
+    private OrderDetailMapper orderDetailMapper;
     public void setUp() throws Exception {
         super.setUp();
         orderMapper = MapperUtil.getProxy(OrderMapper.class);
+        orderDetailMapper = MapperUtil.getProxy(OrderDetailMapper.class);
     }
 
     public void tearDown() throws Exception {
@@ -68,8 +70,9 @@ public class OrderMapperTest extends TestCase {
     }
 
     public void testAdd() {
-        Integer id = orderMapper.add(new Order("垃圾"));
-        Order order = orderMapper.selectById(id);
+        Order order1 = new Order("垃圾");
+        Integer id = orderMapper.add(order1);
+        Order order = orderMapper.selectById(order1.getId());
         System.out.println("order = " + order);
         assertEquals("垃圾", order.getProductName());
     }
@@ -77,6 +80,7 @@ public class OrderMapperTest extends TestCase {
     public void testDel() {
         Order order = orderMapper.selectById(1);
         System.out.println("before delete: order = " + order);
+        orderDetailMapper.del(1);
         orderMapper.del(1);
         order = orderMapper.selectById(1);
         System.out.println("after delete: order = " + order);

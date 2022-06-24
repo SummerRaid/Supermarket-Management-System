@@ -14,11 +14,11 @@
     where id=#{param1}
     </update>
     <update id="updateOutcome">
-     update t_user set
+     update t_supermarket set
         total_expenses = #{param2}
     where id=#{param1}
     </update>
-    <select id="selectById" resultType="sms.pojo.Shop">
+    <select id="selectById" resultMap="shopResultMap">
         select * from t_supermarket
         where id = #{id}
     </select>

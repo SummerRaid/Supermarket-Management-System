@@ -32,6 +32,10 @@ public class OrderServiceImpl implements OrderService {
     private final StockMapper stockMapper;
     private ShopService shopService;
 
+    public void setShopService(ShopService shopService) {
+        this.shopService = shopService;
+    }
+
     private static final org.slf4j.Logger LOGGER =
             LoggerFactory.getLogger(OrderServiceImpl.class);
 
@@ -89,8 +93,8 @@ public class OrderServiceImpl implements OrderService {
     public Order addOrder(Order order) {
         Integer id = orderMapper.add(order);
         orderDetailMapper.add(order.getOrderDetail());
-        LOGGER.debug("添加新订单，订单号：" + id);
-        return getOrder(id);
+        LOGGER.debug("添加新订单，订单号：" + order.getId());
+        return getOrder(order.getId());
     }
 
     @Override
@@ -117,8 +121,8 @@ public class OrderServiceImpl implements OrderService {
         Order order = getOrder(orderId);
         if(order.getOrderDetail().getStatus() == 2) {
             LOGGER.debug("订单未付款，可以撤销");
-            orderMapper.del(orderId);
             orderDetailMapper.del(orderId);
+            orderMapper.del(orderId);
             LOGGER.debug("订单撤销成功 id: " + orderId);
         } else {
             LOGGER.debug("订单已经付款，不可以撤销");

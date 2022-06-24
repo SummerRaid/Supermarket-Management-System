@@ -12,10 +12,12 @@ import java.util.List;
 public class ProductMapperTest extends TestCase {
 
     private ProductMapper productMapper;
+    private StockMapper stockMapper;
 
     public void setUp() throws Exception {
         super.setUp();
         productMapper = MapperUtil.getProxy(ProductMapper.class);
+        stockMapper = MapperUtil.getProxy(StockMapper.class);
     }
 
     public void tearDown() throws Exception {
@@ -49,7 +51,7 @@ public class ProductMapperTest extends TestCase {
         Stock stock = new Stock(100.0, 100, new Shop(1), 200);
         product.setStock(stock);
         Integer add = productMapper.add(product);
-        Product product1 = productMapper.selectById(add);
+        Product product1 = productMapper.selectById(product.getId());
         System.out.println("product1 = " + product1);
         assertEquals(product.getName(), product1.getName());
         assertEquals(product.getUnit(), product1.getUnit());
@@ -92,6 +94,7 @@ public class ProductMapperTest extends TestCase {
     public void testDel() {
         Product product = productMapper.selectById(1);
         System.out.println("before deleted: product = " + product);
+        stockMapper.del(1);
         productMapper.del(1);
         product = productMapper.selectById(1);
         System.out.println("after deleted: product = " + product);

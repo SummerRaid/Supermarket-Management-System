@@ -78,4 +78,13 @@ public interface UserMapper {
      * @Date: 2022/6/16 18:42
      */
     Integer update(User user);
+
+    /**
+     * @Description: 根据roleId删除user
+     * @param roleId roleID
+     * @return: void
+     * @Author: Zirui Qiao
+     * @Date: 2022/6/24 16:02
+     */
+    void delByRoleId(Integer roleId);
 }

@@ -45,6 +45,6 @@
     select distinct t_supplier.*
     from t_supplier
          join t_supermarket
-              on t_supplier.supermarket_id = #{param2} and t_supplier.manufacturer like #{'%\param1%'}
+              on t_supplier.supermarket_id = #{param2} and t_supplier.manufacturer like #{param1}
     </select>
 </mapper>

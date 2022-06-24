@@ -47,7 +47,7 @@ public class UserMapperTest extends TestCase {
     public void testAdd() {
         User user = new User(new Role(1), "测试名称", "测试密码", "测试姓名", "测试电话", "地址");
         Integer id = userMapper.add(user);
-        User user1 = userMapper.selectById(id);
+        User user1 = userMapper.selectById(user.getId());
         System.out.println("user = " + user1);
         assertEquals(user.getUname(), user1.getUname());
         assertEquals(user.getRole().getId(), user1.getRole().getId());
@@ -55,7 +55,7 @@ public class UserMapperTest extends TestCase {
         assertEquals(user.getTname(), user1.getTname());
         assertEquals(user.getAddress(), user1.getAddress());
         assertEquals(user.getTel(), user1.getTel());
-        assertEquals(id, user1.getId());
+        assertEquals(user.getId(), user1.getId());
 
     }
 
@@ -87,9 +87,9 @@ public class UserMapperTest extends TestCase {
     public void testSelectByName() {
         User user = new User(new Role(1), "测试名称", "测试密码", "测试姓名", "测试电话", "地址");
         Integer id = userMapper.add(user);
-        User user1 = userMapper.selectByName("lina");
+        User user1 = userMapper.selectByName("测试名称");
         System.out.println("user1 = " + user1);
-        User user2 = userMapper.selectById(id);
+        User user2 = userMapper.selectById(user.getId());
         assertEquals(user2.getUname(), user1.getUname());
         assertEquals(user2.getRole().getId(), user1.getRole().getId());
         assertEquals(user2.getPwd(), user1.getPwd());

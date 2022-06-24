@@ -3,16 +3,19 @@ package sms.mapper;
 import junit.framework.TestCase;
 import myssm.basedao.MybatisSingleton;
 import myssm.util.MapperUtil;
+import sms.pojo.Product;
 import sms.pojo.Shop;
 import sms.pojo.Stock;
 
 public class StockMapperTest extends TestCase {
 
     private StockMapper stockMapper;
+    private ProductMapper productMapper;
 
     public void setUp() throws Exception {
         super.setUp();
         stockMapper = MapperUtil.getProxy(StockMapper.class);
+        productMapper = MapperUtil.getProxy(ProductMapper.class);
     }
 
     public void tearDown() throws Exception {
@@ -27,9 +30,13 @@ public class StockMapperTest extends TestCase {
     }
 
     public void testAdd() {
+        Product product = new Product("类型", "商品名称", "单位", "备注");
         Stock stock = new Stock(100.0, 100, new Shop(1), 200);
+        product.setStock(stock);
+        productMapper.add(product);
+        stock.setId(product.getId());
         Integer id = stockMapper.add(stock);
-        Stock stock1 = stockMapper.selectById(id);
+        Stock stock1 = stockMapper.selectById(stock.getId());
         assertEquals(stock.getStockAmount(), stock1.getStockAmount());
         assertEquals(stock.getSaleAmount(), stock1.getSaleAmount());
         assertEquals(stock.getSalePrice(), stock1.getSalePrice());
