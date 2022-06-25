@@ -1,0 +1,110 @@
+<!--
+* Copyright (c) 2008-2024: Shizhong Shang
+* Project: SummerRaid
+* @fileName: 添加商品
+* @Description: TODO 
+*
+* @author: SHIZHONG SHANG
+* @date: 2022/6/21 11:16	
+-->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>添加商品</title>
+    <script type="text/javascript" src="../../../static/js/product.js"></script>
+<!--    所有的商品信息，由使用者自主编辑-->
+</head>
+<!--<script>-->
+<!--    function checkEmpty(){-->
+
+<!--    var text=document.getElementById("pId"&&"pType");-->
+<!--    if(text.value===""){-->
+<!--        alert("不能为空哦！");-->
+<!--    }else{-->
+<!--        alert("新产品添加成功!");-->
+<!--    }-->
+<!--}</script>-->
+<body>
+<h2>添加商品</h2>
+<!--<div id="product">-->
+<!--    <table id="productInfo">-->
+<!--        <tr>-->
+<!--            <th>商品名称</th>-->
+<!--            <th><input class="input" type="text" id="pName"/></th>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--            <th>商品类型</th>-->
+<!--            <th><input class="input" type="text" id="pType"/></th>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--            <th>计算商品的单位</th>-->
+<!--            <th><input class="input" type="text" id="pUnit"/></th>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--            <th>商品库存</th>-->
+<!--            <th><input class="input" type="text" id="pStock"/></th>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--            <th>商品备注</th>-->
+<!--            <th><input class="input" type="text" id="pRemark"/></th>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--            <th><input type="button" id="pAddBtn" value="添加" onclick="checkEmpty()"></th>-->
+<!--            <th><input type="button" id="pResetBtn" value="重置"/></th>-->
+<!--        </tr>-->
+<!--    </table>-->
+<!--</div>-->
+<div class="addP">
+    <h1>添加商品</h1>
+    <form th:action="@{/product.do}" method="post" onsubmit="check();">
+        <input type="hidden" name="operate" value="productAddPage"/>
+        <div class="pFrom">
+            <div>
+                <lable>商品名称：</lable>
+                <input id="pName" type="text" placeholder="请输入商品名称" name="productName">
+            </div>
+            <span id="noName" class="errorMsg">未输入商品名</span>
+        </div>
+        <div class="pForm">
+            <div>
+                <label>商品类型：</label>
+                <input id="pType" type="text" placeholder="请输入商品类型" name="productType">
+            </div>
+            <span id="noType" class="errorMsg">未输入商品类型</span>
+        </div>
+        <div class="pFrom">
+            <div>
+                <label>计算商品的单位</label>
+                <input id="pUnit" type="text" placeholder="请输入商品单位" name="productUnit">
+            </div>
+            <span id="noUnit" class="errorMsg">未输入商品单位</span>
+        </div>
+        <div class="pForm">
+            <div>
+                <lable>商品库存：</lable>
+                <input id="pStock" type="text" placeholder="请输入商品库存" name="productStock">
+            </div>
+            <span id="noStock" class="errorMsg">未输入商品库存</span>
+        </div>
+        <div class="pForm">
+            <div>
+                <label>商品备注：</label>
+                <input id="pRemark" type="text" placeholder="请输入商品备注" name="productRemark">
+            </div>
+            <span id="noRemark" class="errorMsg">未输入备注</span>
+        </div>
+        <br />
+        <input type="submit" value="添加" id="addBtn" />
+        <input type="button" id="pResetBtn" value="重置"/>
+    </form>
+</div>
+</body>
+</html>
+<!--    private Integer id;    // 商品id
+    private String type;  // 商品类型
+    private String name;   // 商品名称
+    private String unit;   // 计算商品的单位
+    private String remark; // 备注
+    private Integer deleted;  // 是否被删除
+    private Stock stock;      // 对应超市库存-->
