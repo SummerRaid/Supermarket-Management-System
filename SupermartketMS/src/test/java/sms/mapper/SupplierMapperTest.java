@@ -3,6 +3,7 @@ package sms.mapper;
 import junit.framework.TestCase;
 import myssm.basedao.MybatisSingleton;
 import myssm.util.MapperUtil;
+import sms.pojo.Order;
 import sms.pojo.Shop;
 import sms.pojo.Supplier;
 
@@ -11,10 +12,14 @@ import java.util.List;
 public class SupplierMapperTest extends TestCase {
 
     private SupplierMapper supplierMapper;
+    private OrderMapper orderMapper;
+    private OrderDetailMapper orderDetailMapper;
 
     public void setUp() throws Exception {
         super.setUp();
         supplierMapper = MapperUtil.getProxy(SupplierMapper.class);
+        orderMapper = MapperUtil.getProxy(OrderMapper.class);
+        orderDetailMapper = MapperUtil.getProxy(OrderDetailMapper.class);
     }
 
     public void tearDown() throws Exception {
@@ -39,7 +44,7 @@ public class SupplierMapperTest extends TestCase {
     public void testAdd() {
         Supplier supplier = new Supplier("地址", "名字", "联系人", "联系电话", "备注", new Shop(1));
         Integer id = supplierMapper.add(supplier);
-        Supplier supplier1 = supplierMapper.selectById(id);
+        Supplier supplier1 = supplierMapper.selectById(supplier.getId());
         System.out.println("supplier1 = " + supplier1);
         assertEquals("地址", supplier1.getAddress());
         assertEquals("名字", supplier1.getName());
@@ -52,6 +57,12 @@ public class SupplierMapperTest extends TestCase {
     public void testDel() {
         Supplier supplier = supplierMapper.selectById(1);
         System.out.println("before deleted: supplier = " + supplier);
+        List<Order> orders = orderMapper.selectBySupplier(1);
+        orders.forEach(o -> {
+            System.out.println(o);
+            orderDetailMapper.del(o.getId());
+            orderMapper.del(o.getId());
+        });
         supplierMapper.del(1);
         supplier = supplierMapper.selectById(1);
         System.out.println("after deleted: supplier = " + supplier);

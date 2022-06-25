@@ -28,6 +28,10 @@ public class SupplierServiceImpl implements SupplierService {
     private static final org.slf4j.Logger LOGGER =
             LoggerFactory.getLogger(SupplierServiceImpl.class);
 
+    public void setOrderService(OrderService orderService) {
+        this.orderService = orderService;
+    }
+
     public SupplierServiceImpl() {
         supplierMapper = MapperUtil.getProxy(SupplierMapper.class);
     }
@@ -36,7 +40,7 @@ public class SupplierServiceImpl implements SupplierService {
     public Supplier addSupplier(Supplier supplier) {
         Integer id = supplierMapper.add(supplier);
         LOGGER.debug("添加供应商 id: " + supplier.getId() + " 厂商: " + supplier.getName());
-        return getSupplier(id);
+        return getSupplier(supplier.getId());
     }
 
     @Override
@@ -63,8 +67,8 @@ public class SupplierServiceImpl implements SupplierService {
     @Override
     public Supplier updateSupplier(Supplier supplier) {
         Integer id = supplierMapper.update(supplier);
-        LOGGER.debug("更新供应商 id: " + id);
-        return getSupplier(id);
+        LOGGER.debug("更新供应商 id: " + supplier.getId());
+        return getSupplier(supplier.getId());
     }
 
     @Override

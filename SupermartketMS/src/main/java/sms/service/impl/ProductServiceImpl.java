@@ -32,6 +32,14 @@ public class ProductServiceImpl implements ProductService {
     private static final org.slf4j.Logger LOGGER =
             LoggerFactory.getLogger(ProductServiceImpl.class);
 
+    public void setOrderService(OrderService orderService) {
+        this.orderService = orderService;
+    }
+
+    public void setShopService(ShopService shopService) {
+        this.shopService = shopService;
+    }
+
     public ProductServiceImpl() {
         LOGGER.debug("ProductServiceImpl 初始化中。。。");
         productMapper = MapperUtil.getProxy(ProductMapper.class);

@@ -28,6 +28,10 @@ public class RoleServiceImpl implements RoleService {
     private static final org.slf4j.Logger LOGGER =
             LoggerFactory.getLogger(RoleServiceImpl.class);
 
+    public void setUserService(UserService userService) {
+        this.userService = userService;
+    }
+
     public RoleServiceImpl() {
         roleMapper = MapperUtil.getProxy(RoleMapper.class);
     }
@@ -49,8 +53,8 @@ public class RoleServiceImpl implements RoleService {
     @Override
     public Role addRole(Role role) {
         Integer id = roleMapper.add(role);
-        LOGGER.debug("添加角色 id: " + id + " 角色名称: " + role.getName());
-        return getRole(id);
+        LOGGER.debug("添加角色 id: " + role.getId() + " 角色名称: " + role.getName());
+        return getRole(role.getId());
     }
 
     @Override
