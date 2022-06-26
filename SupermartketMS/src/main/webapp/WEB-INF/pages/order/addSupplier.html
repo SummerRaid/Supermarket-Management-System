@@ -57,13 +57,6 @@
     <h1>添加供应商</h1>
     <form th:action="@{/supplier.do}" method="post" onsubmit="check();">
         <input type="hidden" name="operate" value="supplierAddPage"/>
-        <div class="sFrom">
-            <div>
-                <lable>供应商id：</lable>
-                <input id="sId" type="text" placeholder="请输入供应商id" name="supplierName">
-            </div>
-            <span id="noID" class="errorMsg">未输入供应商id</span>
-        </div>
         <div class="sForm">
             <div>
                 <label>供应商地址：</label>

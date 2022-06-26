@@ -26,7 +26,7 @@
 <!--    }-->
 <!--}</script>-->
 <body>
-<h2>添加商品</h2>
+<!--<h2>添加商品</h2>-->
 <!--<div id="product">-->
 <!--    <table id="productInfo">-->
 <!--        <tr>-->
@@ -55,7 +55,7 @@
 <!--        </tr>-->
 <!--    </table>-->
 <!--</div>-->
-<div class="addP">
+<div class="addP" style="background-color: #2F5BB7;margin: -20px -5px;">
     <h1>添加商品</h1>
     <form th:action="@{/product.do}" method="post" onsubmit="check();">
         <input type="hidden" name="operate" value="productAddPage"/>
@@ -75,7 +75,7 @@
         </div>
         <div class="pFrom">
             <div>
-                <label>计算商品的单位</label>
+                <label>计算商品的单位：</label>
                 <input id="pUnit" type="text" placeholder="请输入商品单位" name="productUnit">
             </div>
             <span id="noUnit" class="errorMsg">未输入商品单位</span>

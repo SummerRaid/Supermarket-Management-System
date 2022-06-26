@@ -56,13 +56,6 @@
     <h1>添加用户</h1>
     <form th:action="@{/user.do}" method="post" onsubmit="check();">
         <input type="hidden" name="operate" value="userAddPage"/>
-        <div class="uFrom">
-            <div>
-                <lable>用户id：</lable>
-                <input id="uId" type="text" placeholder="请输入用户id" name="userID">
-            </div>
-            <span id="noID" class="errorMsg">未输入用户id</span>
-        </div>
         <div class="uForm">
             <div>
                 <label>用户名：</label>

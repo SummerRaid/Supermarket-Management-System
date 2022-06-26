@@ -78,13 +78,6 @@
     <h1>添加订单</h1>
     <form th:action="@{/order.do}" method="post" onsubmit="check();">
         <input type="hidden" name="operate" value="orderAddPage"/>
-        <div class="oFrom">
-            <div>
-                <lable>订单id：</lable>
-                <input id="oId" type="text" placeholder="请输入订单id" name="supplierName">
-            </div>
-            <span id="noID" class="errorMsg">未输入订单id</span>
-        </div>
         <div class="oForm">
             <div>
                 <label>商品名称：</label>
