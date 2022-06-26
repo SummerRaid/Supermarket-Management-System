@@ -32,6 +32,14 @@ public class Order {
         this.productName = productName;
     }
 
+    public Order(String productName, String orderNO, Supplier supplier, User user, Product product) {
+        this.productName = productName;
+        this.orderNO = orderNO;
+        this.supplier = supplier;
+        this.user = user;
+        this.product = product;
+    }
+
     public Integer getId() {
         return id;
     }

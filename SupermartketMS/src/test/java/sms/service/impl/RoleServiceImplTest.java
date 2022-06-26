@@ -1,6 +1,7 @@
 package sms.service.impl;
 
 import junit.framework.TestCase;
+import myssm.trans.TransactionManager;
 import sms.pojo.Role;
 import sms.pojo.Shop;
 
@@ -12,6 +13,7 @@ public class RoleServiceImplTest extends TestCase {
 
     public void setUp() throws Exception {
         super.setUp();
+        TransactionManager.beginTrans();
         ShopServiceImpl shopService = new ShopServiceImpl();
         OrderServiceImpl orderService = new OrderServiceImpl();
         orderService.setShopService(shopService);
@@ -22,6 +24,7 @@ public class RoleServiceImplTest extends TestCase {
     }
 
     public void tearDown() throws Exception {
+        TransactionManager.rollback();
         roleService = null;
     }
 

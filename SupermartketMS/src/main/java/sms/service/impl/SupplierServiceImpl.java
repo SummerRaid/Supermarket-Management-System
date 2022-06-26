@@ -39,14 +39,16 @@ public class SupplierServiceImpl implements SupplierService {
     @Override
     public Supplier addSupplier(Supplier supplier) {
         Integer id = supplierMapper.add(supplier);
-        LOGGER.debug("添加供应商 id: " + supplier.getId() + " 厂商: " + supplier.getName());
+        if(supplier != null && supplier.getId() != null)
+            LOGGER.debug("添加供应商 id: " + supplier.getId() + " 厂商: " + supplier.getName());
         return getSupplier(supplier.getId());
     }
 
     @Override
     public Supplier getSupplier(Integer supplierId) {
         Supplier supplier = supplierMapper.selectById(supplierId);
-        LOGGER.debug("查询供应商 id: " + supplier.getId());
+        if(supplier != null && supplier.getId() != null)
+            LOGGER.debug("查询供应商 id: " + supplier.getId());
         return supplier;
     }
 
@@ -67,8 +69,11 @@ public class SupplierServiceImpl implements SupplierService {
     @Override
     public Supplier updateSupplier(Supplier supplier) {
         Integer id = supplierMapper.update(supplier);
-        LOGGER.debug("更新供应商 id: " + supplier.getId());
-        return getSupplier(supplier.getId());
+        if(supplier != null && supplier.getId() != null) {
+            LOGGER.debug("更新供应商 id: " + supplier.getId());
+            return getSupplier(supplier.getId());
+        }
+        return null;
     }
 
     @Override

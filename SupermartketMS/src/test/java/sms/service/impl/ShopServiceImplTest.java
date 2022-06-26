@@ -1,6 +1,7 @@
 package sms.service.impl;
 
 import junit.framework.TestCase;
+import myssm.trans.TransactionManager;
 import myssm.util.CalcUtil;
 import sms.pojo.Shop;
 
@@ -10,10 +11,12 @@ public class ShopServiceImplTest extends TestCase {
 
     public void setUp() throws Exception {
         super.setUp();
+        TransactionManager.beginTrans();
         shopService = new ShopServiceImpl();
     }
 
     public void tearDown() throws Exception {
+        TransactionManager.rollback();
         shopService = null;
     }
 

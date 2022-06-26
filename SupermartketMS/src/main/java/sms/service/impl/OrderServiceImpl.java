@@ -92,6 +92,7 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public Order addOrder(Order order) {
         Integer id = orderMapper.add(order);
+        order.getOrderDetail().setId(order.getId());
         orderDetailMapper.add(order.getOrderDetail());
         LOGGER.debug("添加新订单，订单号：" + order.getId());
         return getOrder(order.getId());

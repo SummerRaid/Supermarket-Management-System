@@ -90,4 +90,17 @@ public class Supplier {
     public void setShop(Shop shop) {
         this.shop = shop;
     }
+
+    @Override
+    public String toString() {
+        return "Supplier{" +
+                "id=" + id +
+                ", address='" + address + '\'' +
+                ", name='" + name + '\'' +
+                ", contactPerson='" + contactPerson + '\'' +
+                ", contact='" + contact + '\'' +
+                ", remark='" + remark + '\'' +
+                ", shop=" + shop +
+                "}\n";
+    }
 }

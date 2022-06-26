@@ -1,6 +1,7 @@
 package sms.service.impl;
 
 import junit.framework.TestCase;
+import myssm.trans.TransactionManager;
 
 public class ProductServiceImplTest extends TestCase {
 
@@ -8,6 +9,7 @@ public class ProductServiceImplTest extends TestCase {
 
     public void setUp() throws Exception {
         super.setUp();
+        TransactionManager.beginTrans();
         ShopServiceImpl shopService = new ShopServiceImpl();
         OrderServiceImpl orderService = new OrderServiceImpl();
         orderService.setShopService(shopService);
@@ -17,6 +19,7 @@ public class ProductServiceImplTest extends TestCase {
     }
 
     public void tearDown() throws Exception {
+        TransactionManager.rollback();
         productService = null;
     }
 
