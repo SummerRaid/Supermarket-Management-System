@@ -12,56 +12,52 @@
 <head>
     <meta charset="UTF-8">
     <title>添加商品</title>
+    <style>
+        .pForm>div, .pForm>span{
+            position: relative;
+            display: block;
+            float:left;
+            /*clear:left;*/
+        }
+        #totalForm{
+        }
+        .pForm>span{
+            clear: left;
+        }
+        .pForm>div:not(.pForm:first-child>div){
+            clear:left;
+        }
+        input, label{
+            position:relative;
+            display: block;
+            float:left;
+            width:150px;
+        }
+        label{
+            clear:left;
+        }
+        input{
+            clear:none;
+        }
+        #addBtn, #pResetBtn{
+            clear: left;
+        }
+        .addP{
+            height:auto;
+            overflow: auto;
+        }
+    </style>
     <script type="text/javascript" src="../../../static/js/product.js"></script>
 <!--    所有的商品信息，由使用者自主编辑-->
 </head>
-<!--<script>-->
-<!--    function checkEmpty(){-->
-
-<!--    var text=document.getElementById("pId"&&"pType");-->
-<!--    if(text.value===""){-->
-<!--        alert("不能为空哦！");-->
-<!--    }else{-->
-<!--        alert("新产品添加成功!");-->
-<!--    }-->
-<!--}</script>-->
 <body>
-<!--<h2>添加商品</h2>-->
-<!--<div id="product">-->
-<!--    <table id="productInfo">-->
-<!--        <tr>-->
-<!--            <th>商品名称</th>-->
-<!--            <th><input class="input" type="text" id="pName"/></th>-->
-<!--        </tr>-->
-<!--        <tr>-->
-<!--            <th>商品类型</th>-->
-<!--            <th><input class="input" type="text" id="pType"/></th>-->
-<!--        </tr>-->
-<!--        <tr>-->
-<!--            <th>计算商品的单位</th>-->
-<!--            <th><input class="input" type="text" id="pUnit"/></th>-->
-<!--        </tr>-->
-<!--        <tr>-->
-<!--            <th>商品库存</th>-->
-<!--            <th><input class="input" type="text" id="pStock"/></th>-->
-<!--        </tr>-->
-<!--        <tr>-->
-<!--            <th>商品备注</th>-->
-<!--            <th><input class="input" type="text" id="pRemark"/></th>-->
-<!--        </tr>-->
-<!--        <tr>-->
-<!--            <th><input type="button" id="pAddBtn" value="添加" onclick="checkEmpty()"></th>-->
-<!--            <th><input type="button" id="pResetBtn" value="重置"/></th>-->
-<!--        </tr>-->
-<!--    </table>-->
-<!--</div>-->
-<div class="addP" style="background-color: #2F5BB7;margin: -20px -5px;">
+<div class="addP">
     <h1>添加商品</h1>
-    <form th:action="@{/product.do}" method="post" onsubmit="check();">
+    <form th:action="@{/product.do}" method="post" onsubmit="check();" id="totalForm">
         <input type="hidden" name="operate" value="productAddPage"/>
-        <div class="pFrom">
+        <div class="pForm">
             <div>
-                <lable>商品名称：</lable>
+                <label>商品名称：</label>
                 <input id="pName" type="text" placeholder="请输入商品名称" name="productName">
             </div>
             <span id="noName" class="errorMsg">未输入商品名</span>
@@ -73,7 +69,7 @@
             </div>
             <span id="noType" class="errorMsg">未输入商品类型</span>
         </div>
-        <div class="pFrom">
+        <div class="pForm">
             <div>
                 <label>计算商品的单位：</label>
                 <input id="pUnit" type="text" placeholder="请输入商品单位" name="productUnit">
@@ -82,7 +78,7 @@
         </div>
         <div class="pForm">
             <div>
-                <lable>商品库存：</lable>
+                <label>商品库存：</label>
                 <input id="pStock" type="text" placeholder="请输入商品库存" name="productStock">
             </div>
             <span id="noStock" class="errorMsg">未输入商品库存</span>

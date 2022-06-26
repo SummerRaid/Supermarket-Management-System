@@ -7,11 +7,13 @@
     <link rel="stylesheet" href="../../../static/css/mainPage.css">
     <link rel="stylesheet" href="../../../static/css/button.css">
     <link rel="stylesheet" href="../../../static/css/popWindow.css">
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 </head>
 </div>
-<body class="main">
+<body>
     <div class="header">
-        <div class="w1">
+        <div class="w1" id="w1">
             <div class="header-left">
                 <h1 class="noWarp">商品管理</h1>
             </div>
@@ -26,20 +28,20 @@
 <!--                    <input type="button" id="addBtn" name="p-add" value="添加商品" onclick="location.href=('addProduct.html')">-->
                     <!-- 打开弹窗按钮 -->
                     <button id="myBtn">添加商品</button>
-                    <!-- 弹窗 -->
-                    <div id="myModal" class="modal">
-                        <!-- 弹窗内容 -->
-                        <div class="modal-content">
-                            <span class="close">&times;</span>
-                            <object id="dataTable" data="addProduct.html"></object>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
     </div>
+    <!-- 弹窗 -->
+    <div id="myModal" class="modal">
+        <!-- 弹窗内容 -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <object id="dataTable" data="addProduct.html"></object>
+        </div>
+    </div>
     <div class="list" id="product_div">
-        <div class="w2">
+        <div class="w2" id="w2">
             <table class="left-table">
                 <thead>
                     <tr>
