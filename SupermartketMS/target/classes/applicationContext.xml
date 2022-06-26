@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE beans [
+        <!ELEMENT beans (bean*)>
+        <!ELEMENT bean (property*)>
+        <!ELEMENT property (#PCDATA)>
+
+        <!ATTLIST bean id ID #REQUIRED>
+        <!ATTLIST bean class CDATA #IMPLIED>
+        <!ATTLIST property name CDATA #IMPLIED>
+        <!ATTLIST property ref IDREF #IMPLIED>
+        ]>
+
+<beans>
+    <bean id="page" class="myssm.myspringmvc.PageController"/>
+<!--    Service实现类-->
+    <bean id="shopService" class="sms.service.impl.ShopServiceImpl"/>
+    <bean id="orderService" class="sms.service.impl.OrderServiceImpl">
+        <property name="shopService" ref="shopService"/>
+    </bean>
+    <bean id="productService" class="sms.service.impl.ProductServiceImpl">
+        <property name="orderService" ref="orderService"/>
+        <property name="shopService" ref="shopService"/>
+    </bean>
+    <bean id="supplierService" class="sms.service.impl.SupplierServiceImpl">
+        <property name="orderService" ref="orderService"/>
+    </bean>
+    <bean id="userService" class="sms.service.impl.UserServiceImpl">
+        <property name="orderService" ref="orderService"/>
+    </bean>
+    <bean id="roleService" class="sms.service.impl.RoleServiceImpl">
+        <property name="userService" ref="userService"/>
+    </bean>
+<!--   Controller实现类-->
+    <bean id="user" class="sms.controller.UserController">
+        <property name="userService" ref="userService"/>
+        <property name="roleService" ref="roleService"/>
+    </bean>
+    <bean id="product" class="sms.controller.ProductController">
+        <property name="productService" ref="productService"/>
+    </bean>
+    <bean id="order" class="sms.controller.OrderController">
+        <property name="orderService" ref="orderService"/>
+        <property name="productService" ref="productService"/>
+        <property name="supplierService" ref="supplierService"/>
+    </bean>
+    <bean id="role" class="sms.controller.RoleController">
+        <property name="roleService" ref="roleService"/>
+    </bean>
+    <bean id="supplier" class="sms.controller.SupplierController">
+        <property name="supplierService" ref="supplierService"/>
+    </bean>
+    <bean id="shop" class="sms.controller.ShopController">
+        <property name="shopService" ref="shopService"/>
+    </bean>
+</beans>

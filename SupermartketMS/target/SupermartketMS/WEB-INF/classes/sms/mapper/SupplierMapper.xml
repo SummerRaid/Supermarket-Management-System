@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="sms.mapper.SupplierMapper">
+    <resultMap id="supplierResultMap" type="supplier">
+        <id property="id" column="id" javaType="Integer"/>
+        <result property="address" column="address" javaType="String"/>
+        <result property="name" column="manufacturer" javaType="String"/>
+        <result property="contactPerson" column="contact_name" javaType="String"/>
+        <result property="contact" column="contact_number" javaType="String"/>
+        <result property="remark" column="remark" javaType="String"/>
+        <association property="shop" column="supermarket_id" select="sms.mapper.ShopMapper.selectById"/>
+    </resultMap>
+    <insert id="add" useGeneratedKeys="true" keyProperty="id">
+    insert into t_supplier (id,address,manufacturer,contact_name,contact_number,remark,supermarket_id)
+    values (0,#{address},#{name},#{contactPerson},#{contact},#{remark},#{shop.id})
+    </insert>
+    <update id="update" useGeneratedKeys="true" keyProperty="id">
+    update t_supplier set
+        id = #{id},
+        address = #{address},
+        manufacturer = #{name},
+        contact_name = #{contactPerson},
+        contact_number = #{contact},
+        remark = #{remark},
+        supermarket_id = #{shop.id}
+    where id = #{id}
+    </update>
+    <delete id="del">
+    delete from t_supplier where id = #{id}
+    </delete>
+
+    <select id="selectAll" resultMap="supplierResultMap">
+    select distinct t_supplier.*
+    from t_supplier
+         join t_supermarket
+              on t_supplier.supermarket_id = #{id}
+    </select>
+    <select id="selectById" resultMap="supplierResultMap">
+    select * from t_supplier
+    where id = #{id}
+    </select>
+    <select id="selectByName" resultMap="supplierResultMap">
+    select distinct t_supplier.*
+    from t_supplier
+         join t_supermarket
+              on t_supplier.supermarket_id = #{param2} and t_supplier.manufacturer like #{'%\param1%'}
+    </select>
+</mapper>

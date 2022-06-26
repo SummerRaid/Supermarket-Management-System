@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="sms.mapper.OrderMapper">
+    <resultMap id="orderResultMap" type="order">
+        <id property="id" column="id" />
+        <result property="orderNO" column="order_number" javaType="String"/>
+        <result property="productName" column="goods_name" javaType="String"/>
+        <association property="user" column="user_id" select="sms.mapper.UserMapper.selectById"/>
+        <association property="product" column="goods" select="sms.mapper.ProductMapper.selectById"/>
+        <association property="supplier" column="supplier_id" select="sms.mapper.SupplierMapper.selectById"/>
+        <association property="orderDetail" column="id" select="sms.mapper.OrderDetailMapper.selectById"/>
+    </resultMap>
+    <insert id="add" useGeneratedKeys="true" keyProperty="id">
+    insert into t_order (id,goods_name,order_number,supplier_id,user_id,goods_id)
+    values (0,#{productName},#{orderNO},#{supplier.id},#{user.id},#{product.id})
+    </insert>
+    <update id="update" useGeneratedKeys="true" keyProperty="id">
+    update t_order set
+        id = #{id},
+        goods_name = #{productName},
+        order_number = #{orderNO},
+        supplier_id = #{supplier.id},
+        user_id = #{user.id},
+        goods_id = #{product.id}
+    where id = #{id}
+    </update>
+    <delete id="del">
+    delete from t_order where id = #{id}
+    </delete>
+
+    <select id="selectAll" resultMap="orderResultMap">
+    select distinct t_order.*
+    from t_order
+    join t_supplier
+    on t_supplier.supermarket_id = #{id}
+    </select>
+    <select id="selectByUser" resultMap="orderResultMap">
+    select * from t_order
+    where user_id = #{id}
+    </select>
+    <select id="selectByProduct" resultMap="orderResultMap">
+    select * from t_order
+    where goods_id = #{id}
+    </select>
+    <select id="selectById" resultMap="orderResultMap">
+    select * from t_order
+    where id = #{id}
+    </select>
+    <select id="selectBySupplier" resultMap="orderResultMap">
+    select * from t_order
+    where supplier_id = #{id}
+    </select>
+    <select id="selectByOrder" resultMap="orderResultMap">
+    select distinct t_order.*
+    from t_order
+    join t_supplier
+    on t_supplier.supermarket_id = #{param2} and t_order.goods_name like #{'%\param1.goods_name%'}
+    </select>
+</mapper>

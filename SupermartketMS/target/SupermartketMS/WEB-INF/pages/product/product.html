@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>product</title>
+    <link rel="stylesheet" href="../../../static/css/product.css">
+    <link rel="stylesheet" href="../../../static/css/mainPage.css">
+    <link rel="stylesheet" href="../../../static/css/button.css">
+</head>
+<body class="main">
+    <div class="header">
+        <div class="w1">
+            <div class="header-left">
+                <h1 class="noWarp">商品管理</h1>
+            </div>
+            <div class="header-right">
+                <div class="search-container">
+                    <form action="" class="parent">
+                        <input type="text" class="search" placeholder="搜索">
+                        <input type="button" name="search" id="" class="btn">
+                    </form>
+                </div>
+                <div class="add-btn">
+                    <input type="button" id="addBtn" name="p-add" value="添加商品">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="list" id="product_div">
+        <div class="w2">
+            <table class="left-table">
+                <thead>
+                    <tr>
+                        <th class="noWarp">商品类型目录</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>商品类型</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="div_right">
+            <table class="right-table">
+                <thead class="right-table-header">
+                    <tr>
+                        <th class="noWarp">商品名称</th>
+                        <th class="noWarp">商品类型</th>
+                        <th class="noWarp">库存数量</th>
+                        <th class="noWarp">已出售数量</th>
+                        <th class="noWarp">单价</th>
+                        <th class="noWarp">商品支出</th>
+<!--                        <th>商品收入</th>-->
+                        <th class="noWarp">操作1</th>
+                        <th class="noWarp">操作2</th>
+                    </tr>
+                </thead>
+                <tbody class="right-table-body">
+                    <tr>
+                        <td>{{product.name}}</td>
+                        <td>{{product.type}}</td>
+                        <td>{{product.stock.stockAmount}}</td>
+                        <td>
+                            <input class="sale-price" type="text"
+                                   value="product.stock.salePrice"/>
+                        </td>
+<!--                        商品支出（所有关联订单中金额总和）-->
+                        <td>
+                            <input class="sale-amount" type="text"
+                                   value="product.stock.saleAmount"/>
+                        </td>
+                        <td>{{product.stock.xj}}</td>
+                        <td class="noWarp"><a href="">删除</a></td>
+                        <td class="noWarp"><a href="">编辑</a></td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
