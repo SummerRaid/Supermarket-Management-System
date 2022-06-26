@@ -1,0 +1,115 @@
+<!--
+* Copyright (c) 2008-2024: Shizhong Shang
+* Project: SummerRaid
+* @fileName: 添加供应商
+* @Description: TODO 
+*
+* @author: SHIZHONG SHANG
+* @date: 2022/6/21 14:16	
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>添加供应商</title>
+    <!--    所有的供应商信息，由使用者自主编辑-->
+</head>
+<body>
+<!--<h2>添加供应商</h2>-->
+<!--<div id="supplier">-->
+<!--    <table id="supplierInfo">-->
+<!--        <tr>-->
+<!--            <th>供应商id</th>-->
+<!--            <th><input class="input" type="text" id="sId"/></th>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--            <th>供应商地址</th>-->
+<!--            <th><input class="input" type="text" id="sAddress"/></th>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--            <th>供应商名称</th>-->
+<!--            <th><input class="input" type="text" id="sName"/></th>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--            <th>供应商联系人</th>-->
+<!--            <th><input class="input" type="text" id="sContactPerson"/></th>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--            <th>供应商联系方式</th>-->
+<!--            <th><input class="input" type="text" id="sContact"/></th>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--            <th>供应商备注</th>-->
+<!--            <th><input class="input" type="text" id="sRemark"/></th>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--            <th>供货超市</th>-->
+<!--            <th><input class="input" type="text" id="sShop"/></th>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--            <th><input type="button" id="sAddBtn" value="添加" onclick="alert('NEW SUPPLIER ADDED!')"/></th>-->
+<!--            <th><input type="button" id="sResetBtn" value="重置"/></th>-->
+<!--        </tr>-->
+<!--    </table>-->
+<!--</div>-->
+
+<div class="addS">
+    <h1>添加供应商</h1>
+    <form th:action="@{/supplier.do}" method="post" onsubmit="check();">
+        <input type="hidden" name="operate" value="supplierAddPage"/>
+        <div class="sForm">
+            <div>
+                <label>供应商地址：</label>
+                <input id="sAddress" type="text" placeholder="请输入供应商地址" name="supplierAddress">
+            </div>
+            <span id="noAddress" class="errorMsg">未输入供应商地址</span>
+        </div>
+        <div class="sFrom">
+            <div>
+                <label>供应商名称：</label>
+                <input id="sName" type="text" placeholder="请输入供应商名称" name="supplierName">
+            </div>
+            <span id="noName" class="errorMsg">未输入供应商名称</span>
+        </div>
+        <div class="sForm">
+            <div>
+                <lable>供应商联系人：</lable>
+                <input id="sContactPerson" type="text" placeholder="请输入供应商联系人" name="supplierContactPerson">
+            </div>
+            <span id="noSPerson" class="errorMsg">未输入供应商联系人</span>
+        </div>
+        <div class="sForm">
+            <div>
+                <label>供应商联系方式：</label>
+                <input id="sContact" type="text" placeholder="请输入供应商联系方式" name="supplierRemark">
+            </div>
+            <span id="noContact" class="errorMsg">供应商联系方式</span>
+        </div>
+        <div class="sForm">
+            <div>
+                <label>供应商备注：</label>
+                <input id="sRemark" type="text" placeholder="请输入供应商备注" name="supplierRemark">
+            </div>
+            <span id="noSRemark" class="errorMsg">未输入备注</span>
+        </div>
+        <div class="sForm">
+            <div>
+                <label>供货超市：</label>
+                <input id="sShop" type="text" placeholder="请输入供货超市" name="supplierShop">
+            </div>
+            <span id="noShop" class="errorMsg">未输入供货超市</span>
+        </div>
+        <input type="submit" value="添加" id="addBtn" />
+        <input type="button" id="pResetBtn" value="重置"/>
+    </form>
+</div>
+</body>
+</html>
+
+<!--    private Integer id;           // 供应商id
+    private String address;       // 供应商地址
+    private String name;          // 供应商名称
+    private String contactPerson; // 供应商联系人
+    private String contact;       // 供应商联系方式
+    private String remark;        // 供应商备注
+    private Shop shop;        // 对应的超市-->

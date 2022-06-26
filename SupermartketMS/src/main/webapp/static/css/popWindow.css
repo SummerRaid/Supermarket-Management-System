@@ -1,0 +1,63 @@
+/**
+* Copyright (c) 2008-2024: Shizhong Shang
+* Project: SupermartketMS
+* @fileName: popWindow
+* @Description: TODO 
+*
+* @author: SHIZHONG SHANG
+* @date: 2022/6/26 12:09	
+*/
+
+
+
+/* 弹窗 (background) */
+.modal {
+    display: none; /* 默认隐藏 */
+    position: fixed; /* 固定定位 */
+    z-index: 1; /* 设置在顶层 */
+    margin: 10% 20%;
+    left: 0;
+    top: 0;
+    width: 40%;
+    height: 60%;
+    overflow: visible;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+}
+
+/* 弹窗内容 */
+.modal-content {
+    position: relative;
+    background-color: yellow;
+    margin: 0;
+    padding: 0;
+    border: 1px solid #888;
+    width: 100%;
+    height: 100%;
+}
+#dataTable{
+    position: relative;
+    padding: 0;
+    margin: 0;
+    background-color: indigo;
+    width: 100%;
+    height: 77.5%;
+}
+
+
+/* 关闭按钮 */
+.close {
+    color: #aaa;
+    background-color: #008997;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+

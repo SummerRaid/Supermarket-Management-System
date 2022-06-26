@@ -6,7 +6,9 @@
     <link rel="stylesheet" href="../../../static/css/product.css">
     <link rel="stylesheet" href="../../../static/css/mainPage.css">
     <link rel="stylesheet" href="../../../static/css/button.css">
+    <link rel="stylesheet" href="../../../static/css/popWindow.css">
 </head>
+</div>
 <body class="main">
     <div class="header">
         <div class="w1">
@@ -21,7 +23,17 @@
                     </form>
                 </div>
                 <div class="add-btn">
-                    <input type="button" id="addBtn" name="p-add" value="添加商品">
+<!--                    <input type="button" id="addBtn" name="p-add" value="添加商品" onclick="location.href=('addProduct.html')">-->
+                    <!-- 打开弹窗按钮 -->
+                    <button id="myBtn">添加商品</button>
+                    <!-- 弹窗 -->
+                    <div id="myModal" class="modal">
+                        <!-- 弹窗内容 -->
+                        <div class="modal-content">
+                            <span class="close">&times;</span>
+                            <object id="dataTable" data="addProduct.html"></object>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -79,4 +91,5 @@
         </div>
     </div>
 </body>
+<script type="text/javascript" src="../../../static/js/button.js"></script>
 </html>
