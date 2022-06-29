@@ -45,6 +45,7 @@ public class UserController {
             session.setAttribute("currUser", user);
             session.setAttribute("shopId", user.getRole().getShop().getId());
             session.setAttribute("authority", user.getRole().getAuthority());
+            session.setAttribute("deleted", 0);
             // 跳转到主界面
             return "index";
         }
