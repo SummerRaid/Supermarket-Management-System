@@ -39,7 +39,35 @@ window.onload=function(){
                 }).catch(function(error){
 
                 });
-            }
+            },
+            deleteProduct:function(productId) {
+                axios({
+                    method:"POST",
+                    url:"product.do",
+                    params:{
+                        operate:"delProduct",
+                        productId:productId,
+                    }
+                }).then(function(response){
+                    vue.getProducts();
+                }).catch(function(error){
+
+                });
+            },
+            editTheProduct:function(productId) {
+                axios({
+                    method:"POST",
+                    url:"product.do",
+                    params:{
+                        operate:"editProduct",
+                        productId:productId,
+                    }
+                }).then(function(response){
+                    vue.getProducts();
+                }).catch(function(error){
+
+                });
+            },
         },
         mounted:function(){
             this.getProducts();

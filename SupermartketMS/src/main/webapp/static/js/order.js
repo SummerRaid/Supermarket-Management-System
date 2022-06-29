@@ -10,7 +10,7 @@
  */
 window.onload=function(){
     let vue = new Vue({
-        el:"#t3",
+        el:"#w2",
         data:{
             orders:{},
         },
@@ -21,6 +21,38 @@ window.onload=function(){
                     url:"order.do",
                     params:{
                         operate:"getAllOrders"
+                    }
+                }).then(function(response){
+                    let order = response.data;
+                    vue.orders = order;
+                    console.log(vue.orders);
+                }).catch(function(error){
+
+                });
+            },
+            deleteOrder:function(orderId) {
+                axios({
+                    method:"POST",
+                    url:"order.do",
+                    params:{
+                        operate:"delOrder",
+                        orderId: orderId,
+                    }
+                }).then(function(response){
+                    let order = response.data;
+                    vue.orders = order;
+                    console.log(vue.orders);
+                }).catch(function(error){
+
+                });
+            },
+            editTheOrder:function(orderId) {
+                axios({
+                    method:"POST",
+                    url:"order.do",
+                    params:{
+                        operate:"editOrder",
+                        orderId: orderId,
                     }
                 }).then(function(response){
                     let order = response.data;

@@ -10,7 +10,7 @@
  */
 window.onload=function(){
     let vue = new Vue({
-        el:"#t4",
+        el:"#w2",
         data:{
             suppliers:{},
         },
@@ -21,6 +21,38 @@ window.onload=function(){
                     url:"supplier.do",
                     params:{
                         operate:"getAllSuppliers"
+                    }
+                }).then(function(response){
+                    let supplier = response.data;
+                    vue.suppliers = supplier;
+                    console.log(vue.suppliers);
+                }).catch(function(error){
+
+                });
+            },
+            deleteSupplier:function(supplierId) {
+                axios({
+                    method:"POST",
+                    url:"supplier.do",
+                    params:{
+                        operate:"delSupplier",
+                        supplierId: supplierId,
+                    }
+                }).then(function(response){
+                    let supplier = response.data;
+                    vue.suppliers = supplier;
+                    console.log(vue.suppliers);
+                }).catch(function(error){
+
+                });
+            },
+            editTheSupplier:function(supplierId) {
+                axios({
+                    method:"POST",
+                    url:"supplier.do",
+                    params:{
+                        operate:"editSupplier",
+                        supplierId:supplierId,
                     }
                 }).then(function(response){
                     let supplier = response.data;

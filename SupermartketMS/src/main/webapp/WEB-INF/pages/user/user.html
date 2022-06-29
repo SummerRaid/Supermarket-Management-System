@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
     <meta charset="UTF-8">
     <title>user</title>
@@ -31,7 +32,7 @@
 </head>
 <body class="main">
 <div class="header">
-    <div class="w1">
+    <div class="w1"id="w1">
         <div class="header-left">
             <h1 class="noWarp">用户管理</h1>
         </div>
@@ -59,7 +60,7 @@
 
 
 <div class="list" id="user_div">
-    <div class="t1" id="t1">
+    <div class="w2" id="w2">
         <div class="div_tbl">
         <table class="tbl">
             <thead class="right-table-header">
@@ -81,8 +82,8 @@
                 <td>{{user.role.name}}</td>
                 <td>{{user.tel}}</td>
                 <td>{{user.address}}</td>
-                <td class="noWarp"><a href="">删除</a></td> <!-- 根据权限 按钮 valid/invalid -->
-                <td class="noWarp"><a href="">修改</a></td> <!-- 根据权限 按钮 valid/invalid -->
+                <td class="noWarp"><a href="" v-on:click="deleteUser(user.id)">删除</a></td> <!-- 根据权限 按钮 valid/invalid -->
+                <td class="noWarp"><a href="" v-on:click="editTheUser(user.id)">修改</a></td> <!-- 根据权限 按钮 valid/invalid -->
             </tr>
             </tbody>
         </table>
@@ -90,5 +91,6 @@
     </div>
 </div>
 </body>
+<script type="text/javascript" th:src="@{/static/js/button.js}"></script>
 </html>
 

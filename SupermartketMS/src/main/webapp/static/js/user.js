@@ -10,7 +10,7 @@
  */
 window.onload=function(){
     let vue = new Vue({
-        el:"#t1",
+        el:"#w2",
         data:{
             users:{},
             roles:{}
@@ -42,6 +42,38 @@ window.onload=function(){
                     let role = response.data;
                     vue.roles = role;
                     console.log(vue.roles);
+                }).catch(function(error){
+
+                });
+            },
+            deleteUser:function(userId){
+                axios({
+                    method:"POST",
+                    url:"user.do",
+                    params:{
+                        operate:"delUser",
+                        userId: userId,
+                    }
+                }).then(function(response){
+                    let user = response.data;
+                    vue.users = user;
+                    console.log(vue.users);
+                }).catch(function(error){
+
+                });
+            },
+            editTheUser:function(userId){
+                axios({
+                    method:"POST",
+                    url:"user.do",
+                    params:{
+                        operate:"editUser",
+                        userId:userId,
+                    }
+                }).then(function(response){
+                    let user = response.data;
+                    vue.users = user;
+                    console.log(vue.users);
                 }).catch(function(error){
 
                 });

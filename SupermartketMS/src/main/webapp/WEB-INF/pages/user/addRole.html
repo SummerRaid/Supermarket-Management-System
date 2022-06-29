@@ -21,21 +21,21 @@
         <div class="rFrom">
             <div>
                 <label>角色名称：</label>
-                <input id="rName" type="text" placeholder="请输入角色名称" name="roleName">
+                <input id="rName" type="text" onblur="checkEmpty(this)" placeholder="请输入角色名称" name="roleName">
             </div>
             <span id="noName" class="errorMsg">未输入角色名称</span>
         </div>
         <div class="rFrom">
             <div>
                 <label>权限：</label>
-                <input id="rPermission" type="text" placeholder="请输入权限" name="rolePermission">
+                <input id="rPermission" type="text" onblur="checkEmpty(this)" placeholder="请输入权限" name="rolePermission">
             </div>
             <span id="noPermission" class="errorMsg">未输入权限</span>
         </div>
         <div class="rFrom">
             <div>
                 <lable>备注：</lable>
-                <input id="rRemark" type="text" placeholder="请输入备注" name="userTrueName">
+                <input id="rRemark" type="text" onblur="checkEmpty(this)" placeholder="请输入备注" name="userTrueName">
             </div>
             <span id="noTName" class="errorMsg">未输入备注</span>
         </div>
