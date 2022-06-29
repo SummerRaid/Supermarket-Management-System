@@ -42,8 +42,9 @@ window.onload=function(){
         }
     });
 }
-function checkEmpty(){
-    var text=document.getElementById("pType");
+function checkEmpty(name){
+    var text=$(name).html();
+    alert(text);
     if(text.value===""){
         alert("不能为空哦！");
     }else{

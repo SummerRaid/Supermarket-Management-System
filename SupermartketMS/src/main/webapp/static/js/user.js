@@ -1,3 +1,13 @@
+/**
+ * Copyright (c) 2008-2024: Shizhong Shang
+ * Project: SupermartketMS
+ * @className: user
+ * @Description: TODO
+ *
+ * @author: SHIZHONG SHANG
+ * @date: 2022/6/29 12:00
+ *
+ */
 window.onload=function(){
     let vue = new Vue({
         el:"#w2",
@@ -8,7 +18,7 @@ window.onload=function(){
             getProducts:function() {
                 axios({
                     method:"POST",
-                    url:"product.do",
+                    url:"user.do",
                     params:{
                         operate:"getAllProducts"
                     }
@@ -42,9 +52,8 @@ window.onload=function(){
         }
     });
 }
-function checkEmpty(name){
-    var text=$(name).html();
-    alert(text);
+function checkEmpty(){
+    var text=document.getElementById("pType");
     if(text.value===""){
         alert("不能为空哦！");
     }else{

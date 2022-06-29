@@ -52,7 +52,7 @@
             <button type="button" v-on:click="changePage('user/role')">查询角色</button><br />
         </div>
 		<div id="div_main">
-            <object th:v-bind:data="@{'/page.do(operate=page&page='+value}" id="mainPage"></object>
+            <object th:v-bind:data="@{page}" id="mainPage"></object>
         </div>
     </div>
 </body>

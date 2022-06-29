@@ -35,11 +35,20 @@
                 </form>
             </div>
             <div class="add-btn">
-                <input type="button" id="addBtn" name="s-add" value="添加供应商">
+                <button id="addBtn">添加供应商</button>
             </div>
         </div>
     </div>
 </div>
+
+<div id="myModal" class="modal">
+    <!-- 弹窗内容 -->
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <object id="dataTable" th:data="@{/page.do?operate=page&page=order/addSupplier}"></object>
+    </div>
+</div>
+
 <div class="list" id="supplier_div">
     <div class="w2">
         <div class="div_tbl">

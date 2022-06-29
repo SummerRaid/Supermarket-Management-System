@@ -16,6 +16,9 @@
     <param-name>contextConfigLocation</param-name>
     <param-value>applicationContext.xml</param-value>
   </context-param>
+  <session-config>
+    <tracking-mode>COOKIE</tracking-mode>
+  </session-config>
 
   <servlet>
     <servlet-name>KaptchaServlet</servlet-name>

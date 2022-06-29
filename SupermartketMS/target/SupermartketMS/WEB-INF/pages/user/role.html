@@ -35,11 +35,21 @@
                 </form>
             </div>
             <div class="add-btn">
-                <input type="button" id="addBtn" name="r-add" value="添加角色">
+                <button id="addBtn">添加角色</button>
             </div>
         </div>
     </div>
 </div>
+
+<div id="myModal" class="modal">
+    <!-- 弹窗内容 -->
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <object id="dataTable" th:data="@{/page.do?operate=page&page=user/addRole}"></object>
+    </div>
+</div>
+
+
 <div class="list" id="role_div">
     <div class="w2">
         <div class="div_tbl">

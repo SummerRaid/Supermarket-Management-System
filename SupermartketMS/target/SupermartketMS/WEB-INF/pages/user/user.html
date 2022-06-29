@@ -35,11 +35,21 @@
                 </form>
             </div>
             <div class="add-btn">
-                <input type="button" id="addBtn" name="u-add" value="添加用户">
+                <button id="addBtn">添加用户</button>
             </div>
         </div>
     </div>
 </div>
+
+<div id="myModal" class="modal">
+    <!-- 弹窗内容 -->
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <object id="dataTable" th:data="@{/page.do?operate=page&page=user/addUser}"></object>
+    </div>
+</div>
+
+
 <div class="list" id="user_div">
     <div class="w2">
         <div class="div_tbl">
@@ -48,7 +58,7 @@
             <tr>
                 <th class="noWarp">用户名</th>
                 <th class="noWarp">真实姓名</th>
-                <th class="noWarp">角色</th>
+                <th class="noWarp">角色</th>  //加一个下拉栏
                 <th class="noWarp">电话</th>
                 <th class="noWarp">地址</th>
                 <th class="noWarp">操作1</th>
@@ -59,7 +69,8 @@
             <tr>
                 <td>{{user.uname}}</td>
                 <td>{{user.tname}}</td>
-                <td>{{user.role.name}}</td>
+<!--                选取所有的rName值as select options-->
+                <td><select th:field="*{'rName'}"><option th:each="i:${'user.role.name'}"></option></select></td>
                 <td>{{user.tel}}</td>
                 <td>{{user.address}}</td>
                 <td class="noWarp"><a href="">删除</a></td> <!-- 根据权限 按钮 valid/invalid -->
