@@ -99,6 +99,9 @@ public class DispatcherServlet extends ViewBaseServlet {
                             if(Integer.class.getName().equals(typeName) &&
                                     StringUtil.isNotEmpty(parameterValue)) {
                                 parameterValues[i] = Integer.parseInt(parameterValue);
+                            } else if (Double.class.getName().equals(typeName) &&
+                                    StringUtil.isNotEmpty(parameterValue)) {
+                                parameterValues[i] = Double.parseDouble(parameterValue);
                             } else {
                                 parameterValues[i] = parameterValue;
                             }
@@ -109,6 +112,7 @@ public class DispatcherServlet extends ViewBaseServlet {
                     // 2. controller组件中的方法调用
                     method.setAccessible(true);
                     LOGGER.debug("试图执行方法");
+
                     Object returnObj = method.invoke(controllerBeanObj, parameterValues);
                     LOGGER.debug("方法执行完成");
 

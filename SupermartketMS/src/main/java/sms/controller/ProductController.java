@@ -146,12 +146,16 @@ public class ProductController {
         return null;
     }
 
-    public String editPriceOrAmount(Integer productId, Integer Amount, Double price, HttpSession session){
-        if(Amount != null) {
+    public String saleProduct(Integer productId, Integer amount){
+        Product product = productService.getProduct(productId);
+        productService.saleProduct(productId, amount - product.getStock().getSaleAmount());
+        return "";
+    }
 
-        } else if(price != null) {
-
-        }
+    public String editPrice(Integer productId, Double price) {
+        Product product = productService.getProduct(productId);
+        product.getStock().setSalePrice(price);
+        productService.updateProduct(product);
         return "";
     }
 
