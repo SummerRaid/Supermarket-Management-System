@@ -1,47 +1,47 @@
 /**
  * Copyright (c) 2008-2024: Shizhong Shang
  * Project: SupermartketMS
- * @className: user
+ * @className: supplier
  * @Description: TODO
  *
  * @author: SHIZHONG SHANG
- * @date: 2022/6/29 12:00
+ * @date: 2022/6/29 14:46
  *
  */
 window.onload=function(){
     let vue = new Vue({
-        el:"#t1",
+        el:"#t4",
         data:{
-            users:{},
+            suppliers:{},
         },
         methods:{
-            getUsers:function() {
+            getSuppliers:function() {
                 axios({
                     method:"POST",
-                    url:"user.do",
+                    url:"supplier.do",
                     params:{
-                        operate:"getAllUser"
+                        operate:"getAllSuppliers"
                     }
                 }).then(function(response){
-                    let user = response.data;
-                    vue.users = user;
-                    console.log(vue.users);
+                    let supplier = response.data;
+                    vue.suppliers = supplier;
+                    console.log(vue.suppliers);
                 }).catch(function(error){
 
                 });
             },
         },
         mounted:function(){
-            this.getUsers();
+            this.getSuppliers();
         }
     });
 }
-function checkEmpty(name){
-    var text=$(name).html();
+function checkEmpty(name) {
+    var text = $(name).html();
     alert(text);
-    if(text.value===""){
+    if (text.value === "") {
         alert("不能为空哦！");
-    }else{
-        alert("新用户添加成功！");
+    } else {
+        alert("新角色添加成功！");
     }
 }

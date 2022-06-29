@@ -47,7 +47,6 @@ window.onload=function(){
         updated:function(){
             let btn = document.getElementById("add-btn");
             console.log("btn style" + btn.style);
-            alert("deleted = " + vue.deleted);
             if(vue.deleted === 1) {
                 btn.style.display = "none";
             } else {

@@ -5,6 +5,14 @@
     <title>user</title>
     <link rel="stylesheet" href="../../../static/css/mainPage.css">
     <link rel="stylesheet" href="../../../static/css/button.css">
+    <link rel="stylesheet" th:href="@{/static/css/mainPage.css}">
+    <link rel="stylesheet" th:href="@{/static/css/button.css}">
+    <link rel="stylesheet" th:href="@{/static/css/popWindow.css}">
+    <script th:src="@{/static/js/vue.js}"></script>
+    <script th:src="@{/static/js/axios.min.js}"></script>
+    <script th:src="@{https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js}"></script>
+    <script th:src="@{https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js}"></script>
+    <script th:src="@{/static/js/user.js}" ></script>
     <style>
         /*设置表格位置 行高*/
         .tbl {
@@ -51,7 +59,7 @@
 
 
 <div class="list" id="user_div">
-    <div class="w2">
+    <div class="t1" id="t1">
         <div class="div_tbl">
         <table class="tbl">
             <thead class="right-table-header">
