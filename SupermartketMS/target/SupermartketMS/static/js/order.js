@@ -35,13 +35,11 @@ window.onload=function(){
                     method:"POST",
                     url:"order.do",
                     params:{
-                        operate:"delOrder",
+                        operate:"cancelOrder",
                         orderId: orderId,
                     }
                 }).then(function(response){
-                    let order = response.data;
-                    vue.orders = order;
-                    console.log(vue.orders);
+                    vue.getOrders();
                 }).catch(function(error){
 
                 });

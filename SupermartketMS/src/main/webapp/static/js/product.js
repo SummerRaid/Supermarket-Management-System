@@ -61,7 +61,7 @@ window.onload=function(){
                     method:"POST",
                     url:"product.do",
                     params:{
-                        operate:"delProduct",
+                        operate:"putToBin",
                         productId:productId,
                     }
                 }).then(function(response){

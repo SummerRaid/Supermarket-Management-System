@@ -80,8 +80,10 @@
                 <tr v-for="order in orders">
                     <td>{{order.orderNO}}</td>
                     <td>{{order.productName}}</td>
-                    <td>{{order.supplier.name}}</td>
-                    <td>{{order.user.name}}</td>
+                    <td v-if="order.supplier != null">{{order.supplier.name}}</td>
+                    <td v-else="order.supplier != null">&nbsp;</td>
+                    <td v-if="order.user != null">{{order.user.uname}}</td>
+                    <td v-else="order.user != null">&nbsp;</td>
                     <td>{{order.orderDetail.amount}}</td>
                     <td>{{order.orderDetail.price}}</td>
                     <td>{{order.orderDetail.payMoney}}</td>
