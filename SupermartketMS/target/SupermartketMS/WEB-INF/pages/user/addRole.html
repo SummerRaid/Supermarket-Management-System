@@ -1,0 +1,47 @@
+<!--
+* Copyright (c) 2008-2024: Shizhong Shang
+* Project: SupermartketMS
+* @fileName: addRole
+* @Description: TODO 
+*
+* @author: SHIZHONG SHANG
+* @date: 2022/6/29 11:08	
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="addU">
+    <h1>添加用户</h1>
+    <form th:action="@{/user.do}" method="post" onsubmit="check();">
+        <input type="hidden" name="operate" value="userAddPage"/>
+        <div class="rFrom">
+            <div>
+                <label>角色名称：</label>
+                <input id="rName" type="text" onblur="checkEmpty(this)" placeholder="请输入角色名称" name="roleName">
+            </div>
+            <span id="noName" class="errorMsg">未输入角色名称</span>
+        </div>
+        <div class="rFrom">
+            <div>
+                <label>权限：</label>
+                <input id="rPermission" type="text" onblur="checkEmpty(this)" placeholder="请输入权限" name="rolePermission">
+            </div>
+            <span id="noPermission" class="errorMsg">未输入权限</span>
+        </div>
+        <div class="rFrom">
+            <div>
+                <lable>备注：</lable>
+                <input id="rRemark" type="text" onblur="checkEmpty(this)" placeholder="请输入备注" name="userTrueName">
+            </div>
+            <span id="noTName" class="errorMsg">未输入备注</span>
+        </div>
+        <input type="submit" value="添加" id="addBtn" />
+        <input type="button" id="uResetBtn" value="重置"/>
+    </form>
+</div>
+</body>
+</html>
