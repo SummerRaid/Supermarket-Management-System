@@ -17,7 +17,6 @@ window.onload=function(){
                 }).then(function(response){
                     let product = response.data;
                     vue.products = product;
-                    console.log(vue.products);
                     if(product[0].deleted === 1) {
                         vue.deleted = 1;
                     }
@@ -25,17 +24,34 @@ window.onload=function(){
 
                 });
             },
-            editCart:function(cartItemId, buyCount) {
+            editPrice:function(id) {
+                let price = event.srcElement.value;
                 axios({
                     method:"POST",
-                    url:"cart.do",
+                    url:"product.do",
                     params:{
-                        operate:"editCart",
-                        cartItemId:cartItemId,
-                        buyCount:buyCount
+                        operate:"editPrice",
+                        productId:id,
+                        price:price
                     }
                 }).then(function(response){
-                    vue.getCart();
+                    vue.getProducts();
+                }).catch(function(error){
+
+                });
+            },
+            editAmount:function(id) {
+                let amount = event.srcElement.value;
+                axios({
+                    method:"POST",
+                    url:"product.do",
+                    params:{
+                        operate:"saleProduct",
+                        productId:id,
+                        amount:amount
+                    }
+                }).then(function(response){
+                    vue.getProducts();
                 }).catch(function(error){
 
                 });
