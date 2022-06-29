@@ -20,6 +20,10 @@
     <tracking-mode>COOKIE</tracking-mode>
   </session-config>
 
+  <session-config>
+    <tracking-mode>COOKIE</tracking-mode>
+  </session-config>
+
   <servlet>
     <servlet-name>KaptchaServlet</servlet-name>
     <servlet-class>com.google.code.kaptcha.servlet.KaptchaServlet</servlet-class>

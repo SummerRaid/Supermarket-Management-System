@@ -1,8 +1,10 @@
+/*<![CDATA[*/
 window.onload=function(){
     let vue = new Vue({
         el:"#w2",
         data:{
-            products:{}
+            products:{},
+            deleted:0
         },
         methods:{
             getProducts:function() {
@@ -16,7 +18,9 @@ window.onload=function(){
                     let product = response.data;
                     vue.products = product;
                     console.log(vue.products);
-
+                    if(product[0].deleted === 1) {
+                        vue.deleted = 1;
+                    }
                 }).catch(function(error){
 
                 });
@@ -39,6 +43,15 @@ window.onload=function(){
         },
         mounted:function(){
             this.getProducts();
+        },
+        updated:function(){
+            let btn = document.getElementById("add-btn");
+            console.log("btn style" + btn.style);
+            if(vue.deleted === 1) {
+                btn.style.display = "none";
+            } else {
+                btn.style.display = "block";
+            }
         }
     });
 }
@@ -51,3 +64,4 @@ function checkEmpty(name){
         alert("新产品添加成功！");
     }
 }
+/*]]>*/

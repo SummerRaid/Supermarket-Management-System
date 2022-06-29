@@ -30,13 +30,14 @@ public class ProductController {
      * @Author: Zirui Qiao
      * @Date: 2022/6/20 13:46
      */
-    public String index() {
-        // 跳转到 productPage.html
-        return "productPage";
+    public String index(HttpSession session) {
+        session.setAttribute("deleted", 0);
+        return "product/product";
     }
 
-    public String deletedIndex() {
-        return "";
+    public String deletedIndex(HttpSession session) {
+        session.setAttribute("deleted", 1);
+        return "product/product";
     }
 
     /**
@@ -78,8 +79,13 @@ public class ProductController {
      */
     public String getAllProducts(HttpSession session) {
         Integer shopId = (Integer) session.getAttribute("shopId");
+        Integer deleted = (Integer) session.getAttribute("deleted");
         System.out.println("shopId = " + shopId);
-        List<Product> products = productService.getAllProducts(shopId);
+        List<Product> products;
+        if(deleted == 1)
+            products = productService.getAllDeleted(shopId);
+        else
+            products = productService.getAllProducts(shopId);
 
         return "json:"+ StringUtil.toJsonString(products);
     }
@@ -138,6 +144,15 @@ public class ProductController {
      */
     public String editProduct(HttpSession session) {
         return null;
+    }
+
+    public String editPriceOrAmount(Integer productId, Integer Amount, Double price, HttpSession session){
+        if(Amount != null) {
+
+        } else if(price != null) {
+
+        }
+        return "";
     }
 
     /**
