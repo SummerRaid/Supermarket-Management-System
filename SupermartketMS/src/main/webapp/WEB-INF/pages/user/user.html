@@ -74,11 +74,11 @@
             </tr>
             </thead>
             <tbody class="right-table-body">
-            <tr>
+            <tr v-for="user in users" >
                 <td>{{user.uname}}</td>
                 <td>{{user.tname}}</td>
 <!--                选取所有的rName值as select options-->
-                <td><select th:field="*{'rName'}"><option th:each="i:${'user.role.name'}"></option></select></td>
+                <td>{{user.role.name}}</td>
                 <td>{{user.tel}}</td>
                 <td>{{user.address}}</td>
                 <td class="noWarp"><a href="">删除</a></td> <!-- 根据权限 按钮 valid/invalid -->

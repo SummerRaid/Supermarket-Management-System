@@ -8,13 +8,14 @@
 
     <appender name="Console" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
+            <charset>GB2312</charset>
+            <outputPatternAsHeader>true</outputPatternAsHeader>
             <pattern>[%level] %blue(%date{HH:mm:ss.SSS}) %cyan([%thread]) %boldGreen(%logger) - %msg %n</pattern>
-            <charset>GBK</charset>
         </encoder>
     </appender>
 
     <logger name="MIKE" level="INFO" additivity="false">
-        <appender-ref ref="Console"/>
+    <appender-ref ref="Console"/>
     </logger>
     <root level="INFO">
 　　　　　　<appender-ref ref="Console" />

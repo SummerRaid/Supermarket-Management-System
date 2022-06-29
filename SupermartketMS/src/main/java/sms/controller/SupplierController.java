@@ -91,7 +91,7 @@ public class SupplierController {
      * @Author: Zirui Qiao
      * @Date: 2022/6/20 18:49
      */
-    public String getAllSupplier(HttpSession session) {
+    public String getAllSuppliers(HttpSession session) {
         Integer shopId = (Integer) session.getAttribute("shopId");
         List<Supplier> allSuppliers = supplierService.getAllSuppliers(shopId);
 

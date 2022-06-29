@@ -3,9 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>supplier</title>
-    <link rel="stylesheet" href="../../../static/css/mainPage.css">
-    <link rel="stylesheet" href="../../../static/css/button.css">
+    <link rel="stylesheet" th:href="@{/static/css/mainPage.css}">
+    <link rel="stylesheet" th:href="@{/static/css/button.css}">
     <link rel="stylesheet" th:href="@{/static/css/popWindow.css}">
+    <script th:src="@{/static/js/vue.js}"></script>
+    <script th:src="@{/static/js/axios.min.js}"></script>
+    <script th:src="@{https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js}"></script>
+    <script th:src="@{https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js}"></script>
+    <script th:src="@{/static/js/supplier.js}" ></script>
     <style>
         /*设置表格位置 行高*/
         .tbl {
@@ -66,7 +71,7 @@
             </tr>
             </thead>
             <tbody class="right-table-body">
-            <tr>
+            <tr v-for="supplier in suppliers">
                 <td>{{supplier.name}}</td>
                 <td>{{supplier.address}}</td>
                 <td>{{supplier.contactPerson}}</td>

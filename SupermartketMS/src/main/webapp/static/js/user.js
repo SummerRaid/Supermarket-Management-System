@@ -13,6 +13,7 @@ window.onload=function(){
         el:"#t1",
         data:{
             users:{},
+            roles:{}
         },
         methods:{
             getUsers:function() {
@@ -20,7 +21,7 @@ window.onload=function(){
                     method:"POST",
                     url:"user.do",
                     params:{
-                        operate:"getAllUser"
+                        operate:"getAllUsers"
                     }
                 }).then(function(response){
                     let user = response.data;
@@ -30,9 +31,25 @@ window.onload=function(){
 
                 });
             },
+            getRoles:function(){
+                axios({
+                    method:"POST",
+                    url:"role.do",
+                    params:{
+                        operate:"getAllRoles"
+                    }
+                }).then(function(response){
+                    let role = response.data;
+                    vue.roles = role;
+                    console.log(vue.roles);
+                }).catch(function(error){
+
+                });
+            }
         },
         mounted:function(){
             this.getUsers();
+            this.getRoles();
         }
     });
 }
