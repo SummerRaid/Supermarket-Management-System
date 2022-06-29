@@ -3,8 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>role</title>
-    <link rel="stylesheet" href="../../../static/css/mainPage.css">
-    <link rel="stylesheet" href="../../../static/css/button.css">
+    <link rel="stylesheet" th:href="@{/static/css/mainPage.css}">
+    <link rel="stylesheet" th:href="@{/static/css/button.css}">
+    <link rel="stylesheet" th:href="@{/static/css/popWindow.css}">
+    <script th:src="@{/static/js/vue.js}"></script>
+    <script th:src="@{/static/js/axios.min.js}"></script>
+    <script th:src="@{https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js}"></script>
+    <script th:src="@{https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js}"></script>
+    <script th:src="@{/static/js/role.js}" ></script>
     <style>
         /*设置表格位置 行高*/
         .tbl {
@@ -35,13 +41,23 @@
                 </form>
             </div>
             <div class="add-btn">
-                <input type="button" id="addBtn" name="r-add" value="添加角色">
+                <button id="addBtn">添加角色</button>
             </div>
         </div>
     </div>
 </div>
+
+<div id="myModal" class="modal">
+    <!-- 弹窗内容 -->
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <object id="dataTable" th:data="@{/page.do?operate=page&page=user/addRole}"></object>
+    </div>
+</div>
+
+
 <div class="list" id="role_div">
-    <div class="w2">
+    <div class="t2" id="t2">
         <div class="div_tbl">
         <table class="tbl">
             <thead class="right-table-header">
@@ -54,7 +70,7 @@
             </tr>
             </thead>
             <tbody class="right-table-body">
-            <tr>
+            <tr v-for="role in roles">
                 <td>{{role.name}}</td>
                 <td>{{role.authority}}</td>
                 <td>{{role.remark}}</td>

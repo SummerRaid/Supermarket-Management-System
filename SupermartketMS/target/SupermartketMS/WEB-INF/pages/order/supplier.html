@@ -3,8 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>supplier</title>
-    <link rel="stylesheet" href="../../../static/css/mainPage.css">
-    <link rel="stylesheet" href="../../../static/css/button.css">
+    <link rel="stylesheet" th:href="@{/static/css/mainPage.css}">
+    <link rel="stylesheet" th:href="@{/static/css/button.css}">
+    <link rel="stylesheet" th:href="@{/static/css/popWindow.css}">
+    <script th:src="@{/static/js/vue.js}"></script>
+    <script th:src="@{/static/js/axios.min.js}"></script>
+    <script th:src="@{https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js}"></script>
+    <script th:src="@{https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js}"></script>
+    <script th:src="@{/static/js/supplier.js}" ></script>
     <style>
         /*设置表格位置 行高*/
         .tbl {
@@ -35,13 +41,22 @@
                 </form>
             </div>
             <div class="add-btn">
-                <input type="button" id="addBtn" name="s-add" value="添加供应商">
+                <button id="addBtn">添加供应商</button>
             </div>
         </div>
     </div>
 </div>
+
+<div id="myModal" class="modal">
+    <!-- 弹窗内容 -->
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <object id="dataTable" th:data="@{/page.do?operate=page&page=order/addSupplier}"></object>
+    </div>
+</div>
+
 <div class="list" id="supplier_div">
-    <div class="w2">
+    <div class="t4"id="t4">
         <div class="div_tbl">
         <table class="tbl">
             <thead class="right-table-header">
@@ -56,7 +71,7 @@
             </tr>
             </thead>
             <tbody class="right-table-body">
-            <tr>
+            <tr v-for="supplier in suppliers">
                 <td>{{supplier.name}}</td>
                 <td>{{supplier.address}}</td>
                 <td>{{supplier.contactPerson}}</td>

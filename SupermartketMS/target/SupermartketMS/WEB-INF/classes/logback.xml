@@ -13,7 +13,7 @@
     </appender>
 
     <logger name="MIKE" level="INFO" additivity="false">
-        <appender-ref ref="Console"/>
+    <appender-ref ref="Console"/>
     </logger>
     <root level="INFO">
 　　　　　　<appender-ref ref="Console" />

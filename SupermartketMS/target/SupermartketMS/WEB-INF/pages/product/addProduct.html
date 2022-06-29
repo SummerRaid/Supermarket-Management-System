@@ -86,7 +86,7 @@
         <div class="pForm">
             <div>
                 <label>商品备注：</label>
-                <input id="pRemark" type="text" placeholder="请输入商品备注" name="productRemark">
+                <input id="pRemark" type="text" onblur="checkEmpty(this)" placeholder="请输入商品备注" name="productRemark">
             </div>
             <span id="noRemark" class="errorMsg">未输入备注</span>
         </div>

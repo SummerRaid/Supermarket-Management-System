@@ -3,8 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>order</title>
-    <link rel="stylesheet" href="../../../static/css/mainPage.css">
-    <link rel="stylesheet" href="../../../static/css/button.css">
+    <link rel="stylesheet" th:href="@{/static/css/mainPage.css}">
+    <link rel="stylesheet" th:href="@{/static/css/button.css}">
+    <link rel="stylesheet" th:href="@{/static/css/popWindow.css}">
+    <script th:src="@{/static/js/vue.js}"></script>
+    <script th:src="@{/static/js/axios.min.js}"></script>
+    <script th:src="@{https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js}"></script>
+    <script th:src="@{https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js}"></script>
+    <script th:src="@{/static/js/order.js}" ></script>
     <style>
         /*设置表格位置 行高*/
         .tbl {
@@ -35,13 +41,21 @@
                 </form>
             </div>
             <div class="add-btn">
-                <input type="button" id="addBtn" name="o-add" value="添加订单">
+                <button id="addBtn">添加订单</button>
             </div>
         </div>
     </div>
 </div>
+
+<div id="myModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <object id="dataTable" th:data="@{/page.do?operate=page&page=order/addOrder}"></object>
+    </div>
+</div>
+
 <div class="list" id="order_div">
-    <div class="w2">
+    <div class="t3" id="t3">
         <div class="div_tbl">
             <table class="tbl">
                 <thead class="right-table-header">
@@ -61,7 +75,7 @@
                 </tr>
                 </thead>
                 <tbody class="right-table-body">
-                <tr>
+                <tr v-for="order in orders">
                     <td>{{order.orderNO}}</td>
                     <td>{{order.productName}}</td>
                     <td>{{order.supplier.name}}</td>

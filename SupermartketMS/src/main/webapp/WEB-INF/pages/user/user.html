@@ -5,6 +5,14 @@
     <title>user</title>
     <link rel="stylesheet" href="../../../static/css/mainPage.css">
     <link rel="stylesheet" href="../../../static/css/button.css">
+    <link rel="stylesheet" th:href="@{/static/css/mainPage.css}">
+    <link rel="stylesheet" th:href="@{/static/css/button.css}">
+    <link rel="stylesheet" th:href="@{/static/css/popWindow.css}">
+    <script th:src="@{/static/js/vue.js}"></script>
+    <script th:src="@{/static/js/axios.min.js}"></script>
+    <script th:src="@{https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js}"></script>
+    <script th:src="@{https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js}"></script>
+    <script th:src="@{/static/js/user.js}" ></script>
     <style>
         /*设置表格位置 行高*/
         .tbl {
@@ -35,20 +43,30 @@
                 </form>
             </div>
             <div class="add-btn">
-                <input type="button" id="addBtn" name="u-add" value="添加用户">
+                <button id="addBtn">添加用户</button>
             </div>
         </div>
     </div>
 </div>
+
+<div id="myModal" class="modal">
+    <!-- 弹窗内容 -->
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <object id="dataTable" th:data="@{/page.do?operate=page&page=user/addUser}"></object>
+    </div>
+</div>
+
+
 <div class="list" id="user_div">
-    <div class="w2">
+    <div class="t1" id="t1">
         <div class="div_tbl">
         <table class="tbl">
             <thead class="right-table-header">
             <tr>
                 <th class="noWarp">用户名</th>
                 <th class="noWarp">真实姓名</th>
-                <th class="noWarp">角色</th>
+                <th class="noWarp">角色</th>  //加一个下拉栏
                 <th class="noWarp">电话</th>
                 <th class="noWarp">地址</th>
                 <th class="noWarp">操作1</th>
@@ -56,9 +74,10 @@
             </tr>
             </thead>
             <tbody class="right-table-body">
-            <tr>
+            <tr v-for="user in users" >
                 <td>{{user.uname}}</td>
                 <td>{{user.tname}}</td>
+<!--                选取所有的rName值as select options-->
                 <td>{{user.role.name}}</td>
                 <td>{{user.tel}}</td>
                 <td>{{user.address}}</td>
