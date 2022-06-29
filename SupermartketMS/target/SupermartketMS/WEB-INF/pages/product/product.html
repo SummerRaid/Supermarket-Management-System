@@ -40,7 +40,7 @@
         <!-- 弹窗内容 -->
         <div class="modal-content">
             <span class="close">&times;</span>
-            <object id="dataTable" th:data="@{/page.do?operate=page&page=product/addProduct}"></object>
+            <object id="dataTable" th:data="@{/page.do(operate='page', page='product/addProduct')}"></object>
         </div>
     </div>
     <div class="list" id="product_div">
@@ -64,8 +64,8 @@
                         <th class="noWarp">商品名称</th>
                         <th class="noWarp">商品类型</th>
                         <th class="noWarp">库存数量</th>
-                        <th class="noWarp">已出售数量</th>
                         <th class="noWarp">单价</th>
+                        <th class="noWarp">已出售数量</th>
                         <th class="noWarp">商品支出</th>
 <!--                        <th>商品收入</th>-->
                         <th class="noWarp">操作1</th>
@@ -79,12 +79,14 @@
                         <td>{{product.stock.stockAmount}}</td>
                         <td>
                             <input class="sale-price" type="text"
-                                   :value="product.stock.salePrice"/>
+                                   :value="product.stock.salePrice"
+                                   v-on:blur="editPrice(product.id)"/>
                         </td>
 <!--                        商品支出（所有关联订单中金额总和）-->
                         <td>
                             <input class="sale-amount" type="text"
-                                   :value="product.stock.saleAmount"/>
+                                   :value="product.stock.saleAmount"
+                                   v-on:blur="editAmount(product.id)"/>
                         </td>
                         <td>{{product.stock.xj}}</td>
                         <td class="noWarp"><a href="">删除</a></td>
