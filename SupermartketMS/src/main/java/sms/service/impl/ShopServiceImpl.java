@@ -33,7 +33,7 @@ public class ShopServiceImpl implements ShopService {
         Double oldIncome = shop.getIncome();
         Double newIncome = CalcUtil.addDoubles(oldIncome, income);
         shopMapper.updateIncome(shopId, newIncome);
-        LOGGER.debug("超市 id: " + shopId + " 收入更新: " + oldIncome + "->" + newIncome);
+        LOGGER.info("超市 id: " + shopId + " 收入更新: " + oldIncome + "->" + newIncome);
     }
 
     @Override
@@ -42,14 +42,14 @@ public class ShopServiceImpl implements ShopService {
         Double oldOutcome = shop.getOutcome();
         Double newOutcome = CalcUtil.addDoubles(oldOutcome, outcome);
         shopMapper.updateOutcome(shopId, newOutcome);
-        LOGGER.debug("超市 id: " + shopId + " 支出更新: " + oldOutcome + "->" + newOutcome);
+        LOGGER.info("超市 id: " + shopId + " 支出更新: " + oldOutcome + "->" + newOutcome);
 
     }
 
     @Override
     public Shop getShopById(Integer shopId) {
         Shop shop = shopMapper.selectById(shopId);
-        LOGGER.debug("查询超市 id: " + shopId);
+        LOGGER.info("查询超市 id: " + shopId);
         return shop;
     }
 }

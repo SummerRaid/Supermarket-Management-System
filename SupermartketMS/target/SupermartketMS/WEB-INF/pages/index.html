@@ -1,21 +1,58 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" th:href="@{/static/css/index.css}">
+    <script th:src="@{/static/js/vue.js}"></script>
+    <script th:src="@{/static/js/axios.min.js}"></script>
+    <script th:inline="javascript">
+        window.onload=function() {
+            var vue = new Vue({
+                el:"#div0",
+                data:{
+                    prefix:"/page.do?operate=page&page=",
+                    value:"empty",
+                    page:"/page.do?operate=page&page=empty"
+                },
+                methods:{
+                    changePage: function(pageName) {
+                        vue.value = pageName;
+                        this.getPage();
+                    },
+                    getPage: function() {
+                        vue.page = vue.prefix + vue.value;
+                        console.log("vuePage = " + vue.page);
+                        return vue.page;
+                    }
+                },
+            })
+        }
+    </script>
 </head>
 <body>
     <div id="div0">
-        <div id="div_top"><iframe height="118px" src="top.html" width="100%" frameborder="no"></iframe></div>
-        <div id="div_left"><iframe src="left.html" width="100%" frameborder="no"
-                                   onload="this.style.height = window.frames[1].document.body.scrollHeight+'px';">
-        </iframe></div>
-		<div id="div_main"><iframe src="product/product.html" scrolling="no" width="100%" frameborder="no"
-                                   onload="this.style.height = Math.max(window.frames[1].document.body.scrollHeight,window.
-                                   frames[2].document.body.scrollHeight)+'px';">
-
-        </iframe>
+        <div id="div_top">
+            <div class="h2">超市名称</div>
+            <span class="h3" th:text="${session.shopId}" ></span>
+            <div class="h2">收入</div>
+            <span class="h3" th:text="${session.currUser.role.shop.income}" ></span>
+            <div class="h2">支出</div>
+            <span class="h3" th:text="${session.currUser.role.shop.outcome}" ></span>
+            <div class="h2">利润</div>
+            <span class="h3" th:text="${session.currUser.role.shop.profit}" ></span>
+        </div>
+        <div id="div_left">
+            <button type="button" v-on:click="changePage('product/product')">查询商品</button><br />
+            <button type="button" v-on:click="changePage('product/product')">查询已删除商品</button><br />
+            <button type="button" v-on:click="changePage('order/order')">查询订单</button><br />
+            <button type="button" v-on:click="changePage('order/supplier')">查询供应商</button><br />
+            <button type="button" v-on:click="changePage('user/user')">查询用户</button><br />
+            <button type="button" v-on:click="changePage('user/role')">查询角色</button><br />
+        </div>
+		<div id="div_main">
+            <object th:v-bind:data="@{'/page.do(operate=page&page='+value}" id="mainPage"></object>
         </div>
     </div>
 </body>

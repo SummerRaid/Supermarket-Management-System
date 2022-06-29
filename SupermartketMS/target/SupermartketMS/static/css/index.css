@@ -46,6 +46,9 @@ div{
     float: left;
     border:0px solid red;
 }
+.h2, .h3{
+    float:left;
+}
 #mainPage{
     float:right;
     width:100%;

@@ -39,21 +39,21 @@ public class RoleServiceImpl implements RoleService {
     @Override
     public List<Role> getAllRoles(Integer shopId) {
         List<Role> roles = roleMapper.selectAll(shopId);
-        LOGGER.debug("查询所有角色, 超市id: " + shopId);
+        LOGGER.info("查询所有角色, 超市id: " + shopId);
         return roles;
     }
 
     @Override
     public Role getRole(Integer roleId) {
         Role role = roleMapper.selectById(roleId);
-        LOGGER.debug("查询角色 id: " + roleId);
+        LOGGER.info("查询角色 id: " + roleId);
         return role;
     }
 
     @Override
     public Role addRole(Role role) {
         Integer id = roleMapper.add(role);
-        LOGGER.debug("添加角色 id: " + role.getId() + " 角色名称: " + role.getName());
+        LOGGER.info("添加角色 id: " + role.getId() + " 角色名称: " + role.getName());
         return getRole(role.getId());
     }
 
@@ -64,7 +64,7 @@ public class RoleServiceImpl implements RoleService {
             userService.delUser(user.getId());
         }
         roleMapper.del(roleId);
-        LOGGER.debug("删除角色 id: " + roleId);
+        LOGGER.info("删除角色 id: " + roleId);
     }
 
     @Override

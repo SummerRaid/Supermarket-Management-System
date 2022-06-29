@@ -1,5 +1,7 @@
 package sms.pojo;
 
+import myssm.util.CalcUtil;
+
 /**
  * Copyright (c) 2008-2024: Zirui Qiao
  * Project: SupermartketMS
@@ -14,6 +16,7 @@ public class Shop {
     private Integer id;
     private Double income;  // 总收入
     private Double outcome; // 总花销
+    private Double profit;  // 利润
 
     public Shop() {
     }
@@ -39,6 +42,7 @@ public class Shop {
 
     public void setIncome(Double income) {
         this.income = income;
+        getProfit();
     }
 
     public Double getOutcome() {
@@ -47,6 +51,7 @@ public class Shop {
 
     public void setOutcome(Double outcome) {
         this.outcome = outcome;
+        getProfit();
     }
 
     public Integer getId() {
@@ -55,6 +60,12 @@ public class Shop {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public Double getProfit() {
+        if(this.income != null && this.outcome != null)
+            this.profit = CalcUtil.addDoubles(income, outcome * -1);
+        return profit;
     }
 
     @Override

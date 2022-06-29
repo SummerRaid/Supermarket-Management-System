@@ -1,15 +1,22 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
     <meta charset="UTF-8">
     <title>product</title>
-    <link rel="stylesheet" href="../../../static/css/product.css">
-    <link rel="stylesheet" href="../../../static/css/mainPage.css">
-    <link rel="stylesheet" href="../../../static/css/button.css">
+    <link rel="stylesheet" th:href="@{/static/css/product.css}">
+    <link rel="stylesheet" th:href="@{/static/css/mainPage.css}">
+    <link rel="stylesheet" th:href="@{/static/css/button.css}">
+    <link rel="stylesheet" th:href="@{/static/css/popWindow.css}">
+    <script th:src="@{/static/js/vue.js}"></script>
+    <script th:src="@{/static/js/axios.min.js}"></script>
+    <script th:src="@{https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js}"></script>
+    <script th:src="@{https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js}"></script>
+    <script th:src="@{/static/js/product.js}" ></script>
 </head>
-<body class="main">
+<body>
     <div class="header">
-        <div class="w1">
+        <div class="w1" id="w1">
             <div class="header-left">
                 <h1 class="noWarp">商品管理</h1>
             </div>
@@ -21,13 +28,23 @@
                     </form>
                 </div>
                 <div class="add-btn">
-                    <input type="button" id="addBtn" name="p-add" value="添加商品">
+<!--                    <input type="button" id="addBtn" name="p-add" value="添加商品" onclick="location.href=('addProduct.html')">-->
+                    <!-- 打开弹窗按钮 -->
+                    <button id="addBtn" >添加商品</button>
                 </div>
             </div>
         </div>
     </div>
+    <!-- 弹窗 -->
+    <div id="myModal" class="modal">
+        <!-- 弹窗内容 -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <object id="dataTable" th:data="@{/page.do?operate=page&page=product/addProduct}"></object>
+        </div>
+    </div>
     <div class="list" id="product_div">
-        <div class="w2">
+        <div class="w2" id="w2">
             <table class="left-table">
                 <thead>
                     <tr>
@@ -56,18 +73,18 @@
                     </tr>
                 </thead>
                 <tbody class="right-table-body">
-                    <tr>
+                    <tr v-for="product in products" >
                         <td>{{product.name}}</td>
                         <td>{{product.type}}</td>
                         <td>{{product.stock.stockAmount}}</td>
                         <td>
                             <input class="sale-price" type="text"
-                                   value="product.stock.salePrice"/>
+                                   :value="product.stock.salePrice"/>
                         </td>
 <!--                        商品支出（所有关联订单中金额总和）-->
                         <td>
                             <input class="sale-amount" type="text"
-                                   value="product.stock.saleAmount"/>
+                                   :value="product.stock.saleAmount"/>
                         </td>
                         <td>{{product.stock.xj}}</td>
                         <td class="noWarp"><a href="">删除</a></td>
@@ -79,4 +96,5 @@
         </div>
     </div>
 </body>
+<script type="text/javascript" th:src="@{/static/js/button.js}"></script>
 </html>

@@ -26,6 +26,10 @@ public class UserController {
     private UserService userService;
     private RoleService roleService;
 
+    public String index(){
+        return "";
+    }
+
     /**
      * @Description: 用户登录界面
      * @param uname 用户名

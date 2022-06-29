@@ -40,7 +40,7 @@ public class SupplierServiceImpl implements SupplierService {
     public Supplier addSupplier(Supplier supplier) {
         Integer id = supplierMapper.add(supplier);
         if(supplier != null && supplier.getId() != null)
-            LOGGER.debug("添加供应商 id: " + supplier.getId() + " 厂商: " + supplier.getName());
+            LOGGER.info("添加供应商 id: " + supplier.getId() + " 厂商: " + supplier.getName());
         return getSupplier(supplier.getId());
     }
 
@@ -48,21 +48,21 @@ public class SupplierServiceImpl implements SupplierService {
     public Supplier getSupplier(Integer supplierId) {
         Supplier supplier = supplierMapper.selectById(supplierId);
         if(supplier != null && supplier.getId() != null)
-            LOGGER.debug("查询供应商 id: " + supplier.getId());
+            LOGGER.info("查询供应商 id: " + supplier.getId());
         return supplier;
     }
 
     @Override
     public List<Supplier> getAllSuppliers(Integer shopId) {
         List<Supplier> suppliers = supplierMapper.selectAll(shopId);
-        LOGGER.debug("查询超市 id: " + shopId + " 的所有供应商");
+        LOGGER.info("查询超市 id: " + shopId + " 的所有供应商");
         return suppliers;
     }
 
     @Override
     public List<Supplier> getSupplierByName(String name, Integer shopId) {
         List<Supplier> suppliers = supplierMapper.selectByName(name, shopId);
-        LOGGER.debug("查询超市 id: " + shopId + " 中 供应商 名字: " + name);
+        LOGGER.info("查询超市 id: " + shopId + " 中 供应商 名字: " + name);
         return suppliers;
     }
 
@@ -70,7 +70,7 @@ public class SupplierServiceImpl implements SupplierService {
     public Supplier updateSupplier(Supplier supplier) {
         Integer id = supplierMapper.update(supplier);
         if(supplier != null && supplier.getId() != null) {
-            LOGGER.debug("更新供应商 id: " + supplier.getId());
+            LOGGER.info("更新供应商 id: " + supplier.getId());
             return getSupplier(supplier.getId());
         }
         return null;
@@ -82,7 +82,7 @@ public class SupplierServiceImpl implements SupplierService {
         for (Order order : orders) {
             orderService.setOrderSupplier(order.getId(), null);
         }
-        LOGGER.debug("删除供应商 id: " + supplierId);
+        LOGGER.info("删除供应商 id: " + supplierId);
         supplierMapper.del(supplierId);
     }
 }

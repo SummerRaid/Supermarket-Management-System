@@ -35,6 +35,10 @@ public class ProductController {
         return "productPage";
     }
 
+    public String deletedIndex() {
+        return "";
+    }
+
     /**
      * @Description: 根据商品名称查询商品
      * @param pName 商品名称
@@ -74,6 +78,7 @@ public class ProductController {
      */
     public String getAllProducts(HttpSession session) {
         Integer shopId = (Integer) session.getAttribute("shopId");
+        System.out.println("shopId = " + shopId);
         List<Product> products = productService.getAllProducts(shopId);
 
         return "json:"+ StringUtil.toJsonString(products);

@@ -21,6 +21,10 @@ import java.util.List;
 public class SupplierController {
     private SupplierService supplierService;
 
+    public String index(){
+        return "";
+    }
+
     /**
      * @Description: 添加新供应商
      * @param address 地址

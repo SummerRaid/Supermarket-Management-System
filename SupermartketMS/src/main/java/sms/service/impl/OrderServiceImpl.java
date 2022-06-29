@@ -40,52 +40,52 @@ public class OrderServiceImpl implements OrderService {
             LoggerFactory.getLogger(OrderServiceImpl.class);
 
     public OrderServiceImpl() {
-        LOGGER.debug("OrderServiceImpl 初始化中。。。");
+        LOGGER.info("OrderServiceImpl 初始化中。。。");
         orderMapper = MapperUtil.getProxy(OrderMapper.class);
         stockMapper = MapperUtil.getProxy(StockMapper.class);
         orderDetailMapper = MapperUtil.getProxy(OrderDetailMapper.class);
-        LOGGER.debug("OrderServiceImpl 初始化完成！");
+        LOGGER.info("OrderServiceImpl 初始化完成！");
     }
 
     @Override
     public List<Order> getAllOrders(Integer shopId) {
         List<Order> orders = orderMapper.selectAll(shopId);
-        LOGGER.debug("查询超市的所有订单 超市id: " + shopId);
+        LOGGER.info("查询超市的所有订单 超市id: " + shopId);
         return orders;
     }
 
     @Override
     public List<Order> getOrdersByUser(Integer userId) {
         List<Order> orders = orderMapper.selectByUser(userId);
-        LOGGER.debug("查询用户的所有订单 用户id: " + userId);
+        LOGGER.info("查询用户的所有订单 用户id: " + userId);
         return orders;
     }
 
     @Override
     public List<Order> getOrdersBySupplier(Integer supplierId) {
         List<Order> orders = orderMapper.selectBySupplier(supplierId);
-        LOGGER.debug("查询供应商的所有订单 供应商id: " + supplierId);
+        LOGGER.info("查询供应商的所有订单 供应商id: " + supplierId);
         return orders;
     }
 
     @Override
     public List<Order> getOrderByProduct(Integer productId) {
         List<Order> orders = orderMapper.selectByProduct(productId);
-        LOGGER.debug("查询商品的所有订单 商品id: " + productId);
+        LOGGER.info("查询商品的所有订单 商品id: " + productId);
         return orders;
     }
 
     @Override
     public List<Order> getOrderByOrder(Order order, Integer shopId) {
         List<Order> orders = orderMapper.selectByOrder(order, shopId);
-        LOGGER.debug("查询商品的所有订单 商品: " + order + "超市id: " + shopId);
+        LOGGER.info("查询商品的所有订单 商品: " + order + "超市id: " + shopId);
         return orders;
     }
 
     @Override
     public Order getOrder(Integer orderId) {
         Order order = orderMapper.selectById(orderId);
-        LOGGER.debug("查询订单 id: " + orderId);
+        LOGGER.info("查询订单 id: " + orderId);
         return order;
     }
 
@@ -94,7 +94,7 @@ public class OrderServiceImpl implements OrderService {
         Integer id = orderMapper.add(order);
         order.getOrderDetail().setId(order.getId());
         orderDetailMapper.add(order.getOrderDetail());
-        LOGGER.debug("添加新订单，订单号：" + order.getId());
+        LOGGER.info("添加新订单，订单号：" + order.getId());
         return getOrder(order.getId());
     }
 
@@ -104,12 +104,12 @@ public class OrderServiceImpl implements OrderService {
         order.getOrderDetail().setStatus(1);
         order.getOrderDetail().setPayDate(new Date());
         orderDetailMapper.update(order.getOrderDetail());
-        LOGGER.debug("订单 id: " + orderId + "已付款");
+        LOGGER.info("订单 id: " + orderId + "已付款");
 
         Stock stock = order.getProduct().getStock();
         stock.setStockAmount(stock.getStockAmount() + order.getOrderDetail().getAmount());
         stockMapper.update(stock);
-        LOGGER.debug("商品库存 id: " + stock.getId() + " 更新");
+        LOGGER.info("商品库存 id: " + stock.getId() + " 更新");
 
         Shop shop = order.getSupplier().getShop();
         shopService.addOutcome(shop.getId(), order.getOrderDetail().getPayMoney());
@@ -118,15 +118,15 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public void cancelOrder(Integer orderId) {
-        LOGGER.debug("尝试撤销订单 id: " + orderId);
+        LOGGER.info("尝试撤销订单 id: " + orderId);
         Order order = getOrder(orderId);
         if(order.getOrderDetail().getStatus() == 2) {
-            LOGGER.debug("订单未付款，可以撤销");
+            LOGGER.info("订单未付款，可以撤销");
             orderDetailMapper.del(orderId);
             orderMapper.del(orderId);
-            LOGGER.debug("订单撤销成功 id: " + orderId);
+            LOGGER.info("订单撤销成功 id: " + orderId);
         } else {
-            LOGGER.debug("订单已经付款，不可以撤销");
+            LOGGER.info("订单已经付款，不可以撤销");
             return;
         }
     }
@@ -140,7 +140,7 @@ public class OrderServiceImpl implements OrderService {
         if (product != null) {
             result = product.getName();
         }
-        LOGGER.debug("将订单 id: " + orderId + " 中的商品设置为：" + result);
+        LOGGER.info("将订单 id: " + orderId + " 中的商品设置为：" + result);
     }
 
     @Override
@@ -152,7 +152,7 @@ public class OrderServiceImpl implements OrderService {
         if (user != null) {
             result = user.getUname();
         }
-        LOGGER.debug("将订单 id: " + orderId + " 中的用户设置为：" + result);
+        LOGGER.info("将订单 id: " + orderId + " 中的用户设置为：" + result);
     }
 
     @Override
@@ -164,6 +164,6 @@ public class OrderServiceImpl implements OrderService {
         if (supplier != null) {
             result = supplier.getName();
         }
-        LOGGER.debug("将订单 id: " + orderId + " 中的供应商设置为：" + result);
+        LOGGER.info("将订单 id: " + orderId + " 中的供应商设置为：" + result);
     }
 }

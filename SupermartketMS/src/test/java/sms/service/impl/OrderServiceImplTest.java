@@ -14,18 +14,31 @@ import java.util.UUID;
 public class OrderServiceImplTest extends TestCase {
 
     OrderServiceImpl orderService;
+    ProductServiceImpl productService;
+    UserServiceImpl userService;
+    SupplierServiceImpl supplierService;
 
     public void setUp() throws Exception {
         super.setUp();
         TransactionManager.beginTrans();
         ShopServiceImpl shopService = new ShopServiceImpl();
         orderService = new OrderServiceImpl();
+        productService = new ProductServiceImpl();
+        userService = new UserServiceImpl();
+        supplierService = new SupplierServiceImpl();
         orderService.setShopService(shopService);
+        productService.setOrderService(orderService);
+        productService.setShopService(shopService);
+        userService.setOrderService(orderService);
+        supplierService.setOrderService(orderService);
     }
 
     public void tearDown() throws Exception {
         TransactionManager.rollback();
         orderService = null;
+        productService = null;
+        userService = null;
+        supplierService = null;
     }
 
     public void testGetAllOrders() {
@@ -80,6 +93,8 @@ public class OrderServiceImplTest extends TestCase {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
         String orderNO = UUID.randomUUID() + "_" + sdf.format(now);
         Order order = new Order("测试名称", orderNO, new Supplier(1), new User(1), new Product(1));
+        OrderDetail orderDetail = new OrderDetail(100.0, 2, now, "", 100, 1.0);
+        order.setOrderDetail(orderDetail);
 
         orderService.addOrder(order);
         List<Order> orders = orderService.getOrderByOrder(new Order("测试名称"), 1);
@@ -115,7 +130,7 @@ public class OrderServiceImplTest extends TestCase {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
         String orderNO = UUID.randomUUID() + "_" + sdf.format(now);
         Order order = new Order("测试名称", orderNO, new Supplier(1), new User(1), new Product(1));
-        OrderDetail orderDetail = new OrderDetail(1000.0, 0, now, "remark", 100, 10.0);
+        OrderDetail orderDetail = new OrderDetail(1000.0, 2, now, "remark", 100, 10.0);
         order.setOrderDetail(orderDetail);
 
         orderService.addOrder(order);
@@ -137,16 +152,63 @@ public class OrderServiceImplTest extends TestCase {
         order.setOrderDetail(orderDetail);
 
         orderService.addOrder(order);
+        Order order2 = orderService.getOrder(order.getId());
+        System.out.println("order2 = " + order2);
 
-        Product product = new Product(100);
+        Product product = new Product();
         product.setName("testName");
+        Stock stock = new Stock(100.0, 100, new Shop(1), 100);
+        product.setStock(stock);
+        productService.addProduct(product);
 
         orderService.setOrderProduct(order.getId(), product);
+
+        Order order1 = orderService.getOrder(order.getId());
+        System.out.println("order1 = " + order1);
+        assertEquals(product.getName(), order1.getProduct().getName());
     }
 
     public void testSetOrderUser() {
+        LocalDateTime time = LocalDateTime.now();
+        Date now = StringUtil.localDateTimeToDate(time);
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
+        String orderNO = UUID.randomUUID() + "_" + sdf.format(now);
+        Order order = new Order("测试名称", orderNO, new Supplier(1), new User(1), new Product(1));
+        OrderDetail orderDetail = new OrderDetail(1000.0, 0, now, "remark", 100, 10.0);
+        order.setOrderDetail(orderDetail);
+
+        orderService.addOrder(order);
+
+        User user = new User();
+        user.setUname("userName");
+        userService.register(user);
+
+        orderService.setOrderUser(order.getId(), user);
+
+        Order order1 = orderService.getOrder(order.getId());
+        System.out.println("order1 = " + order1);
+        assertEquals(user.getUname(), order1.getUser().getUname());
     }
 
     public void testSetOrderSupplier() {
+        LocalDateTime time = LocalDateTime.now();
+        Date now = StringUtil.localDateTimeToDate(time);
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
+        String orderNO = UUID.randomUUID() + "_" + sdf.format(now);
+        Order order = new Order("测试名称", orderNO, new Supplier(1), new User(1), new Product(1));
+        OrderDetail orderDetail = new OrderDetail(1000.0, 0, now, "remark", 100, 10.0);
+        order.setOrderDetail(orderDetail);
+
+        orderService.addOrder(order);
+
+        Supplier supplier = new Supplier();
+        supplier.setName("supplierName");
+        supplierService.addSupplier(supplier);
+
+        orderService.setOrderSupplier(order.getId(), supplier);
+
+        Order order1 = orderService.getOrder(order.getId());
+        System.out.println("order1 = " + order1);
+        assertEquals(supplier.getName(), order1.getSupplier().getName());
     }
 }

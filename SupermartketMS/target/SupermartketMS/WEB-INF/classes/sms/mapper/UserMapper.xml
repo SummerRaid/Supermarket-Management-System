@@ -30,6 +30,9 @@
     <delete id="del">
     delete from t_user where id = #{id}
     </delete>
+    <delete id="delByRoleId">
+        delete from t_user where role_id = #{param1}
+    </delete>
 
     <select id="selectById" resultMap="userResultMap">
     select * from t_user

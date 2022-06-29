@@ -21,6 +21,8 @@ h1{
 }
 /*设置 header 宽度，弹性*/
 .w1 {
+    filter:blur(5px);
+
     width: 100%;
     display: -webkit-flex;
     display: flex;
@@ -97,6 +99,6 @@ h1{
 }
 /*设置表格列宽*/
 .tbl th, .tbl td {
-    max-width:100px;
-    min-width: 100px;
+    max-width: 150px;
+    min-width: 150px;
 }

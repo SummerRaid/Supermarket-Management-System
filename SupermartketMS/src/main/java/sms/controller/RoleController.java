@@ -24,6 +24,10 @@ public class RoleController {
 
     private RoleService roleService;
 
+    public String index() {
+        return "";
+    }
+
     /**
      * @Description: 添加新角色
      * @param name 角色名称

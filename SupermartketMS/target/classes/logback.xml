@@ -12,10 +12,10 @@
         </encoder>
     </appender>
 
-    <logger name="MIKE" level="DEBUG" additivity="false">
+    <logger name="MIKE" level="INFO" additivity="false">
         <appender-ref ref="Console"/>
     </logger>
-    <root level="DEBUG">
+    <root level="INFO">
 　　　　　　<appender-ref ref="Console" />
 　　 </root>
 </configuration>

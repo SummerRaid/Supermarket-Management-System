@@ -8,32 +8,49 @@
 * @date: 2022/6/21 23:32	
 */
 #div0{
+    margin:0;
     width:100%;
+    height:120%;
     background-color: #99CC99;
 }
 #div_top{
     width:100%;
+    height:15%;
+    background-color: #3F83F1;
 }
 #div_left{
     width:20%;
+    height:85%;
     overflow: visible;
+    background-color: #2F5BB7;
 }
 #div_main{
     width:80%;
+    height:85%;
     overflow: visible;
-}
-iframe{
-    width:100%;
-    float:left;
-    border:0px solid red;
 }
 body{
     margin:0;
     padding:0;
-    background-color: #1d1d1d;
+    height:100%;
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+html{
+    height:100%;
+    width:100%
 }
 div{
     position: relative;
     float: left;
     border:0px solid red;
+}
+.h2, .h3{
+    float:left;
+}
+#mainPage{
+    float:right;
+    width:100%;
+    height:100%;
 }
