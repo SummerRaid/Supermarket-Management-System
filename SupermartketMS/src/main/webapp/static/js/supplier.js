@@ -58,7 +58,7 @@ window.onload=function(){
 
                 });
             },
-            addNewSupplier:function(supplierId) {
+            addNewSupplier:function() {
                 axios({
                     method:"POST",
                     url:"supplier.do",

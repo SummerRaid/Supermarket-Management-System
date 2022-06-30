@@ -73,7 +73,7 @@ window.onload=function(){
 
                 });
             },
-            addNewUser:function(userId){
+            addNewUser:function(){
                 axios({
                     method:"POST",
                     url:"user.do",

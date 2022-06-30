@@ -58,7 +58,7 @@ window.onload=function(){
 
                 });
             },
-            addNewRole:function(roleId) {
+            addNewRole:function() {
                 axios({
                     method:"POST",
                     url:"role.do",

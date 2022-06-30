@@ -147,7 +147,7 @@ window.onload=function(){
 
                 });
             },
-            addNewProduct:function(productId) {
+            addNewProduct:function() {
                 axios({
                     method:"POST",
                     url:"product.do",

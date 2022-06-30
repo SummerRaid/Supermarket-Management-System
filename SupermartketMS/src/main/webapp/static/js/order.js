@@ -58,7 +58,7 @@ window.onload=function(){
 
                 });
             },
-            addNewOrder :function(orderId) {
+            addNewOrder :function() {
                 axios({
                     method:"POST",
                     url:"order.do",
