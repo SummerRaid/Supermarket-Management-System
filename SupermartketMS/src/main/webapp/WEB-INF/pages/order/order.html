@@ -91,7 +91,7 @@
                     <td>{{order.orderDetail.payDate}}</td><!-- 显示支付时间，如果未支付，则显示【未支付】 -->
                     <td>{{order.orderDetail.remark}}</td>
                     <td class="noWarp"><a href="" v-on:click="deleteOrder(order.id)">撤销</a></td> <!-- 如果已支付，则按钮invalid -->
-                    <td class="noWarp"><a href="" v-on:click="editTheOrder(order.id)">支付</a></td> <!-- 如果已支付，则按钮invalid -->
+                    <td class="noWarp"><a href="" v-on:click="addTheOrder(order.id)">支付</a></td> <!-- 如果已支付，则按钮invalid -->
                 </tr>
                 </tbody>
             </table>

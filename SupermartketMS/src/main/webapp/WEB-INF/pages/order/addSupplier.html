@@ -12,7 +12,19 @@
 <head>
     <meta charset="UTF-8">
     <title>添加供应商</title>
+    <style>
+        button{
+            float: left;
+            width: 60px;
+            height: 25px;
+        }
+    </style>
     <!--    所有的供应商信息，由使用者自主编辑-->
+    <script th:src="@{/static/js/vue.js}"></script>
+    <script th:src="@{/static/js/axios.min.js}"></script>
+    <script th:src="@{https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js}"></script>
+    <script th:src="@{https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js}"></script>
+    <script type="text/javascript" th:src="@{/static/js/supplier.js}"></script>
 </head>
 <body>
 <!--<h2>添加供应商</h2>-->
@@ -99,8 +111,12 @@
             </div>
             <span id="noShop" class="errorMsg">未输入供货超市</span>
         </div>
-        <input type="submit" value="添加" id="addBtn" />
-        <input type="button" id="pResetBtn" value="重置"/>
+        <div class="pForm">
+            <div>
+                <button type="submit" id="addBtn">添加</button>
+                <button type="reset" id="sResetBtn">重置</button>
+            </div>
+        </div>
     </form>
 </div>
 </body>

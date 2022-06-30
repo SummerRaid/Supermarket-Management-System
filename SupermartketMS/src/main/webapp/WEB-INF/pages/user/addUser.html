@@ -12,6 +12,18 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+        button{
+            float: left;
+            width: 60px;
+            height: 25px;
+        }
+    </style>
+    <script th:src="@{/static/js/vue.js}"></script>
+    <script th:src="@{/static/js/axios.min.js}"></script>
+    <script th:src="@{https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js}"></script>
+    <script th:src="@{https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js}"></script>
+    <script type="text/javascript" th:src="@{/static/js/user.js}"></script>
 </head>
 <body>
 <!--<h2>添加供应商</h2>-->
@@ -98,8 +110,12 @@
             </div>
             <span id="noAddress" class="errorMsg">未输入用户地址</span>
         </div>
-        <input type="submit" value="添加" id="addBtn" />
-        <input type="button" id="uResetBtn" value="重置"/>
+        <div class="pForm">
+            <div>
+                <button type="submit" id="addBtn">添加</button>
+                <button type="reset" id="uResetBtn">重置</button>
+            </div>
+        </div>
     </form>
 </div>
 </body>

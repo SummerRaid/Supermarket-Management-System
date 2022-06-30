@@ -89,9 +89,11 @@
                                    v-on:blur="editAmount(product.id)"/>
                         </td>
                         <td>{{product.stock.xj}}</td>
-                        <td class="noWarp"><a href="" v-on:click="deleteProduct(product.id)">删除</a></td>
-                        <td class="noWarp"><a href="" v-on:click="editTheProduct(product.id)">编辑</a></td>
-                    </tr>a@w!
+                        <td class="noWarp" v-if="product.delete == 0"><a href="" v-on:click="productToBin(product.id)">删除</a></td>
+                        <td class="noWarp" v-else="product.delete == 0"><a href="" v-on:click="deleteProduct(product.id)">删除</a></td>
+                        <td class="noWarp" v-if="product.delete == 0"><a href="" v-on:click="editTheProduct(product.id)">编辑</a></td>
+                        <td class="noWarp" v-else="product.delete == 0"><a href="" v-on:click="recoverTheProduct(product.id)">恢复</a></td>
+                    </tr>
                 </tbody>
             </table>
             </div>

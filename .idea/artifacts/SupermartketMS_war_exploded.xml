@@ -26,6 +26,8 @@
           <element id="library" level="project" name="Maven: com.github.penggle:kaptcha:2.3.2" />
           <element id="library" level="project" name="Maven: com.jhlabs:filters:2.0.235-1" />
           <element id="library" level="project" name="Maven: com.google.code.gson:gson:2.8.9" />
+          <element id="library" level="project" name="Maven: org.slf4j:slf4j-log4j12:1.7.26" />
+          <element id="library" level="project" name="Maven: log4j:log4j:1.2.17" />
           <element id="library" level="project" name="Maven: ch.qos.logback:logback-classic:1.2.11" />
           <element id="library" level="project" name="Maven: ch.qos.logback:logback-core:1.2.11" />
           <element id="library" level="project" name="Maven: org.mybatis:mybatis:3.5.10" />

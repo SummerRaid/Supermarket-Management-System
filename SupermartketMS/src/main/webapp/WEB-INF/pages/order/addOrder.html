@@ -12,8 +12,19 @@
 <head>
     <meta charset="UTF-8">
     <title>添加订单</title>
+    <style>
+        button{
+            float: left;
+            width: 60px;
+            height: 25px;
+        }
+    </style>
 <!--    所有的商品信息，由使用者自主编辑-->
-    <link rel="stylesheet" href="../../../static/css/button.css">
+    <script th:src="@{/static/js/vue.js}"></script>
+    <script th:src="@{/static/js/axios.min.js}"></script>
+    <script th:src="@{https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js}"></script>
+    <script th:src="@{https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js}"></script>
+    <script type="text/javascript" th:src="@{/static/js/order.js}"></script>
 </head>
 <body>
 <!--<h2>添加供应商</h2>-->
@@ -155,8 +166,12 @@
             </div>
             <span id="noPrice" class="errorMsg">未输入订单的商品价格</span>
         </div>
-        <input type="submit" value="添加" id="addBtn" />
-        <input type="button" id="oResetBtn" value="重置"/>
+        <div class="pForm">
+            <div>
+                <button type="submit" id="addBtn">添加</button>
+                <button type="reset" id="oResetBtn">重置</button>
+            </div>
+        </div>
     </form>
 </div>
 </body>
