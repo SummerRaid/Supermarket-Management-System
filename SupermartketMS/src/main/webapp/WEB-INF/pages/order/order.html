@@ -43,7 +43,7 @@
                 </form>
             </div>
             <div class="add-btn">
-                <button id="addBtn">添加订单</button>
+                <button id="addBtn" v-on:click="openWindow()">添加订单</button>
             </div>
         </div>
     </div>
@@ -51,7 +51,7 @@
 
 <div id="myModal" class="modal">
     <div class="modal-content">
-        <span class="close">&times;</span>
+        <span class="close" v-on:click="closeWindow()">&times;</span>
         <div>
             <div class="addO">
                 <h1>添加订单</h1>

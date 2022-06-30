@@ -49,7 +49,7 @@
                 </form>
             </div>
             <div class="add-btn">
-                <button id="addBtn">添加用户</button>
+                <button id="addBtn" v-on:click="openWindow()">添加用户</button>
             </div>
         </div>
     </div>
@@ -58,7 +58,7 @@
 <div id="myModal" class="modal">
     <!-- 弹窗内容 -->
     <div class="modal-content">
-        <span class="close">&times;</span>
+        <span class="close" v-on:click="closeWindow()">&times;</span>
         <div class="addU">
             <h1>添加用户</h1>
             <form method="post" onsubmit="checkEmpty();">
