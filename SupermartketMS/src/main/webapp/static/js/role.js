@@ -39,9 +39,7 @@ window.onload=function(){
                         roleId: roleId,
                     }
                 }).then(function(response){
-                    let role = response.data;
-                    vue.roles = role;
-                    console.log(vue.roles);
+                    vue.getRoles();
                 }).catch(function(error){
 
                 });
@@ -55,9 +53,19 @@ window.onload=function(){
                         roleId: roleId,
                     }
                 }).then(function(response){
-                    let role = response.data;
-                    vue.roles = role;
-                    console.log(vue.roles);
+                    vue.getRoles();
+                }).catch(function(error){
+
+                });
+            },
+            addNewRole:function(roleId) {
+                axios({
+                    method:"POST",
+                    url:"role.do",
+                    params:{
+                        operate:"addRole",
+                    }
+                }).then(function(response){
                 }).catch(function(error){
 
                 });
@@ -67,13 +75,21 @@ window.onload=function(){
             this.getRoles();
         }
     });
+};
+function check(){
+    if (checkEmpty(name)==true){
+        //vue.addNewRole();
+    }
 }
 function checkEmpty(name) {
     var text = $(name).html();
     alert(text);
     if (text.value === "") {
         alert("不能为空哦！");
+        return false;
     } else {
-        alert("新角色添加成功！");
+        //vue.addNewRole();
+        alert("");
+        return true;
     }
 }

@@ -12,9 +12,9 @@
 
 /* 弹窗 (background) */
 .modal {
-    display: none; /* 默认隐藏 */
+    display: block; /* 默认隐藏 *!*/
     position: fixed; /* 固定定位 */
-    z-index: 1; /* 设置在顶层 */
+    z-index: 3; /* 设置在顶层 */
     margin: 10% 20%;
     left: 0;
     top: 0;
@@ -29,7 +29,7 @@
 /* 弹窗内容 */
 .modal-content {
     position: relative;
-    display: block;
+    /*display: block;*/
     background-color: grey;
     margin: 0;
     padding: 0;

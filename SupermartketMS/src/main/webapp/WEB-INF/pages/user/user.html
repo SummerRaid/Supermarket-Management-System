@@ -28,11 +28,16 @@
             width:35%;
             /*overflow-x: scroll;*/
         }
+        #uAddBtn, #uResetBtn {
+            float: left;
+            width: 60px;
+            height: 25px;
+        }
     </style>
 </head>
 <body class="main">
 <div class="header">
-    <div class="w1"id="w1">
+    <div class="w1" id="w1">
         <div class="header-left">
             <h1 class="noWarp">用户管理</h1>
         </div>
@@ -54,7 +59,66 @@
     <!-- 弹窗内容 -->
     <div class="modal-content">
         <span class="close">&times;</span>
-        <object id="dataTable" th:data="@{/page.do?operate=page&page=user/addUser}"></object>
+        <div class="addU">
+            <h1>添加用户</h1>
+            <form th:action="@{/user.do}" method="post" onsubmit="check();">
+                <input type="hidden" name="operate" value="userAddPage"/>
+                <div class="uForm">
+                    <div>
+                        <label>用户名：</label>
+                        <input id="uName" type="text" onblur="checkEmpty(this)" placeholder="请输入用户名" name="userName"
+                               v-model="uName">
+                    </div>
+                    <span id="noName" class="errorMsg">未输入用户名</span>
+                </div>
+                <div class="uFrom">
+                    <div>
+                        <label>密码：</label>
+                        <input id="uPwd" type="text" onblur="checkEmpty(this)" placeholder="请输入密码" name="userPassword"
+                               v-model="uPwd">
+                    </div>
+                    <span id="noPwd" class="errorMsg">未输入密码</span>
+                </div>
+                <div class="uForm">
+                    <div>
+                        <label>真实姓名：</label>
+                        <input id="uTName" type="text" onblur="checkEmpty(this)" placeholder="请输入真实姓名" name="userTrueName"
+                               v-model="uTName">
+                    </div>
+                    <span id="noTName" class="errorMsg">未输入真实姓名</span>
+                </div>
+                <div class="uForm">
+                    <div>
+                        <label>用户角色：</label>
+                        <input id="uRole" type="text" onblur="checkEmpty(this)" placeholder="请输入用户角色" name="userRole"
+                               v-model="uRole">
+                    </div>
+                    <span id="noRole" class="errorMsg">未输入用户角色</span>
+                </div>
+                <div class="uForm">
+                    <div>
+                        <label>用户电话：</label>
+                        <input id="uPhone" type="text" onblur="checkEmpty(this)" placeholder="请输入用户电话" name="userPhone"
+                               v-model="uPhone">
+                    </div>
+                    <span id="noPhone" class="errorMsg">未输入用户电话</span>
+                </div>
+                <div class="uForm">
+                    <div>
+                        <label>用户地址：</label>
+                        <input id="uAddress" type="text" onblur="checkEmpty(this)" placeholder="请输入用户地址" name="userAddress"
+                               v-model="uAddress">
+                    </div>
+                    <span id="noAddress" class="errorMsg">未输入用户地址</span>
+                </div>
+                <div class="pForm">
+                    <div>
+                        <button type="submit" id="uAddBtn">添加</button>
+                        <button type="reset" id="uResetBtn">重置</button>
+                    </div>
+                </div>
+            </form>
+        </div>
     </div>
 </div>
 
@@ -67,7 +131,7 @@
             <tr>
                 <th class="noWarp">用户名</th>
                 <th class="noWarp">真实姓名</th>
-                <th class="noWarp">角色</th>  //加一个下拉栏
+                <th class="noWarp">角色</th>
                 <th class="noWarp">电话</th>
                 <th class="noWarp">地址</th>
                 <th class="noWarp">操作1</th>

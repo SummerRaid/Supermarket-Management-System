@@ -39,9 +39,7 @@ window.onload=function(){
                         supplierId: supplierId,
                     }
                 }).then(function(response){
-                    let supplier = response.data;
-                    vue.suppliers = supplier;
-                    console.log(vue.suppliers);
+                    vue.getSuppliers();
                 }).catch(function(error){
 
                 });
@@ -55,9 +53,19 @@ window.onload=function(){
                         supplierId:supplierId,
                     }
                 }).then(function(response){
-                    let supplier = response.data;
-                    vue.suppliers = supplier;
-                    console.log(vue.suppliers);
+                    vue.getSuppliers();
+                }).catch(function(error){
+
+                });
+            },
+            addNewSupplier:function(supplierId) {
+                axios({
+                    method:"POST",
+                    url:"supplier.do",
+                    params:{
+                        operate:"addSupplier",
+                    }
+                }).then(function(response){
                 }).catch(function(error){
 
                 });
@@ -102,6 +110,7 @@ function checkEmpty(name) {
     if (text.value === "") {
         alert("不能为空哦！");
     } else {
+        vue.addNewSupplier();
         alert("新角色添加成功！");
     }
 }

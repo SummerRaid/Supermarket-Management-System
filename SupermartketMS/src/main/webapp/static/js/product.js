@@ -1,7 +1,7 @@
 /*<![CDATA[*/
 window.onload=function(){
     let vue = new Vue({
-        el:"#w2",
+        el: "#w2",
         data:{
             products:{},
             deleted:0,
@@ -73,7 +73,7 @@ window.onload=function(){
 
                 });
             },
-            deleteProduct:function(productId) {
+            productToBin:function(productId) {
                 axios({
                     method:"POST",
                     url:"product.do",
@@ -118,7 +118,47 @@ window.onload=function(){
                 }).catch(function(error){
 
                 });
-            }
+            },
+            deleteProduct:function(productId) {
+                axios({
+                    method:"POST",
+                    url:"product.do",
+                    params:{
+                        operate:"delProduct",
+                        productId:productId,
+                    }
+                }).then(function(response){
+                    vue.getProducts();
+                }).catch(function(error){
+
+                });
+            },
+            recoverTheProduct:function(productId) {
+                axios({
+                    method:"POST",
+                    url:"product.do",
+                    params:{
+                        operate:"recoverProduct",
+                        productId:productId,
+                    }
+                }).then(function(response){
+                    vue.getProducts();
+                }).catch(function(error){
+
+                });
+            },
+            addNewProduct:function(productId) {
+                axios({
+                    method:"POST",
+                    url:"product.do",
+                    params:{
+                        operate:"addProduct",
+                    }
+                }).then(function(response){
+                }).catch(function(error){
+
+                });
+            },
         },
         watch:{
             selectType:function (newval, oldval) {
@@ -195,7 +235,7 @@ function checkEmpty(name){
     if(text.value===""){
         alert("不能为空哦！");
     }else{
+        vue.addNewProduct();
         alert("新产品添加成功！");
     }
 }
-/*]]>*/

@@ -40,17 +40,23 @@
         input{
             clear:none;
         }
-        #addBtn, #pResetBtn{
-            clear: left;
+        button{
+            float: left;
+            width: 60px;
+            height: 25px;
         }
         .addP{
             height:auto;
             overflow: auto;
         }
     </style>
+    <script th:src="@{/static/js/vue.js}"></script>
+    <script th:src="@{/static/js/axios.min.js}"></script>
+    <script th:src="@{https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js}"></script>
+    <script th:src="@{https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js}"></script>
     <script type="text/javascript" th:src="@{/static/js/product.js}"></script>
 </head>
-<body>
+<body class="main">
 <div class="addP">
     <h1>添加商品</h1>
     <form th:action="@{/product.do}" method="post" onsubmit="check();" id="totalForm">
@@ -90,9 +96,12 @@
             </div>
             <span id="noRemark" class="errorMsg">未输入备注</span>
         </div>
-        <br />
-        <input type="submit" value="添加" id="addBtn" />
-        <input type="button" id="pResetBtn" value="重置"/>
+        <div class="pForm">
+            <div>
+                <button type="submit" id="addBtn">添加</button>
+                <button type="reset" id="pResetBtn">重置</button>
+            </div>
+        </div>
     </form>
 </div>
 </body>

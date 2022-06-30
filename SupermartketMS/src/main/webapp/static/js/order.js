@@ -44,18 +44,28 @@ window.onload=function(){
 
                 });
             },
-            editTheOrder:function(orderId) {
+            payTheOrder:function(orderId) {
                 axios({
                     method:"POST",
                     url:"order.do",
                     params:{
-                        operate:"editOrder",
+                        operate:"payOrder",
                         orderId: orderId,
                     }
                 }).then(function(response){
-                    let order = response.data;
-                    vue.orders = order;
-                    console.log(vue.orders);
+                    vue.getOrders();
+                }).catch(function(error){
+
+                });
+            },
+            addNewOrder :function(orderId) {
+                axios({
+                    method:"POST",
+                    url:"order.do",
+                    params:{
+                        operate:"addOrder",
+                    }
+                }).then(function(response){
                 }).catch(function(error){
 
                 });
@@ -100,6 +110,7 @@ function checkEmpty(name) {
     if (text.value === "") {
         alert("不能为空哦！");
     } else {
+        vue.addNewOrder();
         alert("新角色添加成功！");
     }
 }
