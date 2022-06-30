@@ -4,9 +4,25 @@ window.onload=function(){
         el:"#w2",
         data:{
             products:{},
-            deleted:0
+            deleted:0,
+            types:{},
+            selectType:""
         },
         methods:{
+            getTypes:function(){
+                axios({
+                    method:"POST",
+                    url:"product.do",
+                    params:{
+                        operate:"getAllTypes"
+                    }
+                }).then(function(response){
+                    let type = response.data;
+                    vue.types = type;
+                }).catch(function(error){
+
+                });
+            },
             getProducts:function() {
                 axios({
                     method:"POST",
@@ -15,6 +31,7 @@ window.onload=function(){
                         operate:"getAllProducts"
                     }
                 }).then(function(response){
+                    vue.getTypes();
                     let product = response.data;
                     vue.products = product;
                     if(product[0].deleted === 1) {
@@ -84,6 +101,33 @@ window.onload=function(){
 
                 });
             },
+            selectT:function(type){
+                axios({
+                    method:"POST",
+                    url:"product.do",
+                    params:{
+                        operate:"getProductsByType",
+                        type:type
+                    }
+                }).then(function(response){
+                    let product = response.data;
+                    vue.products = product;
+                    if(product[0].deleted === 1) {
+                        vue.deleted = 1;
+                    }
+                }).catch(function(error){
+
+                });
+            }
+        },
+        watch:{
+            selectType:function (newval, oldval) {
+                if(newval === "all") {
+                    vue.getProducts();
+                }else if(newval !== oldval) {
+                    vue.selectT(newval);
+                }
+            }
         },
         mounted:function(){
             this.getProducts();
@@ -95,6 +139,34 @@ window.onload=function(){
                 btn.style.display = "none";
             } else {
                 btn.style.display = "block";
+            }
+        }
+    });
+    let w1 = new Vue({
+        el:"#w1",
+        data:{
+        },
+        methods:{
+            searchP:function(name) {
+                axios({
+                    method:"POST",
+                    url:"product.do",
+                    params:{
+                        operate:"getProductsByName",
+                        pName:name
+                    }
+                }).then(function(response){
+                    let products = response.data;
+                    vue.products = products;
+                }).catch(function(error){
+
+                });
+            },
+            checkEmpty:function() {
+                let search = document.getElementById("search").value;
+                if(search != null && search !== "") {
+                    w1.searchP(search);
+                }
             }
         }
     });

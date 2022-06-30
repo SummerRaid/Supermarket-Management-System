@@ -100,6 +100,7 @@ public class ProductController {
     public String getAllTypes(HttpSession session) {
         Integer shopId = (Integer) session.getAttribute("shopId");
         List<String> types = productService.getTypes(shopId);
+        types.add("all");
 
         return "json:"+ StringUtil.toJsonString(types);
     }

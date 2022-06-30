@@ -50,12 +50,12 @@
             <span class="h3" th:text="${session.currUser.role.shop.profit}" ></span>
         </div>
         <div id="div_left">
-            <button type="button" v-on:click="toProductPage()">查询商品</button><br />
-            <button type="button" v-on:click="toDeletePage()">查询已删除商品</button><br />
-            <button type="button" v-on:click="changePage('order/order')">查询订单</button><br />
-            <button type="button" v-on:click="changePage('order/supplier')">查询供应商</button><br />
-            <button type="button" v-on:click="changePage('user/user')">查询用户</button><br />
-            <button type="button" v-on:click="changePage('user/role')">查询角色</button><br />
+            <div class="ui-button"><button type="button" v-on:click="toProductPage()">查询商品</button><br /></div>
+            <div class="ui-button"><button type="button" v-on:click="toDeletePage()">查询已删除商品</button><br /></div>
+            <div class="ui-button"><button type="button" v-on:click="changePage('order/order')">查询订单</button><br /></div>
+            <div class="ui-button"><button type="button" v-on:click="changePage('order/supplier')">查询供应商</button><br /></div>
+            <div class="ui-button"><button type="button" v-on:click="changePage('user/user')">查询用户</button><br /></div>
+            <div class="ui-button"><button type="button" v-on:click="changePage('user/role')">查询角色</button><br /></div>
         </div>
 		<div id="div_main">
             <object th:v-bind:data="@{page}" id="mainPage"></object>

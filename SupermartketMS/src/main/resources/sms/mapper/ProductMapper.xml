@@ -42,7 +42,7 @@
     select distinct t_goods.*
     from t_goods
     join t_stock
-    on t_stock.supermarket_id = #{param2} and t_goods.goods_name like #{param1}
+    on t_stock.supermarket_id = #{param2} and t_goods.goods_name like %#{param1}%
     </select>
     <select id="selectById" resultMap="productResultMap">
     select * from t_goods

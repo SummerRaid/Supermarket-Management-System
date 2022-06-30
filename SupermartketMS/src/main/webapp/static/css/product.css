@@ -15,7 +15,9 @@
 /*设置表格可横向滚动*/
 .div_right {
     /*border:1px solid #1d1d1d;*/
-    width:50%;
+    overflow-x: scroll;
+    width:87%;
+    min-width: 50px;
     /*overflow-x: scroll;*/
 }
 .right-table, .right-table>thead tr, .right-table>thead th, .right-table>tbody tr, .right-table>tbody td{

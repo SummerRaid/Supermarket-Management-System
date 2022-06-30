@@ -67,6 +67,7 @@ h1{
     display: flex;
     border: 0px solid black;
     margin: 5px auto;
+    overflow-y: scroll;
 }
 /*设置表格字体 大小 颜色 居中 换行*/
 .tbl, .tbl tr, .tbl th, .tbl tr, .tbl td{
