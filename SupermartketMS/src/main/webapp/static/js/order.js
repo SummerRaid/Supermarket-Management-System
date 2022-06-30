@@ -13,6 +13,7 @@ window.onload=function(){
         el:"#w2",
         data:{
             orders:{},
+            suppliers:{},
         },
         methods:{
             getOrders:function() {
@@ -64,6 +65,12 @@ window.onload=function(){
                     url:"order.do",
                     params:{
                         operate:"addOrder",
+                        productId:myModal.pName,
+                        supplierId:myModal.sName,
+                        remark:myModal.oRemark,
+                        amount:myModal.oAmount,
+                        price:myModal.oPrice,
+
                     }
                 }).then(function(response){
                 }).catch(function(error){
@@ -135,6 +142,20 @@ window.onload=function(){
                     if(data[i]===""){
                         alert(i+"不能为空");
                         count++;
+                    }
+                    if(i==="oPrice") {
+                        const reg = /^(0|[1-9][0-9]*)(\.\d+)?$/;
+                        if(!reg.test(datum)) {
+                            count++;
+                            alert(i + "只能是正数");
+                        }
+                    }
+                    if(i==="oPrice") {
+                        const reg = /^[1-9]\d*$/;
+                        if(!reg.test(datum)) {
+                            count++;
+                            alert(i + "只能是正整数");
+                        }
                     }
                 }
                 if(count!==0){

@@ -64,6 +64,8 @@ window.onload=function(){
                     url:"role.do",
                     params:{
                         operate:"addRole",
+                        name:myModal.rName,
+                        remark:myModal.rRemark,
                     }
                 }).then(function(response){
                 }).catch(function(error){

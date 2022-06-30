@@ -64,6 +64,11 @@ window.onload=function(){
                     url:"supplier.do",
                     params:{
                         operate:"addSupplier",
+                        address:myModal.sAddress,
+                        name:myModal.sName,
+                        contactPerson:myModal.sContactPerson,
+                        contact:myModal.sContact,
+                        remark:myModal.sRemark,
                     }
                 }).then(function(response){
                 }).catch(function(error){

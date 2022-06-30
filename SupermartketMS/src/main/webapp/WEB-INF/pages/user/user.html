@@ -61,59 +61,53 @@
         <span class="close" v-on:click="closeWindow()">&times;</span>
         <div class="addU">
             <h1>添加用户</h1>
-            <form method="post" onsubmit="checkEmpty();">
+            <form method="post">
                 <input type="hidden" name="operate" value="userAddPage"/>
                 <div class="uForm">
                     <div>
                         <label>用户名：</label>
-                        <input id="uName" v-model="uName" type="text" placeholder="请输入用户名" name="userName"
-                               v-model="uName">
+                        <input id="uName" v-model="uName" type="text" placeholder="请输入用户名" name="userName">
                     </div>
                     <span id="noName" class="errorMsg">未输入用户名</span>
                 </div>
                 <div class="uFrom">
                     <div>
                         <label>密码：</label>
-                        <input id="uPwd" v-model="uPwd" type="text" placeholder="请输入密码" name="userPassword"
-                               v-model="uPwd">
+                        <input id="uPwd" v-model="uPwd" type="text" placeholder="请输入密码" name="userPassword">
                     </div>
                     <span id="noPwd" class="errorMsg">未输入密码</span>
                 </div>
                 <div class="uForm">
                     <div>
                         <label>真实姓名：</label>
-                        <input id="uTName" v-model="uTName" type="text" placeholder="请输入真实姓名" name="userTrueName"
-                               v-model="uTName">
+                        <input id="uTName" v-model="uTName" type="text" placeholder="请输入真实姓名" name="userTrueName">
                     </div>
                     <span id="noTName" class="errorMsg">未输入真实姓名</span>
                 </div>
                 <div class="uForm">
                     <div>
                         <label>用户角色：</label>
-                        <input id="uRole" v-model="uRole" type="text" placeholder="请输入用户角色" name="userRole"
-                               v-model="uRole">
+                        <input id="uRole" v-model="uRole" type="text" placeholder="请输入用户角色" name="userRole">
                     </div>
                     <span id="noRole" class="errorMsg">未输入用户角色</span>
                 </div>
                 <div class="uForm">
                     <div>
                         <label>用户电话：</label>
-                        <input id="uPhone" v-model="uPhone" type="text" placeholder="请输入用户电话" name="userPhone"
-                               v-model="uPhone">
+                        <input id="uPhone" v-model="uPhone" type="text" placeholder="请输入用户电话" name="userPhone">
                     </div>
                     <span id="noPhone" class="errorMsg">未输入用户电话</span>
                 </div>
                 <div class="uForm">
                     <div>
                         <label>用户地址：</label>
-                        <input id="uAddress" v-model="uAddress" type="text" placeholder="请输入用户地址" name="userAddress"
-                               v-model="uAddress">
+                        <input id="uAddress" v-model="uAddress" type="text" placeholder="请输入用户地址" name="userAddress">
                     </div>
                     <span id="noAddress" class="errorMsg">未输入用户地址</span>
                 </div>
                 <div class="pForm">
                     <div>
-                        <button type="submit" id="uAddBtn">添加</button>
+                        <button type="button" id="uAddBtn" v-on:click="checkEmpty()">添加</button>
                         <button type="reset" id="uResetBtn">重置</button>
                     </div>
                 </div>
@@ -155,6 +149,5 @@
     </div>
 </div>
 </body>
-<script type="text/javascript" th:src="@{/static/js/button.js}"></script>
 </html>
 
