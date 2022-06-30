@@ -130,6 +130,11 @@ window.onload=function(){
             uAddress:"",
         },
         method:{
+            closeWindow:function () {
+                // 获取弹窗
+                let modal = document.getElementById('myModal');
+                modal.style.display = "none";
+            },
             checkEmpty: function(){
                 let count = 0;
                 for(let i=0; i<data.size();i++){

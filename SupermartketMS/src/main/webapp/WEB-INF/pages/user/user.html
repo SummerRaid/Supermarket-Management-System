@@ -61,12 +61,12 @@
         <span class="close">&times;</span>
         <div class="addU">
             <h1>添加用户</h1>
-            <form th:action="@{/user.do}" method="post" onsubmit="check();">
+            <form method="post" onsubmit="checkEmpty();">
                 <input type="hidden" name="operate" value="userAddPage"/>
                 <div class="uForm">
                     <div>
                         <label>用户名：</label>
-                        <input id="uName" type="text" onblur="checkEmpty(this)" placeholder="请输入用户名" name="userName"
+                        <input id="uName" v-model="uName" type="text" placeholder="请输入用户名" name="userName"
                                v-model="uName">
                     </div>
                     <span id="noName" class="errorMsg">未输入用户名</span>
@@ -74,7 +74,7 @@
                 <div class="uFrom">
                     <div>
                         <label>密码：</label>
-                        <input id="uPwd" type="text" onblur="checkEmpty(this)" placeholder="请输入密码" name="userPassword"
+                        <input id="uPwd" v-model="uPwd" type="text" placeholder="请输入密码" name="userPassword"
                                v-model="uPwd">
                     </div>
                     <span id="noPwd" class="errorMsg">未输入密码</span>
@@ -82,7 +82,7 @@
                 <div class="uForm">
                     <div>
                         <label>真实姓名：</label>
-                        <input id="uTName" type="text" onblur="checkEmpty(this)" placeholder="请输入真实姓名" name="userTrueName"
+                        <input id="uTName" v-model="uTName" type="text" placeholder="请输入真实姓名" name="userTrueName"
                                v-model="uTName">
                     </div>
                     <span id="noTName" class="errorMsg">未输入真实姓名</span>
@@ -90,7 +90,7 @@
                 <div class="uForm">
                     <div>
                         <label>用户角色：</label>
-                        <input id="uRole" type="text" onblur="checkEmpty(this)" placeholder="请输入用户角色" name="userRole"
+                        <input id="uRole" v-model="uRole" type="text" placeholder="请输入用户角色" name="userRole"
                                v-model="uRole">
                     </div>
                     <span id="noRole" class="errorMsg">未输入用户角色</span>
@@ -98,7 +98,7 @@
                 <div class="uForm">
                     <div>
                         <label>用户电话：</label>
-                        <input id="uPhone" type="text" onblur="checkEmpty(this)" placeholder="请输入用户电话" name="userPhone"
+                        <input id="uPhone" v-model="uPhone" type="text" placeholder="请输入用户电话" name="userPhone"
                                v-model="uPhone">
                     </div>
                     <span id="noPhone" class="errorMsg">未输入用户电话</span>
@@ -106,7 +106,7 @@
                 <div class="uForm">
                     <div>
                         <label>用户地址：</label>
-                        <input id="uAddress" type="text" onblur="checkEmpty(this)" placeholder="请输入用户地址" name="userAddress"
+                        <input id="uAddress" v-model="uAddress" type="text" placeholder="请输入用户地址" name="userAddress"
                                v-model="uAddress">
                     </div>
                     <span id="noAddress" class="errorMsg">未输入用户地址</span>

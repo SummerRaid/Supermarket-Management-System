@@ -46,7 +46,41 @@
     <!-- 弹窗内容 -->
     <div class="modal-content">
         <span class="close">&times;</span>
-        <object id="dataTable" th:data="@{/page.do?operate=page&page=user/addRole}"></object>
+        <div>
+            <div class="addR">
+                <h1>添加用户</h1>
+                <form method="post" onsubmit="checkEmpty();">
+                    <input type="hidden" name="operate" value="userAddPage"/>
+                    <div class="rFrom">
+                        <div>
+                            <label>角色名称：</label>
+                            <input id="rName" v-model="rName" type="text" placeholder="请输入角色名称" name="roleName">
+                        </div>
+                        <span id="noName" class="errorMsg">未输入角色名称</span>
+                    </div>
+                    <div class="rFrom">
+                        <div>
+                            <label>权限：</label>
+                            <input id="rPermission" v-model="rPermission" type="text" placeholder="请输入权限" name="rolePermission">
+                        </div>
+                        <span id="noPermission" class="errorMsg">未输入权限</span>
+                    </div>
+                    <div class="rFrom">
+                        <div>
+                            <label>备注：</label>
+                            <input id="rRemark" v-model="rRemark" type="text" placeholder="请输入备注" name="userTrueName">
+                        </div>
+                        <span id="noTName" class="errorMsg">未输入备注</span>
+                    </div>
+                    <div class="pForm">
+                        <div>
+                            <button type="submit" id="rAddBtn">添加</button>
+                            <button type="reset" id="rResetBtn">重置</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
 </div>
 
