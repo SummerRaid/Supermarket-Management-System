@@ -20,7 +20,7 @@
     top: 0;
     width: 40%;
     height: 50%;
-    overflow: hidden;
+    overflow: auto;
     border-radius: 10px;
     background-color: rgb(0,0,0);
     background-color: rgba(0,0,0,0.4);
@@ -70,5 +70,44 @@
     height: 100%;
     background-color: white;
     opacity: 0.5;
+}
+
+.pForm>div, .pForm>span{
+    position: relative;
+    display: block;
+    float:left;
+    /*clear:left;*/
+}
+#totalForm{
+}
+.pForm>span{
+    clear: left;
+}
+.pForm>div:not(.pForm:first-child>div){
+    clear:left;
+}
+.popInput, .popLabel{
+    position:relative;
+    display: block;
+    float:left;
+    width:150px;
+}
+.popLabel{
+    clear:left;
+}
+.popInput{
+    clear:none;
+}
+#addNewBtn, #pResetBtn{
+    float: left;
+    width: 60px;
+    height: 25px;
+}
+.addP{
+    height:auto;
+    overflow: auto;
+}
+#popOut{
+    background-color: white;
 }
 

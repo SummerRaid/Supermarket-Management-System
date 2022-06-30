@@ -28,7 +28,6 @@
                     </form>
                 </div>
                 <div class="add-btn" id="add-btn">
-<!--                    <input type="button" id="addBtn" name="p-add" value="添加商品" onclick="location.href=('addProduct.html')">-->
                     <!-- 打开弹窗按钮 -->
                     <button id="addBtn" v-on:click="openWindow()">添加商品</button>
                 </div>
@@ -40,7 +39,54 @@
         <!-- 弹窗内容 -->
         <div class="modal-content">
             <span class="close" v-on:click="closeWindow()">&times;</span>
-            <object id="dataTable" th:data="@{/page.do(operate='page', page='product/addProduct')}"></object>
+            <div id="popOut">
+                <div class="addP">
+                    <h1>添加商品</h1>
+                    <form action="" method="post" id="totalForm">
+                        <div class="pForm">
+                            <div>
+                                <label class="popLabel">商品名称：</label>
+                                <input class="popInput" id="pName" v-model="pName" type="text" onblur="" placeholder="请输入商品名称" name="productName">
+                            </div>
+                            <span id="noName" class="errorMsg">未输入商品名</span>
+                        </div>
+                        <div class="pForm">
+                            <div>
+                                <label class="popLabel">商品类型：</label>
+                                <input class="popInput" id="pType" v-model="pType" type="text" onblur="" placeholder="请输入商品类型" name="productType">
+                            </div>
+                            <span id="noType" class="errorMsg">未输入商品类型</span>
+                        </div>
+                        <div class="pForm">
+                            <div>
+                                <label class="popLabel">计算商品的单位：</label>
+                                <input class="popInput" id="pUnit" v-model="pUnit" type="text" onblur="" placeholder="请输入商品单位" name="productUnit">
+                            </div>
+                            <span id="noUnit" class="errorMsg">未输入商品单位</span>
+                        </div>
+                        <div class="pForm">
+                            <div>
+                                <label class="popLabel">单价：</label>
+                                <input class="popInput" id="pPrice" v-model="pPrice" type="text" onblur="" placeholder="请输入商品库存" name="productStock">
+                            </div>
+                            <span id="noStock" class="errorMsg">未输入商品库存</span>
+                        </div>
+                        <div class="pForm">
+                            <div>
+                                <label class="popLabel">商品备注：</label>
+                                <input class="popInput" id="pRemark" v-model="pRemark" type="text" onblur="" placeholder="请输入商品备注" name="productRemark">
+                            </div>
+                            <span id="noRemark" class="errorMsg">未输入备注</span>
+                        </div>
+                        <div class="pForm">
+                            <div>
+                                <button type="button" id="addNewBtn" v-on:click="checkTEmpty()">添加</button>
+                                <button type="reset" id="pResetBtn">重置</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
     <div class="list" id="product_div">

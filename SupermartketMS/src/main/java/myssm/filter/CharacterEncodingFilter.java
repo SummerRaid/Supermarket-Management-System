@@ -9,6 +9,8 @@ import javax.servlet.annotation.WebInitParam;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.Map;
 
 /**
  * Copyright (c) 2008-2024: Zirui Qiao
@@ -40,7 +42,13 @@ public class CharacterEncodingFilter implements Filter {
         ((HttpServletRequest) servletRequest).setCharacterEncoding(encoding);
         ((HttpServletResponse) servletResponse).setCharacterEncoding(encoding);
 
-        LOGGER.debug("设置编码");
+        LOGGER.info("设置编码");
+        Map<String, String[]> parameterMap = ((HttpServletRequest) servletRequest).getParameterMap();
+        LOGGER.info("ServletRequest: " + ((HttpServletRequest) servletRequest).getRequestURI());
+        parameterMap.forEach((k, v) -> {
+            System.out.println(k + " = " + Arrays.toString(v));
+        });
+
         filterChain.doFilter(servletRequest, servletResponse);
     }
 

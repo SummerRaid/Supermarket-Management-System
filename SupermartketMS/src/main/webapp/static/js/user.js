@@ -143,6 +143,6 @@ window.onload=function(){
                     alert("新用户添加成功")
                 }
             }
-        }
+        },
     })
 }

@@ -147,16 +147,20 @@ window.onload=function(){
 
                 });
             },
-            addNewProduct:function(productId) {
+            addNewProduct:function() {
                 axios({
                     method:"POST",
                     url:"product.do",
                     params:{
                         operate:"addProduct",
+                        type: myModal.pType,
+                        name: myModal.pName,
+                        unit: myModal.pUnit,
+                        remark: myModal.pRemark,
+                        salePrice: myModal.pPrice
                     }
                 }).then(function(response){
                 }).catch(function(error){
-
                 });
             },
         },
@@ -218,24 +222,46 @@ window.onload=function(){
     let myModal = new Vue({
         el:"#myModal",
         data:{
-            test:""
+            pName:"",
+            pType:"",
+            pUnit:"",
+            pPrice:"",
+            pRemark:""
         },
         methods:{
             closeWindow:function () {
                 // 获取弹窗
                 let modal = document.getElementById('myModal');
                 modal.style.display = "none";
+            },
+            checkTEmpty: function(){
+                let count = 0;
+                let data = myModal.$data;
+                for(let i in data){
+                    let datum = data[i];
+                    if(datum==="" || datum===undefined){
+                        count++;
+                        alert(i + "不能为空");
+                    }
+                    if(i==="pPrice") {
+                        const reg = /^(0|[1-9][0-9]*)(\.\d+)?$/;
+                        if(!reg.test(datum)) {
+                            count++;
+                            alert(i + "只能是正数");
+                        }
+                    }
+                }
+                if(count===0){
+                    vue.addNewProduct();
+                    alert("新用户添加成功");
+                }
+            }
+        },
+        watch:{
+            pName:function (newVal, oldVal) {
+                console.log("new: " + newVal);
+                console.log("old: " + oldVal);
             }
         }
     });
-}
-function checkEmpty(name){
-    var text=$(name).html();
-    alert(text);
-    if(text.value===""){
-        alert("不能为空哦！");
-    }else{
-        vue.addNewProduct();
-        alert("新产品添加成功！");
-    }
 }
