@@ -42,7 +42,7 @@
                 </form>
             </div>
             <div class="add-btn">
-                <button id="addBtn">添加供应商</button>
+                <button id="addBtn" v-on:click="openWindow()">添加供应商</button>
             </div>
         </div>
     </div>
@@ -51,8 +51,63 @@
 <div id="myModal" class="modal">
     <!-- 弹窗内容 -->
     <div class="modal-content">
-        <span class="close">&times;</span>
-        <object id="dataTable" th:data="@{/page.do?operate=page&page=order/addSupplier}"></object>
+        <span class="close" v-on:click="closeWindow()">&times;</span>
+        <div>
+            <div class="addS">
+                <h1>添加供应商</h1>
+                <form method="post" onsubmit="checkEmpty();">
+                    <input type="hidden" name="operate" value="supplierAddPage"/>
+                    <div class="sForm">
+                        <div>
+                            <label>供应商地址：</label>
+                            <input id="sAddress" v-model="sAddress" type="text" placeholder="请输入供应商地址" name="supplierAddress">
+                        </div>
+                        <span id="noAddress" class="errorMsg">未输入供应商地址</span>
+                    </div>
+                    <div class="sFrom">
+                        <div>
+                            <label>供应商名称：</label>
+                            <input id="sName" v-model="sName" type="text" placeholder="请输入供应商名称" name="supplierName">
+                        </div>
+                        <span id="noName" class="errorMsg">未输入供应商名称</span>
+                    </div>
+                    <div class="sForm">
+                        <div>
+                            <label>供应商联系人：</label>
+                            <input id="sContactPerson" v-model="sContactPerson" type="text" placeholder="请输入供应商联系人" name="supplierContactPerson">
+                        </div>
+                        <span id="noSPerson" class="errorMsg">未输入供应商联系人</span>
+                    </div>
+                    <div class="sForm">
+                        <div>
+                            <label>供应商联系方式：</label>
+                            <input id="sContact" v-model="sContact" type="text" placeholder="请输入供应商联系方式" name="supplierRemark">
+                        </div>
+                        <span id="noContact" class="errorMsg">供应商联系方式</span>
+                    </div>
+                    <div class="sForm">
+                        <div>
+                            <label>供应商备注：</label>
+                            <input id="sRemark" v-model="sRemark" type="text" placeholder="请输入供应商备注" name="supplierRemark">
+                        </div>
+                        <span id="noSRemark" class="errorMsg">未输入备注</span>
+                    </div>
+                    <div class="sForm">
+                        <div>
+                            <label>供货超市：</label>
+                            <input id="sShop" v-model="sShop" type="text" placeholder="请输入供货超市" name="supplierShop">
+                        </div>
+                        <span id="noShop" class="errorMsg">未输入供货超市</span>
+                    </div>
+                    <div class="pForm">
+                        <div>
+                            <button type="submit" id="sAddBtn">添加</button>
+                            <button type="reset" id="sResetBtn">重置</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
 </div>
 

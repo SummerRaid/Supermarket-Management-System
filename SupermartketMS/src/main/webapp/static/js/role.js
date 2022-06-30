@@ -58,7 +58,7 @@ window.onload=function(){
 
                 });
             },
-            addNewRole:function(roleId) {
+            addNewRole:function() {
                 axios({
                     method:"POST",
                     url:"role.do",
@@ -75,21 +75,44 @@ window.onload=function(){
             this.getRoles();
         }
     });
+    let w1 = new Vue({
+        el:"#w1",
+        data:{
+        },
+        methods:{
+            openWindow:function (){
+                // 获取弹窗
+                let modal = document.getElementById('myModal');
+                modal.style.display = "block";
+            }
+        }
+    });
+    let myModal = new Vue({
+        el:"#myModal",
+        data:{
+            rName:"",
+            rPermission:"",
+            rRemark:"",
+        },
+        methods:{
+            closeWindow:function () {
+                // 获取弹窗
+                let modal = document.getElementById('myModal');
+                modal.style.display = "none";
+            },
+            checkEmpty: function(){
+                let count = 0;
+                for(let i=0; i<data.size(); i++){
+                    if(data[i]===""){
+                        alert(i+"不能为空");
+                        count++;
+                    }
+                }
+                if(count!==0){
+                    vue.addNewRole();
+                    alert("新角色添加成功");
+                }
+            }
+        }
+    });
 };
-function check(){
-    if (checkEmpty(name)==true){
-        //vue.addNewRole();
-    }
-}
-function checkEmpty(name) {
-    var text = $(name).html();
-    alert(text);
-    if (text.value === "") {
-        alert("不能为空哦！");
-        return false;
-    } else {
-        //vue.addNewRole();
-        alert("");
-        return true;
-    }
-}

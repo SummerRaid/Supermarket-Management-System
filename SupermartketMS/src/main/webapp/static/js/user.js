@@ -73,7 +73,7 @@ window.onload=function(){
 
                 });
             },
-            addNewUser:function(userId){
+            addNewUser:function(){
                 axios({
                     method:"POST",
                     url:"user.do",
@@ -130,6 +130,11 @@ window.onload=function(){
             uAddress:"",
         },
         method:{
+            closeWindow:function () {
+                // 获取弹窗
+                let modal = document.getElementById('myModal');
+                modal.style.display = "none";
+            },
             checkEmpty: function(){
                 let count = 0;
                 for(let i=0; i<data.size();i++){
@@ -140,7 +145,7 @@ window.onload=function(){
                 }
                 if(count!==0){
                     vue.addNewUser();
-                    alert("新用户添加成功")
+                    alert("新用户添加成功");
                 }
             }
         },

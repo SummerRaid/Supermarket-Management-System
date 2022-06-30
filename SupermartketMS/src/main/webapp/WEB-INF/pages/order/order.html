@@ -43,7 +43,7 @@
                 </form>
             </div>
             <div class="add-btn">
-                <button id="addBtn">添加订单</button>
+                <button id="addBtn" v-on:click="openWindow()">添加订单</button>
             </div>
         </div>
     </div>
@@ -51,8 +51,98 @@
 
 <div id="myModal" class="modal">
     <div class="modal-content">
-        <span class="close">&times;</span>
-        <object id="dataTable" th:data="@{/page.do?operate=page&page=order/addOrder}"></object>
+        <span class="close" v-on:click="closeWindow()">&times;</span>
+        <div>
+            <div class="addO">
+                <h1>添加订单</h1>
+                <form method="post" onsubmit="checkEmpty();">
+                    <input type="hidden" name="operate" value="orderAddPage"/>
+                    <div class="oForm">
+                        <div>
+                            <label>商品名称：</label>
+                            <input id="pName" v-model="pName" type="text" placeholder="请输入商品名称" name="supplierAddress">
+                        </div>
+                        <span id="noName" class="errorMsg">未输入商品名称</span>
+                    </div>
+                    <div class="oFrom">
+                        <div>
+                            <label>订单号：</label>
+                            <input id="orderNO" v-model="orderNO" type="text" placeholder="请输入订单号" name="supplierName">
+                        </div>
+                        <span id="noNO" class="errorMsg">未输入订单号</span>
+                    </div>
+                    <div class="oForm">
+                        <div>
+                            <label>供应商名称：</label>
+                            <input id="sName" v-model="sName" type="text" placeholder="请输入供应商名称" name="supplierContactPerson">
+                        </div>
+                        <span id="noSName" class="errorMsg">未输入供应商名称</span>
+                    </div>
+                    <div class="oForm">
+                        <div>
+                            <label>用户名：</label>
+                            <input id="uName" v-model="uName" type="text" placeholder="请输入用户名" name="supplierRemark">
+                        </div>
+                        <span id="noUName" class="errorMsg">未输入用户名</span>
+                    </div>
+                    <div class="oForm">
+                        <div>
+                            <label>支付金额：</label>
+                            <input id="oPayMoney" v-model="oPayMoney" type="text" placeholder="请输入支付金额" name="supplierRemark">
+                        </div>
+                        <span id="noMoney" class="errorMsg">未输入支付金额</span>
+                    </div>
+                    <div class="oForm">
+                        <div>
+                            <label>支付日期：</label>
+                            <input id="oPayDate" v-model="oPayDate" type="text" placeholder="请输入支付日期" name="supplierShop">
+                        </div>
+                        <span id="noPayDate" class="errorMsg">未输入支付日期</span>
+                    </div>
+                    <div class="oForm">
+                        <div>
+                            <label>支付状态：</label>
+                            <input id="oStatus" v-model="oStatus" type="text" placeholder="请输入支付状态" name="supplierRemark">
+                        </div>
+                        <span id="noStatus" class="errorMsg">未输入支付状态</span>
+                    </div>
+                    <div class="oForm">
+                        <div>
+                            <label>订单创建时间：</label>
+                            <input id="oCreateDate" v-model="oCreateDate" type="text" placeholder="请输入订单创建时间" name="supplierShop">
+                        </div>
+                        <span id="noCreateDate" class="errorMsg">未输入订单创建时间</span>
+                    </div>
+                    <div class="oForm">
+                        <div>
+                            <label>订单备注：</label>
+                            <input id="oRemark" v-model="oRemark" type="text" placeholder="请输入订单备注" name="supplierRemark">
+                        </div>
+                        <span id="noORemark" class="errorMsg">未输入订单备注</span>
+                    </div>
+                    <div class="oForm">
+                        <div>
+                            <label>订单的商品数量：</label>
+                            <input id="oAmount" v-model="oAmount" type="text" placeholder="请输入订单的商品数量" name="supplierShop">
+                        </div>
+                        <span id="noAmount" class="errorMsg">未输入订单的商品数量</span>
+                    </div>
+                    <div class="oForm">
+                        <div>
+                            <label>订单的商品价格：</label>
+                            <input id="oPrice" v-model="oPrice" type="text" placeholder="请输入订单的商品价格" name="supplierShop">
+                        </div>
+                        <span id="noPrice" class="errorMsg">未输入订单的商品价格</span>
+                    </div>
+                    <div class="pForm">
+                        <div>
+                            <button type="submit" id="oAddBtn">添加</button>
+                            <button type="reset" id="oResetBtn">重置</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
 </div>
 

@@ -58,7 +58,7 @@ window.onload=function(){
 
                 });
             },
-            addNewSupplier:function(supplierId) {
+            addNewSupplier:function() {
                 axios({
                     method:"POST",
                     url:"supplier.do",
@@ -100,17 +100,43 @@ window.onload=function(){
                 if(search != null && search !== "") {
                     w1.searchP(search);
                 }
+            },
+            openWindow:function (){
+                // 获取弹窗
+                let modal = document.getElementById('myModal');
+                modal.style.display = "block";
             }
         }
     });
-}
-function checkEmpty(name) {
-    var text = $(name).html();
-    alert(text);
-    if (text.value === "") {
-        alert("不能为空哦！");
-    } else {
-        vue.addNewSupplier();
-        alert("新角色添加成功！");
-    }
+    let myModal = new Vue({
+        el:"#myModal",
+        data:{
+            sAddress:"",
+            sName:"",
+            sContactPerson:"",
+            sContact:"",
+            sRemark:"",
+            sShop:"",
+        },
+        methods:{
+            closeWindow:function () {
+                // 获取弹窗
+                let modal = document.getElementById('myModal');
+                modal.style.display = "none";
+            },
+            checkEmpty: function(){
+                let count = 0;
+                for(let i=0; i<data.size(); i++){
+                    if(data[i]===""){
+                        alert(i+"不能为空");
+                        count++;
+                    }
+                }
+                if(count!==0){
+                    vue.addNewSupplier();
+                    alert("新供应商添加成功");
+                }
+            }
+        }
+    });
 }
