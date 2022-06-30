@@ -167,6 +167,24 @@ window.onload=function(){
                 if(search != null && search !== "") {
                     w1.searchP(search);
                 }
+            },
+            openWindow:function (){
+                // 获取弹窗
+                let modal = document.getElementById('myModal');
+                modal.style.display = "block";
+            }
+        }
+    });
+    let myModal = new Vue({
+        el:"#myModal",
+        data:{
+            test:""
+        },
+        methods:{
+            closeWindow:function () {
+                // 获取弹窗
+                let modal = document.getElementById('myModal');
+                modal.style.display = "none";
             }
         }
     });

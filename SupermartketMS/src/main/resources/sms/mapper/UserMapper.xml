@@ -53,6 +53,6 @@
     </select>
     <select id="selectByName" resultMap="userResultMap">
     select * from t_user
-    where user_name = #{uname}
+    where user_name like #{uname}
     </select>
 </mapper>

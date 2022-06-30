@@ -56,6 +56,6 @@
     select distinct t_order.*
     from t_order
     join t_supplier
-    on t_supplier.supermarket_id = #{param2} and t_order.goods_name like #{param1.productName}
+    on t_supplier.supermarket_id = #{param2} and t_order.goods_name like CONCAT('%',#{param1.productName},'%')
     </select>
 </mapper>

@@ -65,6 +65,34 @@ window.onload=function(){
             this.getOrders();
         }
     });
+    let w1 = new Vue({
+        el:"#w1",
+        data:{
+        },
+        methods:{
+            searchP:function(name) {
+                axios({
+                    method:"POST",
+                    url:"order.do",
+                    params:{
+                        operate:"searchOrders",
+                        name:name
+                    }
+                }).then(function(response){
+                    let order = response.data;
+                    vue.orders = order;
+                }).catch(function(error){
+
+                });
+            },
+            checkEmpty:function() {
+                let search = document.getElementById("search").value;
+                if(search != null && search !== "") {
+                    w1.searchP(search);
+                }
+            }
+        }
+    });
 }
 function checkEmpty(name) {
     var text = $(name).html();

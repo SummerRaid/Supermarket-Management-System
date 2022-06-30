@@ -37,8 +37,8 @@
         <div class="header-right">
             <div class="search-container">
                 <form action="" class="parent">
-                    <input type="text" class="search" placeholder="搜索">
-                    <input type="button" name="search" id="" class="btn">
+                    <input type="text" id="search" class="search" placeholder="搜索">
+                    <input type="button" name="search" id="" class="btn" v-on:click="checkEmpty()">
                 </form>
             </div>
             <div class="add-btn">

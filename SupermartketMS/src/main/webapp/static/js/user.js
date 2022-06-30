@@ -84,6 +84,34 @@ window.onload=function(){
             this.getRoles();
         }
     });
+    let w1 = new Vue({
+        el:"#w1",
+        data:{
+        },
+        methods:{
+            searchP:function(name) {
+                axios({
+                    method:"POST",
+                    url:"user.do",
+                    params:{
+                        operate:"getUsersByName",
+                        name:name
+                    }
+                }).then(function(response){
+                    let user = response.data;
+                    vue.users = user;
+                }).catch(function(error){
+
+                });
+            },
+            checkEmpty:function() {
+                let search = document.getElementById("search").value;
+                if(search != null && search !== "") {
+                    w1.searchP(search);
+                }
+            }
+        }
+    });
 }
 function checkEmpty(name){
     var text=$(name).html();
