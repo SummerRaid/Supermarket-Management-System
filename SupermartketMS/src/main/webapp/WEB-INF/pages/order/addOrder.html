@@ -26,7 +26,7 @@
     <script th:src="@{https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js}"></script>
     <script type="text/javascript" th:src="@{/static/js/order.js}"></script>
 </head>
-<body>
+<body class="main">
 <!--<h2>添加供应商</h2>-->
 <!--<div id="supplier">-->
 <!--    <table id="supplierInfo">-->
@@ -105,7 +105,7 @@
         </div>
         <div class="oForm">
             <div>
-                <lable>供应商名称：</lable>
+                <label>供应商名称：</label>
                 <input id="sName" type="text" onblur="checkEmpty(this)" placeholder="请输入供应商名称" name="supplierContactPerson">
             </div>
             <span id="noSName" class="errorMsg">未输入供应商名称</span>

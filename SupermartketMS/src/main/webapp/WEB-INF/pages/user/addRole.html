@@ -23,9 +23,9 @@
     <script th:src="@{/static/js/axios.min.js}"></script>
     <script th:src="@{https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js}"></script>
     <script th:src="@{https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js}"></script>
-    <script type="text/javascript" th:src="@{/static/js/addRole.js}"></script>
+    <script type="text/javascript" th:src="@{/static/js/role.js}"></script>
 </head>
-<body>
+<body class="main">
 <div class="addR">
     <h1>添加用户</h1>
     <form th:action="@{/user.do}" method="post" onsubmit="check();">
@@ -46,7 +46,7 @@
         </div>
         <div class="rFrom">
             <div>
-                <lable>备注：</lable>
+                <label>备注：</label>
                 <input id="rRemark" type="text" onblur="checkEmpty(this)" placeholder="请输入备注" name="userTrueName">
             </div>
             <span id="noTName" class="errorMsg">未输入备注</span>
