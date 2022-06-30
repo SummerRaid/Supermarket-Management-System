@@ -14,17 +14,25 @@
   http://132.145.110.184:8080/page.do?operate=page&page=user/login
   ]]></url>
 
+
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>8</maven.compiler.source>
     <maven.compiler.target>8</maven.compiler.target>
   </properties>
-
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
       <version>4.13.2</version>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-log4j12</artifactId>
+      <version>1.7.36</version>
+      <type>pom</type>
       <scope>test</scope>
     </dependency>
     <!--servlet https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
@@ -93,7 +101,7 @@
         <artifactId>tomcat7-maven-plugin</artifactId>
         <version>2.1</version>
         <configuration>
-          <port>8080</port>
+          <port>8082</port>
           <path>/</path>
         </configuration>
       </plugin>
