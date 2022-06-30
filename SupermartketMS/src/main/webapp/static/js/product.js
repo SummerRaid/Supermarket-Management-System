@@ -218,24 +218,31 @@ window.onload=function(){
     let myModal = new Vue({
         el:"#myModal",
         data:{
-            test:""
+            pName:"",
+            pType:"",
+            pUnit:"",
+            pStock:"",
+            pRemark:"",
         },
         methods:{
             closeWindow:function () {
                 // 获取弹窗
                 let modal = document.getElementById('myModal');
                 modal.style.display = "none";
+            },
+            checkEmpty: function(){
+                let count = 0;
+                for(let i=0; i<data.size(); i++){
+                    if(data[i]===""){
+                        alert(i+"不能为空");
+                        count++;
+                    }
+                }
+                if(count!==0){
+                    vue.addNewProduct();
+                    alert("新产品添加成功");
+                }
             }
         }
     });
-}
-function checkEmpty(name){
-    var text=$(name).html();
-    alert(text);
-    if(text.value===""){
-        alert("不能为空哦！");
-    }else{
-        vue.addNewProduct();
-        alert("新产品添加成功！");
-    }
 }

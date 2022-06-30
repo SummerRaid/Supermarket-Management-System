@@ -14,7 +14,7 @@
     <script th:src="@{https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js}"></script>
     <script th:src="@{/static/js/product.js}" ></script>
 </head>
-<body>
+<body class="main">
     <div class="header">
         <div class="w1" id="w1">
             <div class="header-left">
@@ -40,7 +40,55 @@
         <!-- 弹窗内容 -->
         <div class="modal-content">
             <span class="close" v-on:click="closeWindow()">&times;</span>
-            <object id="dataTable" th:data="@{/page.do(operate='page', page='product/addProduct')}"></object>
+            <div>
+                <div class="addP">
+                    <h1>添加商品</h1>
+                    <form  method="post" onsubmit="checkEmpty();" id="totalForm">
+                        <input type="hidden" name="operate" value="addProduct"/>
+                        <div class="pForm">
+                            <div>
+                                <label>商品名称：</label>
+                                <input id="pName" v-model="pName" type="text" placeholder="请输入商品名称" name="productName">
+                            </div>
+                            <span id="noName" class="errorMsg">未输入商品名</span>
+                        </div>
+                        <div class="pForm">
+                            <div>
+                                <label>商品类型：</label>
+                                <input id="pType" v-model="pType" type="text" placeholder="请输入商品类型" name="productType">
+                            </div>
+                            <span id="noType" class="errorMsg">未输入商品类型</span>
+                        </div>
+                        <div class="pForm">
+                            <div>
+                                <label>计算商品的单位：</label>
+                                <input id="pUnit" v-model="pUnit" type="text" placeholder="请输入商品单位" name="productUnit">
+                            </div>
+                            <span id="noUnit" class="errorMsg">未输入商品单位</span>
+                        </div>
+                        <div class="pForm">
+                            <div>
+                                <label>商品库存：</label>
+                                <input id="pStock" v-model="pStock" type="text" placeholder="请输入商品库存" name="productStock">
+                            </div>
+                            <span id="noStock" class="errorMsg">未输入商品库存</span>
+                        </div>
+                        <div class="pForm">
+                            <div>
+                                <label>商品备注：</label>
+                                <input id="pRemark" v-model="pRemark" type="text" placeholder="请输入商品备注" name="productRemark">
+                            </div>
+                            <span id="noRemark" class="errorMsg">未输入备注</span>
+                        </div>
+                        <div class="pForm">
+                            <div>
+                                <button type="submit" id="pAddBtn">添加</button>
+                                <button type="reset" id="pResetBtn">重置</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
     <div class="list" id="product_div">
@@ -92,9 +140,10 @@
                                    v-on:blur="editAmount(product.id)"/>
                         </td>
                         <td>{{product.stock.xj}}</td>
-                        <td class="noWarp"><a href="" v-on:click="deleteProduct(product.id)">删除</a></td>
-                        <td class="noWarp" v-if="product.deleted == 0"><a href="" v-on:click="editTheProduct(product.id)">编辑</a></td>
-                        <td class="noWarp" v-else="product.deleted == 0"><a href="" v-on:click="editTheProduct(product.id)">恢复</a></td>
+                        <td class="noWarp" v-if="product.delete == 0"><a href="" v-on:click="productToBin(product.id)">删除</a></td>
+                        <td class="noWarp" v-else="product.delete == 0"><a href="" v-on:click="deleteProduct(product.id)">删除</a></td>
+                        <td class="noWarp" v-if="product.delete == 0"><a href="" v-on:click="editTheProduct(product.id)">编辑</a></td>
+                        <td class="noWarp" v-else="product.delete == 0"><a href="" v-on:click="recoverTheProduct(product.id)">恢复</a></td>
                     </tr>
                 </tbody>
             </table>

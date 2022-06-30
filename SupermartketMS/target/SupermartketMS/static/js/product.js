@@ -1,7 +1,7 @@
 /*<![CDATA[*/
 window.onload=function(){
     let vue = new Vue({
-        el:"#w2",
+        el: "#w2",
         data:{
             products:{},
             deleted:0,
@@ -73,7 +73,7 @@ window.onload=function(){
 
                 });
             },
-            deleteProduct:function(productId) {
+            productToBin:function(productId) {
                 axios({
                     method:"POST",
                     url:"product.do",
@@ -118,7 +118,47 @@ window.onload=function(){
                 }).catch(function(error){
 
                 });
-            }
+            },
+            deleteProduct:function(productId) {
+                axios({
+                    method:"POST",
+                    url:"product.do",
+                    params:{
+                        operate:"delProduct",
+                        productId:productId,
+                    }
+                }).then(function(response){
+                    vue.getProducts();
+                }).catch(function(error){
+
+                });
+            },
+            recoverTheProduct:function(productId) {
+                axios({
+                    method:"POST",
+                    url:"product.do",
+                    params:{
+                        operate:"recoverProduct",
+                        productId:productId,
+                    }
+                }).then(function(response){
+                    vue.getProducts();
+                }).catch(function(error){
+
+                });
+            },
+            addNewProduct:function(productId) {
+                axios({
+                    method:"POST",
+                    url:"product.do",
+                    params:{
+                        operate:"addProduct",
+                    }
+                }).then(function(response){
+                }).catch(function(error){
+
+                });
+            },
         },
         watch:{
             selectType:function (newval, oldval) {
@@ -178,24 +218,31 @@ window.onload=function(){
     let myModal = new Vue({
         el:"#myModal",
         data:{
-            test:""
+            pName:"",
+            pType:"",
+            pUnit:"",
+            pStock:"",
+            pRemark:"",
         },
         methods:{
             closeWindow:function () {
                 // 获取弹窗
                 let modal = document.getElementById('myModal');
                 modal.style.display = "none";
+            },
+            checkEmpty: function(){
+                let count = 0;
+                for(let i=0; i<data.size(); i++){
+                    if(data[i]===""){
+                        alert(i+"不能为空");
+                        count++;
+                    }
+                }
+                if(count!==0){
+                    vue.addNewProduct();
+                    alert("新产品添加成功");
+                }
             }
         }
     });
 }
-function checkEmpty(name){
-    var text=$(name).html();
-    alert(text);
-    if(text.value===""){
-        alert("不能为空哦！");
-    }else{
-        alert("新产品添加成功！");
-    }
-}
-/*]]>*/
