@@ -79,6 +79,13 @@ window.onload=function(){
                     url:"user.do",
                     params:{
                         operate:"register",
+                        verifyCode:"",
+                        roleId:myModal.uRole,
+                        uname:myModal.uName,
+                        pwd:myModal.uPwd,
+                        tname:myModal.uTName,
+                        tel:myModal.uPhone,
+                        address:myModal.uAddress,
                     }
                 }).then(function(response){
                 }).catch(function(error){
@@ -116,6 +123,11 @@ window.onload=function(){
                 if(search != null && search !== "") {
                     w1.searchP(search);
                 }
+            },
+            openWindow:function (){
+                // 获取弹窗
+                let modal = document.getElementById('myModal');
+                modal.style.display = "block";
             }
         }
     });

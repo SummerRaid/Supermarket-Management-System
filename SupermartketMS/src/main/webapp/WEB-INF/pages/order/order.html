@@ -74,7 +74,9 @@
                     <div class="oForm">
                         <div>
                             <label>供应商名称：</label>
-                            <input id="sName" v-model="sName" type="text" placeholder="请输入供应商名称" name="supplierContactPerson">
+                            <select id="sName" v-model="sName" type="text" name="supplierContactPerson">
+                                <option v-for="supplier in suppliers">{{supplier.name}}</option>
+                            </select>
                         </div>
                         <span id="noSName" class="errorMsg">未输入供应商名称</span>
                     </div>
@@ -189,5 +191,4 @@
     </div>
 </div>
 </body>
-<script type="text/javascript" th:src="@{/static/js/button.js}"></script>
 </html>
