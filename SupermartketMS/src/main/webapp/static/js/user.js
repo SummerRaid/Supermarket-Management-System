@@ -8,6 +8,7 @@
  * @date: 2022/6/29 12:00
  *
  */
+/*<![CDATA[*/
 window.onload=function(){
     let vue = new Vue({
         el: "#w2",
@@ -163,3 +164,4 @@ window.onload=function(){
         },
     })
 }
+/*]]>*/
